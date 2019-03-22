@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">   
+<head>
+<script src="/javascripts/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="/stylesheets/demo.css" />
+</head>
+<body>
+<h1>您好,<span th:text="${account.accountName}"></h1>
+<h1>详情</h1>
+
+<div class="text-form">
+    <ul>
+        <li>
+            <label>id</label>
+            <span th:text="${account.accountId}"></span>
+        </li>
+        <li>
+            <label>name</label>
+            <span th:text="${account.accountName}"></span>
+        </li>
+        <li>
+            <label>balance</label>
+            <span th:text="${account.balance}"></span>
+        </li>
+    </ul>
+    <div class="btn-wrap">
+        <a href="javascripts:;" class="btn"  th:href="@{/account/update/{id}(id=${account.accountId})}">修改</a>
+    </div>
+
+</div>
+
+<h3>我看过的笔记： <span th:text="${noteList}"></span></h3>
+<ul class="tpl" id="list">
+    <li  th:each="note:${noteList}" >
+        <span th:text="${note.accountId}"></span>
+        <span th:text="${note.nid}"></span>
+        <span th:text="${note.text}"></span>
+    </li>
+</ul>
+</body>
+</html>

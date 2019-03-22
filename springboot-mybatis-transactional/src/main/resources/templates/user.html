@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">   
+<head>
+<body>
+this is in templates111
+<br>
+key: <span th:text="${key}"></span>
+
+<input class="button" name="Edit" type="button" value="Edit" th:onclick="'doSomething(\''+${key}+ '\');'" />
+</body>
+</html>

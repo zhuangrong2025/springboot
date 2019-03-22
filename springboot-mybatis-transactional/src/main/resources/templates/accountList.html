@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">  
+<script src="/javascripts/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="/stylesheets/demo.css" /> 
+<head>
+</head>
+<body>
+
+<h3>列表：</h3>
+<ul class="tpl" id="list">
+    <li  th:each="account:${accountList}" >
+        <a href="javascript:;" th:href="@{/account/{id}(id=${account.accountId})}" >id：<span th:text="${account.accountId}" ></span></a>
+        name：<span th:text="${account.accountName}"></span>
+        money：<span th:text="${account.balance}"></span>
+        <a href="javascript:;"  class="opt del"  th:data-id="${account.accountId}" >删除</a>
+        <a href="javascript:;" th:href="@{/account/update/{id}(id=${account.accountId})}" class="opt update" >修改</a>
+    </li>
+</ul>
+<script type="text/javascript">
+    // 删除
+    $(function(){
+        $("#list li").each(function(){
+            $(this).find(".del").on("click",function(){
+                $(this).parent().remove()
+
+                var aId = $(this).attr("data-id");
+                $.ajax({
+                    type: "delete",
+                    url: "/account/" + aId,
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function(res){
+                        console.log(res)
+                    }
+                })
+            })
+        })
+    })
+
+</script>
+
+</body>
+</html>

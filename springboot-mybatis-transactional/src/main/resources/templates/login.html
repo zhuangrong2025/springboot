@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">   
+<head>
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="/javascripts/jquery.cookie.js"></script>
+    <link rel="stylesheet" href="/stylesheets/demo.css" />
+
+</head>
+<body>
+
+<h1>登录</h1>
+<div class="text-form">
+    <ul>
+        <li>
+            <label>name</label>
+            <input type="text" id="name">
+        </li>
+    </ul>
+    <div id="result" style="color:#f00;font-weight: bold; padding-left: 143px;padding-bottom:20px"></div>
+    <div class="btn-wrap">
+        <a href="javascripts:;" class="btn" id="login">登录</a>
+        <a href="javascripts:;" class="btn" id="coki">cookie</a>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("#login").on("click", function () {
+
+            // 获取表单值，并组成对象
+            var accountObj = {accountName: $("#name").val()}
+
+            $.ajax({
+                type: "post",
+                data: JSON.stringify(accountObj),
+                url: "/checkLogin",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(res){
+//                    console.log(res)
+                    // 判断用户名是否存在
+                    if(res.accountName != null){
+                        $("#result").text("用户名存在")
+                        $.cookie("nameCookie", res.accountId);
+                        window.location.href = "account/" + res.accountId
+                    }else{
+                        $("#result").text("用户名不存在")
+                    }
+
+                }
+            })
+        });
+
+        // cookie
+        $("#coki").on("click", function() {
+            console.log("获得cookie:" + $.cookie("nameCookie"))
+        })
+    })
+</script>
+</body>
+</html>
