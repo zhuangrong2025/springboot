@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>登录</h1>
+<h1>登录 <span th:text="${expire}"></span></h1>
 <div class="text-form">
     <ul>
         <li>
@@ -19,7 +19,6 @@
     <div id="result" style="color:#f00;font-weight: bold; padding-left: 143px;padding-bottom:20px"></div>
     <div class="btn-wrap">
         <a href="javascripts:;" class="btn" id="login">登录</a>
-        <a href="javascripts:;" class="btn" id="coki">cookie</a>
     </div>
 
 </div>
@@ -51,10 +50,6 @@
             })
         });
 
-        // cookie
-        $("#coki").on("click", function() {
-            console.log("获得cookie:" + $.cookie("nameCookie"))
-        })
     })
 </script>
 </body>

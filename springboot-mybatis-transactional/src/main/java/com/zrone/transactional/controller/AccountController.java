@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -107,7 +108,7 @@ public class AccountController {
 
     // 详情 显示数据要设置model
     @GetMapping("/account/{id}")
-    public String detailAccount(@PathVariable("id")  String accountId,Model model, HttpServletRequest request,@CookieValue(value="nameCookie", defaultValue="") String cook){
+    public String detailAccount(@PathVariable("id")  String accountId,Model model, HttpServletRequest request,@CookieValue(value="nameCookie", defaultValue="") String cook,RedirectAttributes attributes){
 
 
 
@@ -116,19 +117,25 @@ public class AccountController {
             return "redirect:/login";
         }else{
 
-            // 判断
+            // 判断session过期
             Object obj = request.getSession().getAttribute("cur_user");
-
-            String sessionId = ((Account)obj).getAccountId();
-
-            if(cook.equals(sessionId)){
-                System.out.println("是这个用户");
+            if(obj != null){
+                String sessionId = ((Account)obj).getAccountId();
+                if(cook.equals(sessionId)){
+                    System.out.println("是这个用户");
+                    // 显示这个用户看过的笔记
+                    model.addAttribute("noteList", accountService.getNoteList(cook));
+                }else{
+                    System.out.println("非管理员");
+                }
             }else{
-                System.out.println("非管理员");
+                System.out.println("session过期");
+                attributes.addFlashAttribute("expire", "session过期,请重新登录");
+                return "redirect:/login";
             }
-            model.addAttribute("account", accountService.detailAccount(accountId));
-            model.addAttribute("noteList", accountService.getNoteList(cook));
 
+            // 这个用户信息
+            model.addAttribute("account", accountService.detailAccount(accountId));
             return "accountDetail";
         }
 
@@ -196,6 +203,8 @@ public class AccountController {
 
             // 登录成功account对象存储到session
             request.getSession().setAttribute("cur_user",accountService.checkAccount(account));
+            // 设置1分钟session过期
+            request.getSession().setMaxInactiveInterval(60);
 
             System.out.println("用户存在，登录成功！");
             return accountService.checkAccount(account);
