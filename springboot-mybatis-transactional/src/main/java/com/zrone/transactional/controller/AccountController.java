@@ -172,41 +172,7 @@ public class AccountController {
         return account;
     }
 
-    // 微信登录code
-    @PostMapping("/login")
-    @ResponseBody
-    public JSONObject  wxLogin(@RequestBody JSONObject userinfo, HttpServletRequest request){
-        // 将参数转为json对象用JSONParser  JSONObject
 
-        String JSCODE = userinfo.getString("code");
-        System.out.println("code: " + JSCODE);
-        System.out.println("nickname: " + userinfo.getString("nickname"));
-
-        // 后台服务器先微信服务器get请求，session_key和openid
-        RestTemplate restTemplate = new RestTemplate();
-        String APPID = "wx4fc998a109810918";
-        String SECRET = "aa59175d5b2c06a3e30ec3e6b46d5601";
-//      String JSCODE = "081yHAIb16Dlpw0PZCGb1r1kIb1yHAIV";
-        String str=restTemplate.getForObject("https://api.weixin.qq.com/sns/jscode2session?appid=" + APPID + "&secret=" + SECRET + "&js_code=" + JSCODE + "&grant_type=authorization_code",String.class);
-
-        System.out.println(str);
-
-        // 将json字符串转为json对象
-        JSONObject jsonobject = JSONObject.fromObject(str);
-
-        // 用openid判断数据库中的是否有这个用户,如果没有则添加到wx_users表中
-        if()
-
-        // 不用存session，因为小程序没法读取
-        // request.getSession().setAttribute("session_id", jsonobject);
-        //  Object obj = request.getSession().getAttribute("session_id");
-        // System.out.println("登录页-获取session_key：" + ((JSONObject)obj).getString("session_key"));
-
-        // 如果是要实现自己的业务逻辑，就需要一个openid绑定业务账号的过程,登录后存储openID
-
-
-        return jsonobject;
-    }
 
     /*
      * 登录

@@ -19,6 +19,10 @@ public class WxUserService {
     @Autowired
     WxUserMapper wxUserMapper;
 
+    // 判断数据库中是否有这个用户
+    public WxUser checkWxUser(String openid){
+        return wxUserMapper.checkWxUser(openid);
+    }
 
     // 新增
     public void saveWxUser(WxUser wxUser){
