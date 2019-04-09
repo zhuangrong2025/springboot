@@ -1,0 +1,23 @@
+server:
+    port: 8082
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecomponent?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      maxLifetime: 1765000
+      maximumPoolSize: 15
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: utf-8
+  resources:
+    static-locations: classpath:/static/
+
+mybatis:
+  configuration:
+   map-underscore-to-camel-case: true

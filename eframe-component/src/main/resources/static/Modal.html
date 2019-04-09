@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">modal</button>
+</body>
+<script id="seajsnode" src="./javascripts/sea.js"></script>
+<script>
+    seajs.use(['./javascripts/Modal','./javascripts/jquery'], function(Mod,$) {
+      $("#btn").on("click",function(){
+        (new Mod()).alert({
+          content: "弹出内容！",
+          handler: function(){
+            alert("you click this window")
+          }
+        })
+      })
+    });
+</script>
+</html>

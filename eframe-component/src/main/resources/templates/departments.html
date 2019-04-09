@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">   
+<head>
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/demo.css" />
+</head>
+<body>
+<h1>部门信息</h1>
+<ul class="tpl" >
+    <li  th:each="dept:${departments}" >
+        <a href="javascript:;" >id：<span th:text="${dept.id}" ></span></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        name：<span th:text="${dept.name}"></span>
+    </li>
+</ul>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

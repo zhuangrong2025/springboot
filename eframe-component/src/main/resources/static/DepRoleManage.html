@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- DepRoleManage -->
+  <div id="main" class="left_right_layout">DepRoleManage111</div>
+</body>
+<script id="seajsnode" src="./javascripts/sea.js"></script>
+<script>
+    seajs.use(['./javascripts/DepRoleManage'], function(Main,$) {
+        new Main({
+            el: "#main"
+        }).render();
+    });
+</script>
+</html>

@@ -1,0 +1,117 @@
+@charset "utf-8";
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    height: 100%;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: -apple-system-font, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", sans-serif;
+}
+
+body, span, label, p, a, div, li, dt, dd, i, em, section, article, :after, :before, button, input {
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-user-select: none;
+}
+
+a:active {
+    color: #333;
+}
+
+a:not([href]):focus {
+    outline: 0;
+}
+
+img {
+    max-width: 100% !important;
+    vertical-align: middle;
+    border-style: none;
+}
+
+input, button, select, optgroup, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #fff;
+    background-repeat: no-repeat;
+     -webkit-user-select: none;
+    border: none;
+    border-radius: 0;
+    outline: 0;
+}
+
+button, input {
+    border-radius: 0;
+    overflow: visible;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[type="radio"]:disabled, input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    text-align: left;
+}
+
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+em, h3 {
+    font: inherit;
+}
+
+.modal-wrap{
+  width: 500px;
+  height: 300px;
+  border: 1px solid #000;
+}
+.btn{
+  border: none;
+  border-radius: 5px;
+  background-color: #03f;
+  color: #fff;
+  min-width: 100px;
+  padding: 3px 5px;
+}
