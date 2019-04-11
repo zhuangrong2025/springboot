@@ -14,12 +14,20 @@
 <script>
     seajs.use(['./javascripts/Modal','./javascripts/jquery'], function(Mod,$) {
       $("#btn").on("click",function(){
-        (new Mod()).alert({
+        var mod = new Mod()
+        mod.alert({
           content: "弹出内容！",
-          handler: function(){
-            alert("you click this window")
+          ok4handler: function(){ // 这里也可以回调
+
           }
         })
+        /*
+         * 自定义事件调用，组件封装了自定义事件，类似原生的 on("click",function())
+         * 这里是用监听方式，不是dom点击事件
+         * 用户可以自定义这回调函数
+         */
+        mod.on("ok",function(){alert("on ok ")})
+        mod.on("close",function(){alert("on close ")})
       })
     });
 </script>
