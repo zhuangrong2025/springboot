@@ -115,3 +115,33 @@ em, h3 {
   min-width: 100px;
   padding: 3px 5px;
 }
+/* dialog */
+.dialog{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 25vh;
+  border: 1px solid  #ccc;
+  border-radius: 5px;
+  -webkit-box-shadow: 0  0 5px #ccc;
+  background-color: #fff;
+}
+.dialog .dialog-header{
+  background-color: #eee;
+  padding: 5px 10px;
+}
+.dialog .dialog-body{
+  padding: 10px;
+  height: 75%;
+}
+.dialog .dialog-footer .btn{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0 5px;
+}
+.dialog .dialog-footer.center{
+  text-align: center;
+}
