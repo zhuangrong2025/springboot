@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">Widget公用组件继承</button>
+</body>
+<script id="seajsnode" src="./javascripts/sea.js"></script>
+<script>
+    seajs.use(['./javascripts/Window','./javascripts/jquery'], function(Win,$) {
+      $("#btn").on("click",function(){
+        var win = new Win()
+        win.alert({
+          content: "window继承公用组件widget！",
+        })
+        /*
+         * 自定义事件调用，组件封装了自定义事件，类似原生的 on("click",function())
+         * 这里是用监听方式，不是dom点击事件
+         * 用户可以自定义这回调函数
+         */
+        // win.on("ok",function(){alert("on ok ")})
+        // win.on("ok",function(){alert("on ok2 ")})
+        // win.on("close",function(){alert("on close ")})
+      })
+    });
+</script>
+</html>

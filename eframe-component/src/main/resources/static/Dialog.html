@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">dialog</button>
+  <p>-----------------</p>
+  <button id="btn2">dialog2</button>
+
+<!-- <div id="esys_dialog_1" role="dialog" aria-hidden="true" class="dialog"><div class="dialog-header">标题（默认存在的）</div><div class="dialog-body">内容</div></div> -->
+</body>
+<script id="seajsnode" src="./javascripts/sea.js"></script>
+<script>
+  seajs.use(['./component/dialog/Dialog', './javascripts/jquery'], function(Dialog, $) {
+    $("#btn").on("click", function() {
+      var dialog = new Dialog({
+        data: {
+          title: '标题',
+          content: '内容',
+          width: 500,
+          height: 320,
+          buttons: [],
+          buttonAlign: 'center'
+        },
+        events:{
+          ok: function(){
+            console.log("ok")
+          }
+        }
+      }).render();
+    })
+  });
+</script>
+
+</html>
