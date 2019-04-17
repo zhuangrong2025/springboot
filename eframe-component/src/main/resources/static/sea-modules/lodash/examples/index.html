@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<script>
+    seajs.use(['../dist/Lodash-debug'],function(_){
+        var list = [{
+            a: '1',
+            b: '2'
+        },{
+            a: '2',
+            b: '2',
+        }, {
+            a: '3',
+            b: '4'
+        }, {
+            a: '1',
+            b: '3'
+        }];
+
+        var result = _.filter(list, function(_rs){
+            return _rs.a === '1';
+        });    //找出list中所有a的值为1的元素
+        console.log(result);
+
+        var result = _.isEmpty(123);
+        console.log(result);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+    "name": "lodash",
+    "version": "3.10.1-3",
+    "root": "#",
+    "description": "灵活好用的数据结构处理模块",
+    "keywords":["公共模块", "第三方"],
+    "homepage": "https://www.lodashjs.com/docs/3.10.1.html",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "main": "./src/lodash.js",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    },
+    "license": "",
+    "devDependencies": {},
+    "tplDependencies": {},
+    "dependencies": {
+    },
+    "scripts": {},
+    "buildArgs": "cmd",
+    "tests": ["lodash"],
+    "output": {
+        "lodash.js": "."
+    },
+    "hostModule": null,
+    "assets":null,
+    "options": null,
+    "optionalDependencies": null
+}

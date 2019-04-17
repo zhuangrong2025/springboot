@@ -8,28 +8,34 @@
   <title>Document</title>
 </head>
 <body>
-  <button id="btn">dialog</button>
+  <button id="btn">dialog123</button>
   <p>-----------------</p>
   <button id="btn2">dialog2</button>
 
 <!-- <div id="esys_dialog_1" role="dialog" aria-hidden="true" class="dialog"><div class="dialog-header">标题（默认存在的）</div><div class="dialog-body">内容</div></div> -->
 </body>
-<script id="seajsnode" src="./javascripts/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
   seajs.use(['./component/dialog/Dialog', './javascripts/jquery'], function(Dialog, $) {
     $("#btn").on("click", function() {
       var dialog = new Dialog({
         data: {
           title: '标题',
+          url : '../../child/DepBindDlg',
           content: '内容',
           width: 500,
           height: 320,
-          buttons: [],
+          buttons: [{type:'save'},{type:'ok', title:'ok', cls:'ok', handler: function(){console.log("ok1")}}],
           buttonAlign: 'center'
         },
         events:{
-          ok: function(){
-            console.log("ok")
+          // 添加并绑定自定义的事件，由用户扩展事件,这里同名的只触发一次
+          save: function(){
+            console.log("save222222")
+          },
+          ok: function(){ // tofix: 新增的
+            console.log("ok2")
           }
         }
       }).render();

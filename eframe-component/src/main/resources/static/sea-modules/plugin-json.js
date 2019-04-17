@@ -1,0 +1,1 @@
+define("seajs/plugin-json",["./plugin-base"],function(n){var e=n("./plugin-base"),s=e.util;e.add({name:"json",ext:[".json"],fetch:function(n,e){s.xhr(n,function(n){s.globalEval("define("+n+")"),e()})}})}),seajs.use("seajs/plugin-json");

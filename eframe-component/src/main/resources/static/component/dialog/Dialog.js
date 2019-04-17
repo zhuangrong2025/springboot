@@ -1,7 +1,8 @@
 define(function(require, exports, module){
-  var $ = require("../../javascripts/jquery"),
-      _ = require("../../javascripts/lodash/lodash"),
-      format = require('../../javascripts/objectformat'),
+  // html中需引入seajs-helper.js才能不用写jquery的路径
+  var $ = require("jquery"),
+      _ = require("lodash"),
+      format = require('objectformat'),
       Base = require('../Base');
 
   var mainTpl = '',
@@ -30,6 +31,8 @@ define(function(require, exports, module){
     initialize: function(options){
       this.id = _.uniqueId("esys_dialog_")
       this.options = _.assign({}, this.defaults, options.data)
+      this.events = options.events
+      this.modCache = null
     },
     render: function(){
       /*
@@ -58,17 +61,38 @@ define(function(require, exports, module){
       if(this.options.height && _.isNumber(this.options.height)){
         this.el.css("height", this.options.height)
       }
+      this._renderContent()
       this._renderButtons()
       this._initEvents();
     },
     dispose: function(){
-      console.log("remove");
+      console.log("dialog remove");
       this.el.remove();
     },
     close: function() {
       this.dispose();
     }
   })
+  // 渲染内容
+  Dialog.prototype._renderContent = function(){
+    if(this.options.url) {
+      var _this = this,
+          bodyId = _.uniqueId("dialog_body_"),
+          url = this.options.url,
+          options = this.options.options
+
+      this.el.find(".dialog-body").attr("id", bodyId)
+      // require 子模块.js, url是子模块路径, ChildMod对这个模块名即类
+      require.async(url, function(ChildMod){
+        var opt = {
+            el: '#' + bodyId
+        }
+        _.extend(opt, options || {})
+        var cm = new ChildMod(opt)
+        cm.render()
+      })
+    }
+  }
   // prototype合并到上面的Base.extend,不独立加
   // Dialog.prototype = {}
 
@@ -78,7 +102,7 @@ define(function(require, exports, module){
       this.close()
     }},
     save: {type:"save", title:"保存", cls:"btn-save", handler: function(){
-      console.log("save-handler");
+      console.log("save-default");
       this.close()
       // var inst = this.getInstance()
       // if(inst){
@@ -86,6 +110,7 @@ define(function(require, exports, module){
       //    var cb = function(){
       //      _this.close()
       //    }
+      //  调用子模块中的save方法
       //    inst.save && inst.save(cb)
       // }
     }}
@@ -126,13 +151,19 @@ define(function(require, exports, module){
     this.el.find(".dialog-footer .btn").on("click", function(){
       var type = $(this).attr("data-type")
       if(_this.buttons[type] && _this.buttons[type].handler){
+        // 新增按钮的事件需要写在buttons的handler中，写在events中不触发
         _this.buttons[type].handler.call(_this, _this)
+        // emit触发默认的事件，on是再绑定同名的其他事件
         _this.emit(_this._getEventName(type), _this)
       }
     })
-    _.each(this.events, function(fn,key){
-      this.on(key, fn, this)
-    },this)
+
+    // 当type一致的时候，可以触发多个绑定的save事件
+    // 绑定自定义的事件
+    _.each(_this.events, function(fn, key) {
+        _this.on(key, fn, _this);
+    }, _this);
+
   }
   // 获取事件名
   Dialog.prototype._getEventName = function(type){

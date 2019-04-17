@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<script>
+    seajs.use(['../dist/jquery-debug'],function($){
+        //TODO 示例代码
+            $('#main').html('使用 $("#main").html()方法输入值');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<script>
+    seajs.use(['../dist/objectformat-debug', 'jquery'],function(format, $){
+        var tpl = '<div>{a}</div><div>{b}</div><div>{c.d}</div><div>{e.f.g}</div>';
+        var html = format(tpl, {
+            a: '1',
+            b: '2',
+            c: {
+                d: '3'
+            },
+            e: {
+                f: {
+                    g: '4'
+                }
+            }
+        });
+        $('#main').html(html);
+    });
+</script>
+</body>
+</html>

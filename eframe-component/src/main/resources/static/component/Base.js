@@ -2,11 +2,11 @@
  * 步骤组件应用层封装.
  */
 define(function(require, exports, module) {
-    /** 
+    /**
      *  组件基类.
      */
     var $ = require('jquery');
-    
+
     var utils = {
         extend: function () {
             // inline overrides
@@ -51,7 +51,7 @@ define(function(require, exports, module) {
         }
     }
     //bind方法兼容
-    if (!Function.prototype.bind) { 
+    if (!Function.prototype.bind) {
         Function.prototype.bind = function (oThis) {
             if (typeof this !== 'function') {
                 // closest thing possible to the ECMAScript 5 internal IsCallable function
@@ -79,7 +79,7 @@ define(function(require, exports, module) {
     */
     var Base = utils.extend(noop, {
         constructor: function (options) {
-            
+
         },
         //事件绑定
         on: function (ename, handler, scope) {

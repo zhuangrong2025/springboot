@@ -1,0 +1,32 @@
+{
+    "name": "jquery",
+    "version": "1.8.3-3",
+    "root": "#",
+    "description": "jquery模块",
+    "keywords":["公共模块", "第三方"],
+    "homepage": "https://jquery.com/",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "main": "./src/jquery.js",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    },
+    "license": "",
+    "devDependencies": {},
+    "tplDependencies": {},
+    "dependencies": {
+    },
+    "scripts": {},
+    "buildArgs": "cmd",
+    "tests": ["jquery"],
+    "output": {
+        "jquery.js": "."
+    },
+    "hostModule": null,
+    "assets":null,
+    "options": null,
+    "optionalDependencies": null
+}
