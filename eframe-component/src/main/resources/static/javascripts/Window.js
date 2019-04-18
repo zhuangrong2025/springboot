@@ -1,7 +1,7 @@
 define(function(require,exports,module){
   var $ = require("jquery"),
-      _ = require("lodash/lodash"),
-      Widget = require("Widget")
+      _ = require("lodash"),
+      Widget = require("./Widget")
 
   // 创建类 模态窗口
   var Window = function (){

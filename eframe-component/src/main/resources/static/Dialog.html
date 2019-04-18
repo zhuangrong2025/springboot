@@ -17,7 +17,7 @@
 <script id="seajsnode" src="./sea-modules/sea.js"></script>
 <script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
-  seajs.use(['./component/dialog/Dialog', './javascripts/jquery'], function(Dialog, $) {
+  seajs.use(['./component/dialog/Dialog', 'jquery'], function(Dialog, $) {
     $("#btn").on("click", function() {
       var dialog = new Dialog({
         data: {

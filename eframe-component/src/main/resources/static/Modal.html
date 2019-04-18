@@ -10,9 +10,10 @@
 <body>
   <button id="btn">modal</button>
 </body>
-<script id="seajsnode" src="./javascripts/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
-    seajs.use(['./javascripts/Modal','./javascripts/jquery'], function(Mod,$) {
+    seajs.use(['./javascripts/Modal','jquery'], function(Mod,$) {
       $("#btn").on("click",function(){
         var mod = new Mod()
         mod.alert({

@@ -8,11 +8,12 @@
   <title>Document</title>
 </head>
 <body>
-  <button id="btn">Widget公用组件继承</button>
+  <button id="btn">window继承Widget公用组件</button>
 </body>
-<script id="seajsnode" src="./javascripts/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
-    seajs.use(['./javascripts/Window','./javascripts/jquery'], function(Win,$) {
+    seajs.use(['./javascripts/Window','jquery'], function(Win,$) {
       $("#btn").on("click",function(){
         var win = new Win()
         win.alert({
