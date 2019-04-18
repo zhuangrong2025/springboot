@@ -76,21 +76,38 @@ define(function(require, exports, module){
   // 渲染内容
   Dialog.prototype._renderContent = function(){
     if(this.options.url) {
-      var _this = this,
-          bodyId = _.uniqueId("dialog_body_"),
-          url = this.options.url,
-          options = this.options.options
-
-      this.el.find(".dialog-body").attr("id", bodyId)
-      // require 子模块.js, url是子模块路径, ChildMod对这个模块名即类
-      require.async(url, function(ChildMod){
-        var opt = {
-            el: '#' + bodyId
+      if(this.modCache && this.modCache.modObj){  // 已经初始化过了
+        if(this.modCache.refresh == true){
+          var modObj = this.modCache.modObj
+          if(modObj.refresh){
+            modObj.refresh()
+          }else{
+            if(modObj.dispose){
+              modObj.dispose()
+            }
+            modObj.render()
+          }
         }
-        _.extend(opt, options || {})
-        var cm = new ChildMod(opt)
-        cm.render()
-      })
+      }else{
+        var _this = this,
+            bodyId = _.uniqueId("dialog_body_"),
+            url = this.options.url,
+            options = this.options.options
+
+        this.el.find(".dialog-body").attr("id", bodyId)
+        // require 子模块.js, url是子模块路径, ChildMod对这个模块名即类
+        require.async(url, function(ChildMod){
+          var opt = {
+              el: '#' + bodyId
+          }
+          _.extend(opt, options || {})
+          var cm = new ChildMod(opt)
+          cm.render()
+          _this.modCache = {}
+          _this.modCache.modObj = cm
+        })
+      }
+
     }
   }
   // prototype合并到上面的Base.extend,不独立加
@@ -101,18 +118,18 @@ define(function(require, exports, module){
       console.log("cancel-handler");
       this.close()
     }},
+    // 关联执行到子模块
     save: {type:"save", title:"保存", cls:"btn-save", handler: function(){
-      console.log("save-default");
-      this.close()
-      // var inst = this.getInstance()
-      // if(inst){
-      //    var _this = this
-      //    var cb = function(){
-      //      _this.close()
-      //    }
-      //  调用子模块中的save方法
-      //    inst.save && inst.save(cb)
-      // }
+      var inst = this.getInstance()
+      if(inst){
+        var _this = this
+        var cb = function(){  // 在子模块中调用这个回调
+          _this.close()
+        }
+        inst.save && inst.save(cb)
+      }
+
+
     }}
   }
   // 渲染按钮
@@ -169,6 +186,10 @@ define(function(require, exports, module){
   Dialog.prototype._getEventName = function(type){
     var eventKeys = {save: "save", cancel: "cancel"}
     return eventKeys[type]
+  }
+  // 获取子模块
+  Dialog.prototype.getInstance = function(){
+    return this.modCache && this.modCache.modObj
   }
 
   module.exports = Dialog;

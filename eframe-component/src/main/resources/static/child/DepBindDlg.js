@@ -10,15 +10,24 @@ define(function(require, exports, module) {
 	};
 
 	DepBindDlg.prototype = {
-		initialize : function(options) {
+		initialize: function(options) {
       this.el = $(options.el);
 		},
-		render : function() {
-      console.log(tpl);
-      this.el.html("tpl");
-      console.log("请求子模块");
-		}
-  };
+		render: function() {
+      this.el.html(tpl);
+		},
+    dispose: function(){
+
+    },
+    refresh: function(){
+    }
+  }
+
+  // 保存, dialog组件会调用该方法
+  DepBindDlg.prototype.save = function(cb){
+    cb && cb()
+    console.log("子模块中save方法");
+  }
 
 	module.exports = DepBindDlg;
 });

@@ -20,7 +20,7 @@ define(function(require,exports,module){
       title: "title",
       content: "content",
       events: {
-        ok: function(){ // 覆盖默认的ok事件
+        ok: function(){
           console.log("ok0");
         },
         close:function(){
