@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">window继承Widget公用组件</button>
+  <div id="main">main</div>
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+    seajs.use(['./javascripts/Window-common','jquery'], function(Win,$) {
+      $("#btn").on("click",function(){
+        var win = new Win()
+        win.alert({
+          content: "widget-common定义统一的对外接口1",
+          el: "main",
+          events: { // 覆盖默认events,所有事件，没有合并
+            ok: function(){
+              console.log("ok2");
+            }
+          }
+        })
+      })
+    });
+</script>
+</html>
