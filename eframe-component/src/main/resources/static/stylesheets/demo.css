@@ -137,7 +137,7 @@ em, h3 {
   background-color: #fff;
 }
 .dialog .dialog-header{
-  background-color: #eee;
+  background-color: #eee !important;
   padding: 5px 10px;
 }
 .dialog .dialog-body{
@@ -151,4 +151,24 @@ em, h3 {
 }
 .dialog .dialog-footer.center{
   text-align: center;
+}
+
+/* 穿梭框 */
+.esys-transfer-wrap .col-md-5{
+  border: 1px solid  #e1e1e1;
+  min-height: 500px;
+}
+.esys-transfer-wrap .col-md-1{
+  text-align: center;
+}
+.esys-transfer-wrap .btn-transfer{
+  width: 100px;
+  border: 1px solid  #eee;
+  padding: 5px 8px;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto 10px;
+}
+.hide{
+  display: none;
 }

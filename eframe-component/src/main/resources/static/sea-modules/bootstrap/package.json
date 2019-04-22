@@ -1,0 +1,39 @@
+{
+    "name": "bootstrap",
+    "version": "3.3.7-6",
+    "root": "#",
+    "description": "ui框架",
+    "keywords":["基础界面模块", "第三方"],
+    "homepage": "https://v3.bootcss.com/",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "main": "./src/bootstrap.js",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    },
+    "license": "",
+    "devDependencies": {
+      "jquery": "~1.8"
+    },
+    "tplDependencies": {
+
+    },
+    "dependencies": {
+
+    },
+    "scripts": {},
+    "buildArgs": "cmd",
+    "tests": ["bootstrap"],
+    "output": {
+        "bootstrap.js": "."
+    },
+    "hostModule": null,
+    "assets":{
+        "assets/bootstrap": "assets/bootstrap/*"
+    },
+    "options": null,
+    "optionalDependencies": null
+}

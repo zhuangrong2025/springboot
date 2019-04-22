@@ -157,6 +157,7 @@ define(function(require, exports, module){
         btnArr.push(btnHtml)
       })
       this.el.find(".dialog-footer").html(btnArr.join(''))
+
     }
     // 将数组转为对象 ，数组中的type作为key
     this.buttons = _.indexBy(buttons, 'type');
