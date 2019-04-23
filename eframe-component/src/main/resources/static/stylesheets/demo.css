@@ -154,17 +154,17 @@ em, h3 {
 }
 
 /* 穿梭框 */
-.esys-transfer-wrap .col-md-5{
+.esys-transfer-wrap .col-xs-5{
   border: 1px solid  #e1e1e1;
-  min-height: 500px;
+  min-height: 280px;
 }
-.esys-transfer-wrap .col-md-1{
+.esys-transfer-wrap .col-xs-1{
   text-align: center;
 }
 .esys-transfer-wrap .btn-transfer{
-  width: 100px;
+  width: 70px;
   border: 1px solid  #eee;
-  padding: 5px 8px;
+  padding: 5px 5px;
   border-radius: 5px;
   display: block;
   margin: 0 auto 10px;
