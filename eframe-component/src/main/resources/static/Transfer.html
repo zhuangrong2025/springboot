@@ -15,12 +15,13 @@
 <script id="seajsnode" src="./sea-modules/sea.js"></script>
 <script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
-  seajs.use(['./component/transfer/Transfer', 'jquery','./component/transfer/data.json'], function(Transfer, $, data) {
+  seajs.use(['./component/transfer/Transfer', 'jquery','./component/transfer/data.json','./component/transfer/value.json'], function(Transfer, $, data, value) {
     // console.log(data)
     var transfer = new Transfer({
       el: "#role_transfer",
       key: "role_id",
       text: "{role_name}",
+      value: value,
       title: ['角色','已选角色']
     })
     transfer.render()

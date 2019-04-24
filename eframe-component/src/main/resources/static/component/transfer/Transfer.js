@@ -16,6 +16,9 @@ tpl +=          '<div class="esys-transfer-hd">';
 tpl +=            '<span class="esys-transfer-label">';
 tpl +=              '{left_title}<em>(0)</em>';
 tpl +=            '</span>';
+tpl +=            '<span class="pull-right">';
+tpl +=              '<input type="text" class="form-control search-input-btn" placeholder="输入关键字搜索">';
+tpl +=            '</span>';
 tpl +=          '</div>';
 tpl +=          '<div class="esys-transfer-bd">';
 tpl +=          '</div>';
@@ -28,7 +31,7 @@ tpl +=       '</div>';
     tpl +=  '<div class="col-xs-5">'
     tpl +=    '<div class="esys-transfer">';
 tpl +=          '<div class="esys-transfer-hd">';
-tpl +=            '<span class="esys-transfer-label">';
+tpl +=            '<span class="pull-left esys-transfer-label">';
 tpl +=              '{right_title}<em>(0)</em>';
 tpl +=            '</span>';
 tpl +=          '</div>';
@@ -56,13 +59,12 @@ tpl +=       '</div>';
         this.el = $(options.el)
         this.key = options.key
         this.text = options.text
+        this.value = options.value  // 初始传入已选的数据[{}]
         this.title = options.title
-        // title default
+        // title默认值 判断非数组或小于2个元素
         if(!_.isArray(this.title) || this.title.length < 2){
           this.title = ['数据','已选数据']
         }
-
-
       },
       // render
       render: function(){
@@ -89,8 +91,25 @@ tpl +=       '</div>';
     // 加载所有数据，根据this.value预加载已选中的
     Transfer.prototype.load = function(data){
       var _this = this
-
-      this.leftBox.load(data)
+      // 如果传入value，已选的数据
+      if(this.value){
+        var selections = [],
+            key = this.key,
+            dataMap = _.indexBy(data, key)
+        _.each(this.value, function(v){
+          selections.push(dataMap[v[key]])
+        })
+        // 将selections在映射到dataMap,
+        dataMap = _.indexBy(selections, key)
+        var list = _.filter(data, function(item){
+          return !dataMap[item[key]]
+        })
+        this.leftBox.load(list)
+        this.rightBox.load(selections)
+      }else{
+        this.leftBox.load(data)
+        this.rightBox.load([])
+      }
     }
     // 向右移动
     Transfer.prototype._moveToRight = function(){
@@ -106,6 +125,11 @@ tpl +=       '</div>';
       this.rightBox.remove(selections)
       this.leftBox.add(selections)
     }
+    // 搜索过滤
+    Transfer.prototype._searchData = function(text){
+      var _this = this
+      this.leftBox.filter(text)
+    }
 
     // 绑定事件
     Transfer.prototype._bindEvents = function(){
@@ -118,6 +142,19 @@ tpl +=       '</div>';
       this.el.find(".esys-transfer-move-left").on("click", function(){
         _this._moveToLeft()
       })
+
+      // 搜索框输入事件
+      var timeoutId = null
+      function searchItem(){
+        if(timeoutId){
+          clearTimeout(timeoutId)
+        }
+        var  text = $(this).val()
+        timeoutId = setTimeout(function(){
+          _this._searchData(text)
+        },500)
+      }
+      this.el.find(".search-input-btn").on("input", searchItem)  // searchItem中的this为input
     }
 
 
@@ -209,6 +246,21 @@ tpl +=       '</div>';
           })
         },this)
         this._refreshCounter()
+      },
+      // filter 过滤选项
+      filter: function(keyword){
+        var hideData = [],
+            key = this.key
+        if(!_.isEmpty(keyword)){
+          var hideData = _.filter(this.data, function(item){
+                var text = this._getRenderText(item)
+                return text.indexOf(keyword) == -1 // 返回与关键字不匹配的数据，然后将这些数据隐藏
+              }, this)
+        }
+        this.el.find(".form_checkbox.hide").removeClass("hide")
+        _.each(hideData, function(n){  //将与关键字不匹配的项隐藏
+          this.el.find('.form_checkbox:not(.pre-remove) input[value='+ n[key] +']').parents(".form_checkbox").addClass("hide")
+        }, this)
       },
 
       // 选中的项
