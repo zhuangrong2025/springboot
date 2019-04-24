@@ -37,7 +37,7 @@ define(function(require, exports, module){
     render: function(){
       /*
        * 判断页面中是否有dialog实例 如果有则删除这个实例
-       * toFix：id是变化，找不到对应的this.el的data-inst
+       * toFix：id是变化，找不到对应的this.el的data-inst，会重复弹出窗口
        */
       this.el = $("#" + this.id)
       if(this.el.length !== 0){
@@ -50,7 +50,7 @@ define(function(require, exports, module){
           id: this.id,
           title: this.options.title,
           buttonAlign: this.options.buttonAlign
-      });
+      })
       $('body').append(mainHtml)
       /* ★ 将dialog实例赋值在data-inst中，如果有重复dialog时，先删除旧dialog*/
       this.el = $("#" + this.id)
@@ -66,7 +66,6 @@ define(function(require, exports, module){
       this._initEvents();
     },
     dispose: function(){
-      console.log("dialog remove");
       this.el.remove();
     },
     close: function() {
@@ -75,8 +74,9 @@ define(function(require, exports, module){
   })
   // 渲染内容
   Dialog.prototype._renderContent = function(){
+    // url是子模块路径
     if(this.options.url) {
-      if(this.modCache && this.modCache.modObj){  // 已经初始化过了
+      if(this.modCache && this.modCache.modObj){  // 已经初始化，有子模块实例
         if(this.modCache.refresh == true){
           var modObj = this.modCache.modObj
           if(modObj.refresh){
@@ -88,7 +88,7 @@ define(function(require, exports, module){
             modObj.render()
           }
         }
-      }else{
+      }else{ // 创建子模块实例
         var _this = this,
             bodyId = _.uniqueId("dialog_body_"),
             url = this.options.url,
@@ -115,7 +115,6 @@ define(function(require, exports, module){
 
   var buttonsDef = {
     cancel: {type: "cancel", title:"取消", cls:"btn-cancel", handler: function(){
-      console.log("cancel-handler");
       this.close()
     }},
     // 关联执行到子模块
@@ -134,7 +133,7 @@ define(function(require, exports, module){
   }
   // 渲染按钮
   Dialog.prototype._renderButtons = function(){
-    // 初始化按钮数组
+    // 初始化按钮数组，buttons[]的值是通过buttonsDef[key]或{}生成的
     var buttons = [],
         initBtns = this.options.buttons
     if(initBtns === true){
@@ -159,7 +158,7 @@ define(function(require, exports, module){
       this.el.find(".dialog-footer").html(btnArr.join(''))
 
     }
-    // 将数组转为对象 ，数组中的type作为key
+    // 将数组映射为对象 ，数组中的type作为key
     this.buttons = _.indexBy(buttons, 'type');
   }
 
@@ -172,7 +171,9 @@ define(function(require, exports, module){
         // 新增按钮的事件需要写在buttons的handler中，写在events中不触发
         _this.buttons[type].handler.call(_this, _this)
         // emit触发默认的事件，on是再绑定同名的其他事件
-        _this.emit(_this._getEventName(type), _this)
+        _this.emit(type, _this)
+        // _getEventName中是事件名数据写死save和cancel，新增的ok事件不能被触发
+        // _this.emit(_this._getEventName(type), _this)
       }
     })
 
@@ -185,8 +186,9 @@ define(function(require, exports, module){
   }
   // 获取事件名
   Dialog.prototype._getEventName = function(type){
-    var eventKeys = {save: "save", cancel: "cancel"}
+    var eventKeys = {save: "save", cancel: "cancel", ok: "ok"}
     return eventKeys[type]
+
   }
   // 获取子模块
   Dialog.prototype.getInstance = function(){

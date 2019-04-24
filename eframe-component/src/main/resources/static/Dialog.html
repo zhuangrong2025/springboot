@@ -30,12 +30,11 @@
           buttonAlign: 'center'
         },
         events:{
-          // 添加并绑定自定义的事件，由用户扩展事件,这里同名的只触发一次,
           save: function(){
-            console.log("save222222")
+            console.log("save more")
           },
-          ok: function(){ // tofix: 新增的
-            console.log("ok2")
+          ok: function(){ // 绑定到ok名的事件,由 this.emit("ok")触发
+            console.log("ok more")
           }
         }
       }).render();

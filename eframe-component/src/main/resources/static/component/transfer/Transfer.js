@@ -95,6 +95,7 @@ tpl +=       '</div>';
       if(this.value){
         var selections = [],
             key = this.key,
+             //_.indexBy中的key的值需是唯一如id，否则相同id的值会覆盖，lodash4.17.11用_groupBy代替，不覆盖
             dataMap = _.indexBy(data, key)
         _.each(this.value, function(v){
           selections.push(dataMap[v[key]])
