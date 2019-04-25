@@ -25,6 +25,7 @@ define(function(require, exports, module){
       buttonAlign: 'center'
     },
     constructor: function(options){
+      // Dialog.superclass.constructor就是父类,options可以传递参数到父类
       Dialog.superclass.constructor.call(this, options)
       this.initialize(options)
     },
