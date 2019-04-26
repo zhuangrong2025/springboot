@@ -189,3 +189,19 @@ em, h3 {
   padding: 3px;
   height: 32px;
 }
+.esys-datalist-wrap{
+  padding: 10px;
+}
+.esys-datalist{
+  padding: 10px 20px;
+  border: 1px solid  #e1e1e1;
+}
+.esys-datalist .esys-datalist-body h1{
+  font-size: 16px;
+}
+.esys-datalist .esys-datalist-body ul li{
+  margin: 5px 0;
+}
+.esys-datalist .esys-datalist-body ul li{
+  margin: 15px 0;
+}
