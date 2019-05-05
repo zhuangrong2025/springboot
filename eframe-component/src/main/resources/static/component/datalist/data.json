@@ -1,0 +1,42 @@
+[
+  {
+  "note": "depRole-5-note",
+  "role_id": 115,
+  "role_name": "depRole-5"
+  }, {
+    "note": "666",
+    "role_id": 86,
+    "role_name": "6666"
+  }, {
+    "note": "营业部门角色说明",
+    "role_id": 3,
+    "role_name": "营业部门角色"
+  }, {
+    "note": "note3-mode-6",
+    "role_id": 75,
+    "role_name": "depRole-333336"
+  }, {
+    "note": "8888",
+    "role_id": 87,
+    "role_name": "8888"
+  }, {
+    "note": "仅拥有法人系统的菜单",
+    "role_id": 48,
+    "role_name": "普通部门角色"
+  }, {
+    "note": "testdeptrole",
+    "role_id": 108,
+    "role_name": "testdeptrole"
+  }, {
+    "note": "5",
+    "role_id": 85,
+    "role_name": "55544"
+  }, {
+    "role_id": 10,
+    "role_name": "超级部门12"
+  }, {
+    "note": "TEST2223",
+    "role_id": 119,
+    "role_name": "depRole-999"
+  }
+]

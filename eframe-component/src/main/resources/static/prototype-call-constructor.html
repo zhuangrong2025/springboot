@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+  <h3>继承</h3>
+  <h3>1、prototype原型链继承</h3>
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+  // 定义一个动物类(父类)
+  var Animal = function(name){
+    // 属性
+    this.name = name || 'Animal';
+    // 实例方法
+    this.sleep = function(){
+      console.log(this.name + '正在睡觉！');
+    }
+  }
+
+  // 原型方法
+  Animal.prototype.eat = function(food) {
+    console.log(this.name + '正在吃：' + food);
+  };
+
+
+  // 定义另外一个父类，用于子类的多继承
+   var Pet = function(options){
+    this.price = 5000
+    this.opt = options
+  }
+
+  /*
+   * 方法1、prototype原型链继承
+   * 核心： 将父类的实例作为子类的原型
+   * 缺点： 如果要新增 原型的属性和方法，则必须放在new Animal()这样的语句之后执行
+   */
+   var Cat1 = function(){
+     this.name = "cat1"
+   }
+   Cat1.prototype = new Animal()
+   Cat1.prototype.weight = "800"
+
+   //需要修复构造函数指向,不然会指向Animal
+   Cat1.prototype.constructor = Cat1
+
+   var cat1 = new Cat1()
+   console.log("************ 1、原型链继承 ***************")
+   console.log(cat1.name)
+   console.log(cat1.weight)
+   cat1.eat("fish")
+   cat1.sleep()
+   console.log(cat1 instanceof Animal); //true
+
+  /*
+   * 方法2、构造继承
+   * 核心： 使用父类的构造函数来增强子类实例，等于是复制父类的实例属性给子类（没用到原型）
+   * 缺点： 不能用到原型方法 prototype.method
+   */
+
+  var Cat2 = function(){
+    // 继承，子类实例共享父类引用属性
+    Animal.call(this) // 这里的this就是父类Animal的this, Animal的实例
+    // Pet.prototype.constructor ,就是父类 Pet{}
+    // 多继承，并传递参数到父类
+    Pet.call(this, 'petpet')
+  }
+  var cat2 = new Cat2()
+  console.log("************ 2、构造继承 ***************")
+  console.log(cat2.name)
+  cat2.sleep()
+  console.log("子类传给父类的参数" + cat2.opt)
+  console.log("继承另外一个父类Pet,引用此父类的price属性:" + cat2.price)
+  // 注意： 不能调用Animal的原型方法 eat
+  // cat2.eat('fish')
+  console.log(cat2 instanceof Animal); //false
+
+</script>
+</html>
