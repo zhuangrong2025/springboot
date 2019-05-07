@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<script>
+    seajs.use(['../dist/observer-debug'],function(observer){
+        //TODO 示例代码
+        var consoleData = function(data){
+            console.log(data);
+        };
+        var alertData = function(data){
+            alert(data);
+        };
+        observer.on('data-table-list:dataClick', consoleData, this)
+        observer.on('data-table-list:dataClick', alertData, this);
+
+        observer.trigger('data-table-list:dataClick', "123");
+    });
+</script>
+</body>
+</html>

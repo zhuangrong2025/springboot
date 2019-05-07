@@ -49,6 +49,8 @@ define(function(require, exports, module){
       search: true,
       button: false,  // 即判断true,false也判断文字显示,只要传一个参数，button: 'add'或buuton: true
       deletable: true,  // 是否允许删除
+      pagination: true,   // 是否分页
+      pageSize: 3   // 每页记录数
     },
     constructor: function(options){
       // DataList.superclass.constructor就是父类Base,options可以传递参数到父类
@@ -64,6 +66,12 @@ define(function(require, exports, module){
       this.text = options.data.text
       this.events = options.events
       this.useExpression = /\{[^\{\}].*\}/.test(this.text)
+      this.pagination = null
+      this.pageInfo = { // 分页数据传递到分页实例pagination
+        start: 0,
+        page: 1,
+        length: this.options.pageSize
+      }
 
     },
     render: function(){
@@ -91,8 +99,8 @@ define(function(require, exports, module){
 
     // 加载所有内容list，翻页，搜索
     load: function(data){
-      console.log("a");
       var _this = this
+
       // 请求数据
       $.ajax({
         type: 'get',
@@ -100,6 +108,13 @@ define(function(require, exports, module){
         dataType: 'json',
         success: function(res){
           _this.data = res // 当前加载数据
+          var totalNum = res.length || 0
+          // load创建分页
+          if(_this.options.pagination == true  && !_this.pagination ){ // 判断是否要分页，和是否已经有分页条
+            _this.createPagination(totalNum)
+          }
+
+          // 渲染数据
           _this.renderList(res)
         }
       })
@@ -109,6 +124,7 @@ define(function(require, exports, module){
     // 渲染列表
     renderList: function(list){
       var $itemWrap = this.$body.children('ul')
+      $itemWrap.empty() // 每次load之前都要清空数据
       _.each(list, function(item){
         $itemWrap.append(format(itemTpl, {
           key: item[this.key],
@@ -121,6 +137,7 @@ define(function(require, exports, module){
     // 初始化事件，绑定自定义事件
     initEvents: function(){
       var _this = this
+
       // 绑定events自定义事件--事件监听
       _.each(this.events, function(fn,key){
         this.on(key, fn, this)
@@ -140,7 +157,12 @@ define(function(require, exports, module){
       var $searchInput = this.el.find(".esys-search :text")
       this.options.search && $searchInput.bind("propertychange", searchData).bind("input", searchData)
 
-
+      // 绑定新增按钮事件
+      if(this.options.button == true){
+        this.el.find(".esys-search button").bind("click", function(){
+          _this.emit("add", this)
+        })
+      }
 
     },
     // 数据绑定事件
@@ -178,17 +200,120 @@ define(function(require, exports, module){
     filter: function(keyword){
       var key = this.options.key,
           hideData = []
-      hideData = _.filter(this.data, function(item){
-        var text = this._getRenderText(item)
-        return text.indexOf(keyword) == -1  // 过滤不匹配的
-      }, this)
+      if(!_.isEmpty(keyword)){
+        hideData = _.filter(this.data, function(item){
+          var text = this._getRenderText(item)
+          return text.indexOf(keyword) == -1  // 过滤不匹配的
+        }, this)
+      }
       this.$body.find(">ul>li.hide").removeClass("hide")
       _.each(hideData, function(item){
         this.$body.find('ul>li[data-id='+ item[key] +']').addClass("hide")
       }, this)
+    },
+
+    // 创建分页条
+    createPagination: function(totalNum){
+      var _this =  this
+      this.pagination = new Pagination({
+        el: "#pagination-wrap",
+        data: {
+          pageSize: _this.options.pageSize,
+          totalNum: totalNum
+        },
+        events: {
+          pageselect: function(page){
+            _.assign(_this.pageInfo, {
+              start: (page - 1) * _this.options.pageSize,
+              page: page
+            })
+            console.log(_this.pageInfo);
+            _this.load()
+          }
+        }
+      })
+      this.pagination.render()
     }
+
   })
 
+
+  var paginationtpl = ''
+  paginationtpl += '<div class="pagination-panel">'
+  paginationtpl += '<span>第<em class="cur-page">{page}</em></span>'
+  paginationtpl += '<span>共{totalPage}</span>'
+  paginationtpl += '<a class="prev" data-page="{prevPage}" >[prev]</a> '
+  paginationtpl += '<a class="next" data-page="{nextPage}" >[next]</a> '
+  paginationtpl += '</div>'
+
+  /*
+   * 分页组件 Pagination
+   */
+
+  var Pagination = Base.extend({
+    defaults: {
+      page: 1,         // 当前页
+      pageSize: 10,    // 每页记录数
+      totalNum: 0,     // 总记录页数
+      totalPage: 1     // 总页数
+    },
+    constructor: function(options){
+      Pagination.superclass.constructor.call(this, options)
+      this.initialize(options)
+    },
+    initialize: function(options){
+      this.el = $(options.el)
+      this.options = _.assign({}, this.defaults, options.data)
+      this.events = options.events
+      this.page = this.options.page
+      _.assign(this.options, { // 动态重新记录总页数
+        totalPage : Math.max(Math.ceil(this.options.totalNum/this.options.pageSize), 1),
+      })
+
+    },
+    render: function(){
+      var opt = _.assign(this.options, {})
+
+      _.assign(opt,{
+        prevPage: this.options.page - 1,
+        nextPage: this.options.page + 1
+      })
+      this.el.html(format(paginationtpl, opt))
+      this.$prevLink = this.el.find('a.prev')
+      this.$nextLink = this.el.find('a.next')
+
+      this.bindEvents()
+    },
+    toPage: function(page){ // 根据当前页计算data-page变化
+      var $prevLink = this.el.find('a.prev'),
+          $nextLink = this.el.find('a.next'),
+          isFirstPage = page == 1 ? true : false,
+          isLastPage = page == this.options.totalPage ? true : false,
+          prevPage = isFirstPage ? 0 : page - 1, // 上一页
+          nextPage = isLastPage ? this.options.totalPage : page + 1 // 下一页
+      this.el.find(".cur-page").text(page)
+      $prevLink.attr('data-page', prevPage)
+      $nextLink.attr('data-page', nextPage)
+      isFirstPage ? $prevLink.addClass("disabled") : $prevLink.removeClass('disabled')
+      isLastPage ? $nextLink.addClass("disabled") : $nextLink.removeClass('disabled')
+
+    },
+    bindEvents: function(){
+      _.each(this.events, function(fn, key){
+        this.on(key, fn , this)
+      }, this)
+      var _this = this
+      // 获取当前page，page数据有自定义事件处理
+      this.el.find('a[data-page]').bind("click", function(){
+        if(!$(this).hasClass('disabled')){
+          var page = 1 * $(this).attr('data-page') || _this.page
+          console.log("bindevent" + page);
+          _this.toPage(page) // 只让data-page做相应的变化,实际处理由自定义事件
+          _this.emit("pageselect", page, _this)
+        }
+      })
+    }
+  })
 
 
 

@@ -1,0 +1,29 @@
+{
+    "name": "observer",
+    "version": "0.1.4",
+    "root": "#",
+    "description": "事件触发器",
+    "keywords":["公共模块","事件"],
+    "homepage": "",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "bugs": {
+        "url": ""
+    },
+    "license": "",
+    "devDependencies": {},
+    "dependencies": {
+    },
+    "tests": ["observer"],
+    "buildArgs": "cmd",
+    "output": {
+        "observer.js": "."
+    },
+    "hostModule": null,
+    "assets":null,
+    "options": null,
+    "optionalDependencies": null
+}

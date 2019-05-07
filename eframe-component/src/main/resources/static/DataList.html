@@ -10,12 +10,13 @@
 <body>
 
   <div id="role_side_list" class="esys-datalist-wrap"></div>
-
+  <!-- 分页 -->
+  <div id="pagination-wrap"></div>
 </body>
 <script id="seajsnode" src="./sea-modules/sea.js"></script>
 <script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
-  seajs.use(['./component/datalist/DataList','./component/datalist/data.json', 'jquery'], function(DataList, data, $) {
+  seajs.use(['./component/datalist/DataList', 'jquery'], function(DataList, data, $) {
     var datalist = new DataList({
           el: "#role_side_list",
           data: {
@@ -33,7 +34,10 @@
               console.log(data)
             },
             delete: function(data){
-              console.log(data)
+              console.log("delete")
+            },
+            add: function(){
+              console.log("add")
             }
           }
         })

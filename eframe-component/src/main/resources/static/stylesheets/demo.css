@@ -190,12 +190,9 @@ em, h3 {
   height: 32px;
 }
 .esys-datalist-wrap{
-  padding: 10px;
 }
 .esys-datalist{
-  width: 280px;
-  padding: 10px 20px;
-  border: 1px solid  #e1e1e1;
+  padding: 10px 0;
 }
 .esys-datalist .esys-datalist-body h1{
   font-size: 16px;
@@ -279,4 +276,22 @@ em, h3 {
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.pagination-panel a.disabled {
+  color: #aaa;
+}
+.left_layout_wrap{
+  float: left;
+  width: 258px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  min-height: 580px;
+}
+.right_layout_wrap{
+  float: left;
+  margin-left: 10px;
+  width: 500px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  min-height: 580px;
 }

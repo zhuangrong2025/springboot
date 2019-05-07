@@ -1,0 +1,5 @@
+fileName: observer.js
+success:  observer.js您的代码很完美， 不存在语法错误
+
+
+
