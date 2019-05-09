@@ -38,7 +38,7 @@ define(function (require, exports, module) {
             url: '/role',
             key: 'roleId',
             text: 'roleName',
-            button: 'add1',
+            button: 'add',
             search: true,
             clickable: true, // 是否可点击
             deletable: true, // 是否可删除
@@ -56,6 +56,15 @@ define(function (require, exports, module) {
           }
         })
         this.roleList.render()
+    }
+
+    // 事件监听
+    DepRoleManage.prototype.bindEvents = function() {
+
+      // 由RoleInfoTab.js触发Observer.trigger 
+      Observer.on("DepRole:updateItem", function(data){
+        _this.rolelist.updateItem(data)
+      })
     }
 
     // 角色信息

@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
     var _ = require('lodash'),
         $ = require('jquery'),
+        FormHelper = require('shine-form'),
         Observer = require('observer');
 
     var tpl = require('./template/RoleInfoTab.html')
@@ -10,7 +11,8 @@ define(function(require, exports, module) {
 
     RoleInfo.prototype = {
         initialize: function(options) {
-            this.el = $(options.el);
+            this.el = $(options.el)
+            this.role = options.role;
         },
         render: function() {
             this.el.html(tpl);
@@ -18,12 +20,25 @@ define(function(require, exports, module) {
         }
     };
 
+    // 保存信息
+    RoleInfo.prototype._saveRoleInfo = function(){
+      post
+      datalist: set item val -> observer.trigger  
+    }
     // 绑定事件
     RoleInfo.prototype._bindEvents = function(){
+      var _this = this
+      // 监听datalist数据项的点击事件，触发在datalist实例的events{click}中
       Observer.on("deprole:click", function(data, change){
         if(change){
-          console.log(data);
+          _this.role = data
+          FormHelper.setValue('#roleInfoForm', data, true);
         }
+      })
+
+      // 保存角色信息
+      this.el.find(".btn-save").bind("click", function(){
+        _this._saveRoleInfo()
       })
     }
 

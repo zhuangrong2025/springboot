@@ -1,0 +1,5 @@
+fileName: shine-form.js
+success:  shine-form.js您的代码很完美， 不存在语法错误
+
+
+

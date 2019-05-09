@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>表单工具</title>
+    <style>
+        .padding {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+</head>
+
+<body>
+    <!-- TODO: 其他HTML标记 -->
+    <div id="main" class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <form id="myform" class="form-horizontal">
+                    <div class="form-group">
+                        <h3>原生控件</h3>
+                    </div>
+                    <div class="form-group">
+                        <label>单行文本输入框</label>
+                        <div>
+                            <input name="form_input_text" class="form-control xyz_validate_input" value="示例文本：单行" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>多行文本输入框</label>
+                        <div>
+                            <textarea name="form_textarea" class="form-control xyz_validate_input" rows="2">示例文本：多行</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>单选按钮</label>
+                        <div>
+                            <label class="radio-inline">
+                            <input type="radio" name="form_input_radio" class="xyz_validate_input" value="单选按钮A" checked="checked" />单选按钮A
+                        </label>
+                            <label class="radio-inline">
+                            <input type="radio" name="form_input_radio" class="xyz_validate_input" value="单选按钮B" />单选按钮B
+                        </label>
+                            <label class="radio-inline">
+                            <input type="radio" name="form_input_radio" class="xyz_validate_input" value="单选按钮C" />单选按钮C
+                        </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>独立复选框</label>
+                        <div>
+                            <label class="checkbox-inline">
+                            <input type="checkbox" name="form_input_checkbox_1" class="xyz_validate_input" value="独立复选框A" checked="checked" />独立复选框A
+                        </label>
+                            <label class="checkbox-inline">
+                            <input type="checkbox" name="form_input_checkbox_2" class="xyz_validate_input" value="独立复选框B" />独立复选框B
+                        </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>分组复选框</label>
+                        <div>
+                            <label class="checkbox-inline">
+                            <input type="checkbox" name="form_input_checkbox_group[]" class="xyz_validate_input" value="分组复选框A" />分组复选框A
+                        </label>
+                            <label class="checkbox-inline">
+                            <input type="checkbox" name="form_input_checkbox_group[]" class="xyz_validate_input" value="分组复选框B" />分组复选框B
+                        </label>
+                            <label class="checkbox-inline">
+                            <input type="checkbox" name="form_input_checkbox_group[]" class="xyz_validate_input" value="分组复选框C" />分组复选框C
+                        </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>单选下拉列表</label>
+                        <div>
+                            <select name="form_select_single" class="form-control xyz_validate_input">
+                            <option value="单选1">1</option>
+                            <option value="单选2">2</option>
+                            <option value="单选3" selected="selected">3</option>
+                            <option value="单选4">4</option>
+                            <option value="单选5">5</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>多选下拉列表</label>
+                        <div>
+                            <select name="form_select_multiple" class="form-control xyz_validate_input" multiple="multiple">
+                            <option value="多选1">1</option>
+                            <option value="多选2" selected="selected">2</option>
+                            <option value="多选3" selected="selected">3</option>
+                            <option value="多选4">4</option>
+                            <option value="多选5">5</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>组件控件</h3>
+                    </div>
+
+                    <div class="form-group">
+                        <label>组件：下拉框</label>
+                        <div id="xyz_select2"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>组件：日期输入框</label>
+                        <div id="xyz_datepicker"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>组件：多选下拉框</label>
+                        <div id="xyz_multi"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div class="row padding">
+                    <textarea id="console" name="form_textarea" class="form-control" rows="22"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary" id="get">取值</button>
+                        <button type="button" class="btn btn-primary" id="set">设值</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary" id="template_1">值 1</button>
+                        <button type="button" class="btn btn-primary" id="template_2">值 2</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+</body>
+<script>
+    seajs.use(['../dist/shine-form-debug', 'jquery', 'xyz-select2', 'xyz-multiselect', 'xyz-datepicker'], function(Main, $, XyzSelect2, XyzMultiselect, XyzDatepicker) {
+        (new XyzSelect2({
+            el: '#xyz_select2',
+            name: 'xyz_select',
+            ajax: {
+                url: "https://easy-mock.com/mock/5b9b62f41615c53f58edfe3d/select",
+                id: 'acc_id',
+                text: 'acc_name'
+            }
+        })).render();
+
+        (new XyzDatepicker({
+            el: '#xyz_datepicker',
+            name: 'xyz_datepicker'
+        })).render();
+
+        (new XyzMultiselect({
+            el: '#xyz_multi',
+            name: 'xyz_multiselect',
+            ajax: {
+                url: "https://easy-mock.com/mock/5b9b62f41615c53f58edfe3d/custodian",
+                id: 'actor_id',
+                text: 'actor_name'
+            },
+        })).render();
+
+        $('#get').click(function() {
+            $('#console').val(JSON.stringify(Main.getValue('#myform'), null, 4));
+        });
+
+        $('#set').click(function() {
+            if ('' == $.trim($('#console').val())) {
+                alert('先取值，再设值');
+                return;
+            }
+            Main.setValue('#myform', JSON.parse($('#console').val()));
+        });
+
+        var tpl_1 = {
+            "xyz_select": "100004",
+            "xyz_datepicker": "2018-12-06",
+            "xyz_multiselect": [
+                "200104",
+                "200106"
+            ],
+            "form_input_text": "示例文本：单行",
+            "form_textarea": "示例文本：多行",
+            "form_input_radio": "单选按钮A",
+            "form_input_checkbox_1": "独立复选框A",
+            "form_input_checkbox_2": null,
+            "form_input_checkbox_group[]": [
+                "分组复选框B"
+            ],
+            "form_select_single": "单选2",
+            "form_select_multiple": [
+                "多选1",
+                "多选4"
+            ]
+        };
+
+        var tpl_2 = {
+            "xyz_select": "100001",
+            "xyz_datepicker": "2018-12-30",
+            "xyz_multiselect": [
+                "10326"
+            ],
+            "form_input_text": "单行",
+            "form_textarea": "多行",
+            "form_input_radio": "单选按钮B",
+            "form_input_checkbox_1": null,
+            "form_input_checkbox_2": null,
+            "form_input_checkbox_group[]": [
+                "分组复选框A",
+                "分组复选框C"
+            ],
+            "form_select_single": "单选2",
+            "form_select_multiple": [
+                "多选2",
+                "多选3"
+            ]
+        };
+
+        $('#template_1').click(function() {
+            $('#console').val(JSON.stringify(tpl_1, null, 4));
+            $('#set').trigger('click');
+        });
+
+        $('#template_2').click(function() {
+            $('#console').val(JSON.stringify(tpl_2, null, 4));
+            $('#set').trigger('click');
+        });
+    });
+</script>
+
+</html>
