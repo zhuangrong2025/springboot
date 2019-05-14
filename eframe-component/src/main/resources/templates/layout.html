@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE"></title>
+	  <script src="/assets/jquery/jquery.js"></script>
+	  <script src="/assets/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet"  href="/assets/sweetalert/sweetalert.css"/>
+    <!--/* Core CAS CSS 以下需改为变量方式 */-->
+    <!-- <link rel="stylesheet"  th:href="@{${#themes.code('cas.standard.css.file')}}"/>
+    <script th:src="@{${#themes.code('cas.javascript.file')}}"></script> -->
+    <link rel="stylesheet"  href="/themes/shine/css/cas.css"/>
+    <link rel="stylesheet"  href="/themes/shine/css/sweetalert-theme.css"/>
+    <script src="/themes/shine/js/cas.js"></script>
+</head>
+
+<body>
+<main role="main" class="container">
+  <div layout:fragment="content">
+      CAS content will go here
+  </div>
+</main>
+</body>
+</html>

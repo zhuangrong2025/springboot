@@ -24,4 +24,17 @@ public class DiologController {
         return "departments";
     }
 
+    // 测试布局layout:fragment
+    @GetMapping("/layouttest")
+    public String layouttest(Model model){
+        return "shine/content";
+    }
+
+    // cas
+    @GetMapping("/cas")
+    public String casShow(Model model){
+        model.addAttribute("bbb", "我是一个兵");
+        return "shine/casLoginView";
+    }
+
 }

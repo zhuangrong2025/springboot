@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE"></title>
+    <!--/* Core CAS CSS */-->
+    <link rel="stylesheet"  th:href="@{${#themes.code('cas.standard.css.file')}}"/>
+    <link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon"/>
+    <script th:src="@{${#themes.code('cas.javascript.file')}}"></script>
+</head>
+<body>
+<!-- 样式 -->
+<style>
+.header,.page,.footer{margin:10px;padding:10px;border:1px solid #ddd;}
+.page{height:280px}
+</style>
+<!-- //样式 -->
+<!-- header -->
+<div th:replace="shine/header:: header">
+  header  --> header.html
+</div>
+<!-- //header -->
+
+<!-- page -->
+<div class="page" layout:fragment="page">
+  子页面  --> casLoginView.html
+</div>
+<!-- //page -->
+<!-- footer -->
+<div layout:fragment="footerMain">
+  <div th:replace="shine/footer:: footer">
+    footer  --> footer.html
+  </div>
+</div>
+<!-- //footer -->
+</body>
+</html>
