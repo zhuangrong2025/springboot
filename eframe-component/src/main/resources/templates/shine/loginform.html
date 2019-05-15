@@ -1,25 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
-    <title>Login Form Fragment</title>
-    <link href="../../static/css/cas.css" rel="stylesheet" th:remove="tag" />
-</head>
-<body>
-
-<main role="main" class="container mt-3 mb-3" >
-
-    <div class="row">
-        <div class="col-md">
-            <!-- Login form template begins here -->
-            <div th:fragment="loginform" class="card">
-              loginform
-            </div>
+<div class="login_container" th:fragment="loginform">
+  <div class="login_sign_in">
+    <div class="login_sign_in_title">登录 <span>SIGN IN</span></div>
+    <div class="login_sign_in_content">
+      <form novalidate="novalidate" class="login-form">
+        <div class="account_number">
+          <i class="xy-icon xy-account input_icon"></i>
+          <input type="text" id="username_temp" class="login_input login_sign_in_account_number" placeholder="请输入账号">
         </div>
+        <div class="password">
+          <i class="xy-icon xy-password input_icon"></i>
+          <input type="password" id="password" class="login_input login_sign_in_password" placeholder="请输入密码">
+        </div>
+        <div class="system_selection">
+
+        </div>
+        <button type="button" id="btn_sign_in" class="btn btn_sign_in" style="margin-top:20px;">登录</button>
+      </form>
     </div>
-</main>
-</body>
-</html>
+  </div>
+  <!-- test -->
+  <div class="sweet-alert showSweetAlert" data-animation="pop" style="display: block; margin-top: -136px;">
+    <div class="sa-icon sa-info"></div>
+    <p>用户名不能为空!</p>
+    <div class="sa-button-container">
+      <div class="sa-confirm-button-container">
+        <button class="confirm" >确认</button>
+      </div>
+    </div>
+  </div>
+  <!-- test -->
+
+</div>

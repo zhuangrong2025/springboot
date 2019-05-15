@@ -133,7 +133,15 @@ define(function(require, exports, module){
       },this)
       this.bindItemEvents()
     },
-
+    // 更新item，传递data
+    updateItem: function(data){
+      var key = this.options.key,
+          keyVal = data[key]
+      if(data && !_.isUndefined(keyVal)){
+        var $item = this.$body.find('ul>li[data-id=' + keyVal + ']')
+        $item.children('span:first').html(this._getRenderText(data))
+      }
+    },
     // 初始化事件，绑定自定义事件
     initEvents: function(){
       var _this = this

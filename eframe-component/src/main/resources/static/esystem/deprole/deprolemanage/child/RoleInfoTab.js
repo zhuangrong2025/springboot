@@ -22,8 +22,9 @@ define(function(require, exports, module) {
 
     // 保存信息
     RoleInfo.prototype._saveRoleInfo = function(){
-      post
-      datalist: set item val -> observer.trigger  
+      var data = FormHelper.getValue('#roleInfoForm')
+      data.roleId = this.role.roleId // 对象的key添加roleId
+      Observer.trigger("DepRole:updateItem", data)
     }
     // 绑定事件
     RoleInfo.prototype._bindEvents = function(){

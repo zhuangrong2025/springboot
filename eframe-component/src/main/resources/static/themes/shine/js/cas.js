@@ -7,7 +7,7 @@ $(function(){
         swal({
           title: "",
           text: "用户名不能为空!",
-          type: "success",
+          type: "info",
           confirmButtonText: "确认",
         })
         $('#username_temp').focus();

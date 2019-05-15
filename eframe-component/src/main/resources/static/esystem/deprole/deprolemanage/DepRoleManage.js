@@ -22,6 +22,7 @@ define(function (require, exports, module) {
           $(this.el).html(mainTpl);
           this._createRoleList()
           this._createRoleInfo()
+          this.bindEvents()
         },
         dispose: function () {
         },
@@ -47,7 +48,7 @@ define(function (require, exports, module) {
             click: function(data){
               // 判断前后两个点击是否一致，返回change标志
               var change = _this.role && _.isEqual(_this.role, data) ? false : true
-              _this.role = data
+              _this.role = data // this.role用来设置RoleInfo中的role
               Observer.trigger("deprole:click", data, change)
             },
             delete: function(data){
@@ -60,17 +61,19 @@ define(function (require, exports, module) {
 
     // 事件监听
     DepRoleManage.prototype.bindEvents = function() {
-
-      // 由RoleInfoTab.js触发Observer.trigger 
+      var _this = this
+      // 由RoleInfoTab.js触发Observer.trigger
       Observer.on("DepRole:updateItem", function(data){
-        _this.rolelist.updateItem(data)
+        _this.roleList.updateItem(data)
       })
     }
 
     // 角色信息
     DepRoleManage.prototype._createRoleInfo = function() {
+      var _this = this
       this.roleInfo = new RoleInfo({
-        el: "#roleright_content"
+        el: "#roleright_content",
+        role: _this.role
       })
       this.roleInfo.render()
     }
