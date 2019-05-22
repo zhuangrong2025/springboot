@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+</head>
+<body class="base_style_manage_style_v1">
+    <div class="left_right_layout_spacing">
+    	<div class="left_side_content" id="left_side"></div>
+    	<div class="right_side_content">
+			<h3 style="color: red">注：左侧列表项请使用组件xyz-left-navigation，左右布局结构代码如下：</h3>
+			<xmp>
+				<div class="left_right_layout_spacing">
+					<div class="left_side_content"></div>
+					<div class="right_side_content"></div>
+				</div>
+			</xmp>
+		</div>
+    </div>
+	
+</body>
+<script>
+    seajs.use(['../dist/base-style-manage-debug','jquery','xyz-left-navigation'],function(Main, $, XyzLeft){
+        //TODO 示例代码
+        Main.changeStyle('darkblue');
+
+        var cov = new XyzLeft({
+            el: "#left_side",
+            title: "分组",     //标题， 默认为分组
+		    search: true,       //需要顶部搜索框, 默认false
+		    searchButton: '新增',    //需要搜索框右侧的按钮，默认null
+		    globalCheck: true,    //分类是否需要 '全部' 选项
+		    disableCheck: false,    //禁用菜单选中，默认为false。目前此功能用于xyz-gridstack中的左侧工具菜单。
+		    ajax: {
+		        url:'',
+		        params: {},
+		        list: [
+		            {
+		                menu_name: '资金监控',
+		                menu_code: "1",
+		                order_code: "1"
+		            },{
+		                menu_name: '业务发生',       //菜单名称
+		                menu_code: "2",                 //菜单唯一编号
+		                order_code: "1",                 //排序
+		                parent_menu_code: "1"   //父菜单编号
+		            },{
+		                menu_name: '业务处理',
+		                menu_code: "3",
+		                order_code: "0",
+		                parent_menu_code: "1"
+		            },{
+		                menu_name: '清算作业监控',
+		                menu_code: "4",
+		                order_code: "0"
+		            },{
+		                menu_name: '清算作业1',
+		                menu_code: "5",
+		                order_code: "0",
+		                parent_menu_code: "4"
+		            }]
+		    }
+        });
+        cov.render();
+    });
+</script>
+</html>

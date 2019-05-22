@@ -1,0 +1,5 @@
+fileName: base-style-manage.js
+success:  base-style-manage.js您的代码很完美， 不存在语法错误
+
+
+

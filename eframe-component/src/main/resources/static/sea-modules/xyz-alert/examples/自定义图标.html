@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>自定义html</title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<script>
+    seajs.use(['../dist/xyz-alert-debug'],function(xyzAlert){
+        xyzAlert.default('<i class="fa fa-spin fa-spinner"></i>', {
+        	html: true
+        });
+    });
+</script>
+</body>
+</html>

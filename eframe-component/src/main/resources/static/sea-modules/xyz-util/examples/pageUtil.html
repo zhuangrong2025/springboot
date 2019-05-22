@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        #main{
+            background: red;
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<div id="main"></div>
+<div id="button">
+    <button id="fullScreen">fullScreen</button>
+</div>
+<!-- TODO: 其他HTML标记 -->
+<script>
+    seajs.use(['../dist/xyz-util-debug', 'jquery'],function(xyzUtil, $){
+        $('#fullScreen').click(function(){
+            xyzUtil.fullScreen($('#main'));
+        });
+
+        xyzUtil.resizeDom({
+            el: '#main',
+            eventName: 'main',
+            callback: function(e){
+                alert('#main容器大小发生了变化!');
+            },
+            delay: 500
+        });
+
+        $('#main').on('resize', function(){
+            alert(123);
+        })    //这段代码没作用， jquery定义的resize事件无法监听到div大小发生了变化
+
+        console.log(xyzUtil.isIE());
+    });
+</script>
+</body>
+</html>

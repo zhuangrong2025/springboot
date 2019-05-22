@@ -133,7 +133,7 @@ define(function(require, exports, module){
       },this)
       this.bindItemEvents()
     },
-    // 更新item，传递data
+    // 更新item，
     updateItem: function(data){
       var key = this.options.key,
           keyVal = data[key]

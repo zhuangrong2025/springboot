@@ -1,0 +1,22 @@
+{
+    "name": "xyz-cryptojs",
+    "version": "0.1.4",
+    "description": "对各种加密算法的封装",
+    "keywords":["加密算法", "公共模块", "业务逻辑模块"],
+    "homepage": "",
+    "main": "./src/xyz-cryptojs.js",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "devDependencies": {
+        "xyz-util": "~0.1"
+    },
+    "dependencies": {
+        "lodash": "~3",
+        "crypto-js": "~3"
+    },
+    "buildArgs": "cmd",
+    "tests": ["xyz-cryptojs"],
+    "output": {
+        "xyz-cryptojs.js": "."
+    },
+    "assets":null
+}

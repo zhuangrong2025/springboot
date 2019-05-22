@@ -1,0 +1,1 @@
+.shine-steps-content {  margin-bottom: 8px;  padding: 5px 15px;  background-color: #fff; }.shine-steps-content .shine-step-content {  display: none; }  .shine-steps-content .shine-step-content.active {display: block; }.shine-steps-button .btn {  margin-right: 10px; }

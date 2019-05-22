@@ -1,0 +1,1 @@
+define("#/xyz-iconfont/0.1.25/xyz-iconfont",[],function(c,a,l){null},{});

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>重定向</title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<script>
+    seajs.use(['../dist/xyz-jsonRPC-debug', 'jquery'],function(Main, $){
+        Main($);
+
+        $.jsonRPC.request({
+            url: "http://10.168.3.150:3003/rpc_redirect",
+            success: function(response){
+                console.log(response.data);
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

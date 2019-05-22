@@ -1,0 +1,20 @@
+{
+    "name": "font-Awesome",
+    "version": "0.1.5",
+    "description": "font-awesome图标",
+    "keywords":["业务界面模块","font","font-awesome"],
+    "homepage": "",
+    "main": "./src/font-Awesome.js",
+    "author": "chenyudong<chenyudong@shinetechnology.com>",
+    "devDependencies": {},
+    "dependencies": {},
+    "buildArgs": "cmd",
+    "tests": ["font-Awesome"],
+    "output": {
+        "font-Awesome.js": "."
+    },
+	"assets":{
+		"assets/font-Awesome":"assets/font-Awesome/*"
+	}
+    
+}

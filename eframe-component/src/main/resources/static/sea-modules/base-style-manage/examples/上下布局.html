@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+    <style>
+	    /*.base_style_manage_style_v1 .table_universal_height{
+	        height: calc(100% - 30px);
+	    }*/
+    </style>
+</head>
+<body class="base_style_manage_style_v1">
+    <div class="top_bottom_layout_spacing">
+    	<div class="top_bottom_layout">
+    		<div class="form_combination">
+				<div class="form_block">
+					<div class="form_block_content">
+						<div class="input_group_search">
+							<input type="text" autocomplete="off" class="form-control search_single_input_btn data_source_search">
+							<span class="input_single_group_btn">
+								<button type="button" class="btn search_single_icon_btn" id="dataSourceSearch">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+				<button class="btn btn-action-lv1 form_btn data_source_form_btn pull-right" id="dataSourceBtnAdd">新增</button>
+				<button class="btn btn-action-lv1 form_btn data_source_form_btn pull-right" id="testConnect">测试连接</button>
+				<button class="btn btn-cancel-lv1 form_btn data_source_form_btn pull-right" id="dataSourceBtnDelete">删除</button>
+			</div>
+			<div class="table_universal_height" id="table_universal"></div>
+    	</div>
+    	<h3 style="color: red">注：上下布局结构代码如下,如果应用表格需要在表格的div里加上class="table_universal_height"：</h3>
+		<xmp>
+		<div class="top_bottom_layout_spacing">
+				<div class="top_bottom_layout">
+					<div class="form_combination"></div>  ————表格表单
+					<div class="table_universal_height" id="table_universal"></div>  ————表格
+				</div>
+		</div>
+		</xmp>
+    </div>
+	
+</body>
+<script>
+    seajs.use(['../dist/base-style-manage-debug','jquery','xyz-simple-datatables'],function(Main, $, XyzSimTable){
+        //TODO 示例代码
+        Main.changeStyle('darkblue');
+        var columns = [
+            {
+                data: 'ck'    //类型为ck时，自动转为checkbox
+            },
+            {
+                title : "销售机构",
+                data : "settle_op_code",
+                width : "90"
+            },
+            {
+                title : "机构收款账户",
+                orderable : false,
+                width : "90"
+            },
+            {
+                title : "待申请金额",
+                data : "occur_amt2"
+            },
+            {
+                title : "应交收金额",
+                data : "occur_amt"
+            },
+            {
+                title : "已申请金额",
+                data : "occur_amt3",
+                width : "120"
+            },
+            {
+                title : "划款摘要",
+                data : "ft_note",
+                width : "120"
+            },
+            {
+                title : "交收日",
+                data : "settle_date",
+                width : "120"
+            },
+            {
+                title : "币种",
+                data : "cur_type_name",
+                width : "120"
+            },
+            {
+                title : "指令编号",
+                data : "se_inst_id",
+                width : "50",
+                orderable : false
+            },
+            {
+                title : "操作",
+                data : "operate",
+                width : "190",
+                orderable : false,
+                render : function(data, type, full, meta) {
+                    var html = '';
+                    html += '<button class="btn btn-edit">修改</button>';
+                    html += '<button class="btn btn-cancel">取消</button>';
+                    return html;
+
+                }
+            } ];
+
+        var m = new XyzSimTable({
+            el: "#table_universal",
+            ajax: {
+                url : 'http://10.168.3.150:3003/datatables'
+            },
+            id: "xyz_simple_datatable_test",
+            debug: true,
+            columns: columns
+        });
+        m.render();
+    });
+</script>
+</html>

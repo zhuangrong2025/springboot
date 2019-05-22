@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script id="seajsnode" src="../sea-modules/sea-debug.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+</head>
+<body>
+555555
+
+</body>
+<script>
+    seajs.use(['../dist/xyz-coverlap-debug', 'jquery', 'observer'],function(Main, $, observer){
+        //TODO 示例代码
+        var cov = new Main({
+            id: 'singleTest',
+            child: {
+                path: '/examples/singlePage',    //js的相对路径
+                options: {
+                    name: '123'    //参数
+                }
+            }
+        });
+
+        cov.render();
+    });
+</script>
+</html>

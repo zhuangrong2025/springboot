@@ -2,6 +2,7 @@ define(function (require, exports, module) {
     var $ = require('jquery'),
         _ = require('lodash'),
         Observer = require('observer'),
+        XyzCover = require('xyz-coverlap'),
         RoleInfo = require('/esystem/deprole/deprolemanage/child/RoleInfoTab'),
         DataList = require('/component/datalist/DataList');
 
@@ -53,6 +54,9 @@ define(function (require, exports, module) {
             },
             delete: function(data){
               console.log("delete");
+            },
+            add: function(){ // 新增角色
+              _this._openAddCover()
             }
           }
         })
@@ -76,6 +80,17 @@ define(function (require, exports, module) {
         role: _this.role
       })
       this.roleInfo.render()
+    }
+    // 新增角色
+    DepRoleManage.prototype._openAddCover = function() {
+      console.log("_openAddCover");
+      var cov = new XyzCover({
+          id: 'dep_role_add_cover',
+          child: {
+              path: '/esystem/deprole/deprolemanage/DepRoleAdd'
+          }
+      });
+      cov.render();
     }
 
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<script>
+    seajs.use(['../dist/xyz-alert-debug'],function(xyzAlert){
+        xyzAlert.confirm('确认吗？', {
+            confirm: function(){
+                xyzAlert.info('已确认!')
+            },
+            cancel: function(){
+                xyzAlert.info('取消!')
+            }
+        }, '恭喜您，提交成功！');
+    });
+</script>
+</body>
+</html>

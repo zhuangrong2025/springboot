@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>调试模式，跨域请求</title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<script>
+    seajs.use(['../dist/xyz-jsonRPC-debug', 'jquery'],function(Main, $){
+        //TODO 示例代码
+        Main($);
+
+        $.jsonRPC.setHost('http://10.168.3.150:3002');
+        $.jsonRPC.setDebug(true);
+        $.jsonRPC.request({
+            url: '/EPSERVICERUN/json/USAccess/json.do',
+            params: {
+                params: {
+                    a: '1',
+                    b: '2'
+                }
+            },
+            success: function (response, url) {
+            }
+        });
+        seajs.use(['../dist/xyz-jsonRPC-debug', 'jquery'],function(Main, $){
+            //TODO 示例代码
+            Main($);
+            $.jsonRPC.request({
+                url: '/EPSERVICERUN/json/USAccess/json.do',
+                params: {
+                    params: {
+                        a: '1',
+                        b: '2'
+                    }
+                },
+                success: function (response, url) {
+                    console.log(response);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

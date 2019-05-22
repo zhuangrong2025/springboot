@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+    <style>
+        #main{
+            width: 80%;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        #button_div,#button_div1{
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+
+<div id="button_div">
+    <button class="btn btn-action-lv1" id="sl_btn">获取step1子模块的实例</button>
+    <button class="btn btn-action-lv1" id="check_btn">选中step2</button>
+    <button class="btn btn-action-lv1" id="activeByIndex">选中step2(activeByIndex)</button>
+    <button class="btn btn-action-lv1" id="set_check_btn">设置step3为finish状态</button>
+    <button class="btn btn-action-lv1" id="remove_check_btn">取消step3的finish状态</button>
+    <button class="btn btn-action-lv1" id="set_check_btn1">设置step2,step3为finish状态</button>
+    <button class="btn btn-action-lv1" id="remove_check_btn1">取消step2,step3的finish状态</button>
+    <button class="btn btn-action-lv1" id="get_check">获取当前选中的id</button>
+    <button class="btn btn-action-lv1" id="getCurrentCheckIndex">获取当前选中的索引</button>
+</div>
+
+<div id="button_div1">
+    <button class="btn btn-action-lv1" id="getFinishStatus">获取当前为finish状态的id列表(getFinishStatus)</button>
+    <button class="btn btn-action-lv1" id="isFinishStatus">判断step2是否为finish状态</button>
+</div>
+</body>
+<script>
+    seajs.use(['../dist/shine-step-debug', 'base-common-module', 'jquery'],function(Main, styleManage, $){
+        //TODO 示例代码
+        var m = new Main({
+            el: "#main",
+            active: 1,
+            backgroundColor: '#F5F5F5',    //默认 #FFFFFF
+            config: [
+                {
+                id: 'step1',          //必填项
+                title: '步骤1',    //必填项
+                // active: true,      //默认选中，如果不配，默认选中第一个
+                child: {
+                    path: '/examples/step1',      //加载的子模块路径
+                    options: {  //加载的子模块的参数
+                        name: '111'
+                    },
+                    refresh: true    //是否每次切换到当前tab页都做刷新
+                }
+            },{
+                id: 'step2',
+                title: '步骤2',
+                active: true,
+                child: {
+                    path: '/examples/step2',
+                    options: {
+                        name: '222'
+                    }
+                }
+            },{
+                id: 'step3',
+                title: '步骤3',
+                finish: true,
+                child: {
+                    path: '/examples/step3',
+                    options: {
+                        name: '333'
+                    }
+                }
+            }],
+            //buttons: true,
+            buttons: ['cancel', 'prev', {type: 'presave', scope: [0, 1]}, 'next', 'save'],
+            events: {
+                change: function(id, status, finish, _m){
+                    console.log('change, id:' + id);
+                    console.log('change, status:' + status);
+                    console.log('change, finish:' + finish);
+                },
+                beforeChange: function(id, status, finish, _m, cb){
+                    console.log('beforeChange, id:' + id);
+                    console.log('beforeChange, status:' + status);
+                    console.log('beforeChange, finish:' + finish);
+                    cb();
+                },
+                save: function(m) {
+                    console.log('保存');
+                },
+                cancel: function(m) {
+                    console.log('取消');
+                },
+                presave: function(index, id, m) {
+                    console.log('取消, index:', index, "id:", id);
+                }
+            },
+            index: false     //是否需要自动加上步骤索引 1, 2, 3, 4.....,    默认为true
+        });
+        m.render();
+
+        $('#sl_btn').click(function(){
+            alert(JSON.stringify(m.getInstanceById('step1')));
+        });
+
+        $('#check_btn').click(function(){
+            m.activeById('step2');
+        });
+
+        $('#activeByIndex').click(function(){
+            m.activeByIndex(2);
+        });
+
+        $('#set_check_btn').click(function(){
+            m.setFinishStatus('step3')
+        });
+
+        $('#remove_check_btn').click(function(){
+            m.removeFinishStatus('step3')
+        });
+
+        $('#set_check_btn1').click(function(){
+            m.setFinishStatus('step2,step3')
+        });
+
+        $('#remove_check_btn1').click(function(){
+            m.removeFinishStatus('step2,step3')
+        });
+
+        $('#get_check').click(function(){
+            alert(m.getCurrentCheckId());
+        });
+
+        $('#getFinishStatus').click(function(){
+            alert(m.getFinishStatus());
+        });
+
+        $('#isFinishStatus').click(function(){
+            alert(m.isFinishStatus('step2'));
+        });
+
+        $('#getCurrentCheckIndex').click(function(){
+            alert(m.getCurrentCheckIndex());
+        });
+    });
+</script>
+</html>

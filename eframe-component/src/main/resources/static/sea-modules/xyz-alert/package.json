@@ -1,0 +1,20 @@
+{
+    "name": "xyz-alert",
+    "version": "0.1.13",
+    "description": "原xyz.js中对sweetalert的封装方法",
+    "keywords":["业务界面模块"],
+    "homepage": "http://mishengqiang.com/sweetalert/",
+    "main": "./src/xyz-alert.js",
+    "author": "chenyudong<chenyudong@shinetechnology.com>",
+    "devDependencies": {},
+    "dependencies": {
+        "sweetalert": "~1",
+        "jquery": "~1.8"
+    },
+    "buildArgs": "cmd",
+    "tests": ["xyz-alert"],
+    "output": {
+        "xyz-alert.js": "."
+    },
+    "assets/xyz-alert": "assets/xyz-alert/*"
+}

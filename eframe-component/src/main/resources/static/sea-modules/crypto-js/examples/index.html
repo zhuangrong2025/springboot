@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+</head>
+<body>
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+
+</body>
+<script>
+    seajs.use(['../dist/crypto-js-debug'],function(CryptoJS){
+        //TODO 示例代码
+        function encryptByDESModeCBC(message,key){
+            var keyHex = CryptoJS.enc.Utf8.parse(key);
+            var ivHex = CryptoJS.enc.Utf8.parse(key);
+            var  encrypted = CryptoJS.DES.encrypt(message, keyHex, {
+                iv : ivHex,
+                mode : CryptoJS.mode.CBC,
+                padding : CryptoJS.pad.Pkcs7
+            });
+            return encrypted.ciphertext.toString();
+        }
+        alert(encryptByDESModeCBC('123123', 'qaaa'));
+    });
+</script>
+</html>

@@ -1,0 +1,29 @@
+{
+    "name": "base-style-manage",
+    "version": "0.1.100",
+    "description": "主题皮肤管理模块，可通过引用base-common-module做管理",
+    "keywords":["主模块","主题", "darkblue,blue","皮肤"],
+    "homepage": "",
+    "main": "./src/base-style-manage.js",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "devDependencies": {
+    	"xyz-select2": "~0.1",
+    	"xyz-datatables": "~0.1",
+        "xyz-coverlap": "~0.1",
+        "xyz-left-navigation": "~0.1",
+        "xyz-simple-datatables": "~0.1"
+    },
+    "dependencies": {
+    	"jquery": "~1.8",
+    	"shine-metron":"~0.1",
+    	"font-Awesome": "~0.1",
+        "xyz-iconfont": "~0.1",
+        "observer": "~0.1"
+    },
+    "buildArgs": "cmd",
+    "tests": ["base-style-manage"],
+    "output": {
+        "base-style-manage.js": "."
+    },
+    "assets":null
+}

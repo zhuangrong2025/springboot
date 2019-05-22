@@ -1,0 +1,18 @@
+{
+    "name": "sweetalert",
+    "version": "1.1.3-1",
+    "description": "弹出框组件",
+    "keywords":["基础界面模块", "第三方", "弹出框", "alert", "dialog"],
+    "homepage": "https://sweetalert.js.org/guides/",
+    "main": "./src/sweetalert.js",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "devDependencies": {},
+    "dependencies": {
+    },
+    "buildArgs": "cmd",
+    "tests": ["sweetalert"],
+    "output": {
+        "sweetalert.js": "."
+    },
+    "assets":null
+}

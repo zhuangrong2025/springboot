@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<script>
+    seajs.use(['../dist/xyz-util-debug'],function(xyzUtil){
+        //TODO 示例代码
+        console.log(xyzUtil.fnConvertDate('20180403'));
+
+        console.log(xyzUtil.getUrlParams());   //http://xxx?a=1&b=2   ==>    {a:1, b:2}
+
+        console.log(xyzUtil.numberToMoney('0', 2));
+        console.log(xyzUtil.numberToMoney('2131231294.2161', 2));
+
+        console.log(xyzUtil.moneyToNumber('10,000.00', 0));
+        console.log(xyzUtil.moneyToNumber('10,000.3324234', 3));
+        console.log(xyzUtil.moneyToNumber('0.0000', 3));
+
+        console.log(xyzUtil.numToChinese(1111111111111));
+
+        console.log(xyzUtil.getFuncCode());
+
+        console.log(xyzUtil.joinUrlParams('http://www', {a:1,b:2}));
+        console.log(xyzUtil.joinUrlParams('http://www?', {a:1,b:2}));
+        console.log(xyzUtil.joinUrlParams('http://www?c=3', {a:1,b:2}));
+
+        console.log(xyzUtil.urlParse('../assets/aaa/1.png' ,'http://www.com/bbb/release/aaa/111.html'));
+        console.log(xyzUtil.urlParse('../assets/aaa/1.png' ,'http://www.com/examples/111.html'));
+    });
+</script>
+</body>
+</html>

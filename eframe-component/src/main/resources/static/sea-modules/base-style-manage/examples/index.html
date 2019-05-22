@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+	<style>
+		html,body{
+			background-color: #fff !important;
+		}
+		.row{
+			margin-left: 0px;
+			margin-right: 0px;
+		}
+		#save,#cancel{
+			display: none;
+		}
+	</style>
+</head>
+<body class="base_style_manage_style_v1">
+    <div class="container container_main">
+    <div class="row">
+        <h3 class="base_style_title">按钮:</h3>
+        <div class="col-lg-12 col-md-12">
+            <div class="col-lg-3 col-md-3">
+                <button class="btn btn-action-lv1">新增</button>
+                <xmp><button class="btn btn-action-lv1">新增</button></xmp>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <button class="btn btn-action-lv2">下一步</button>
+                <xmp><button class="btn btn-action-lv2">下一步</button></xmp>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <button class="btn btn-cancel-lv1">取消</button>
+                <xmp><button class="btn btn-cancel-lv1">取消</button></xmp>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <button class="btn btn-edit">修改</button>
+                <xmp><button class="btn btn-edit">修改</button></xmp>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="col-lg-3 col-md-3">
+                <button class="btn btn-view-lv1">查询</button>
+                <xmp><button class="btn btn-view-lv1">查询</button></xmp>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <a class="btn btn-default btn-er"><span class="btn-point"></span>手工制单</a>
+                <xmp><a class="btn btn-default btn-er"><span class="btn-point"></span>手工制单</a></xmp>
+            </div>
+            <div class="col-lg-3 col-md-3">
+            	<button type="button" class="btn btn-save"><i class="fa fa-save"></i> 保存</button>
+            	<xmp><button type="button" class="btn btn-save"><i class="fa fa-save"></i> 保存</button></xmp>
+            </div>
+            <div class="col-lg-3 col-md-3">
+    			<button type="button" class="btn btn-add">新增</button>
+    			<xmp><button type="button" class="btn btn-add">新增</button></xmp>
+    		</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="col-lg-3 col-md-3">
+                <button type="button" class="btn btn-via">通过</button>
+                <xmp><button type="button" class="btn btn-via">通过</button></xmp>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <button type="button" class="btn btn-reject ">驳回</button>
+                <xmp><button type="button" class="btn btn-reject ">驳回</button></xmp>
+            </div>
+            <div class="col-lg-3 col-md-3">
+            	<div class="mt-radio-inline f-left form-toggle_edit">   
+            		<label class="mt-radio-new mt-radio-new-checked">    
+            			<input type="radio" checked="" value="01" data-text="按月">
+        				按月
+        				<span></span>   
+    				</label>  
+				</div>
+<xmp>
+<div class="mt-radio-inline f-left form-toggle_edit">   
+	<label class="mt-radio-new mt-radio-new-checked">    
+		<input type="radio" checked="">
+		按月
+		<span></span>   
+	</label>  
+</div>
+</xmp>
+            </div>
+            <div class="col-lg-3 col-md-3">
+            	<button type="button" class="btn btn-delete">删除</button>
+            	<xmp><button type="button" class="btn btn-delete">删除</button></xmp>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    	<div class="col-lg-12 col-md-12">
+    		
+    		
+    	</div>
+    	<h3 style="color: red; margin-left: 20px;">注：如果按钮不需要图标，把i标签去掉即可</h3>
+    </div>
+    <hr />
+    <div class="row">
+        
+        <div class="col-lg-12 col-md-12">  
+            <div class="col-lg-6 col-md-6">
+            	<h3 class="base_style_title">书签</h3>
+            	<ul class="tags">                             
+            		<li>手续费 </li>                     
+            	</ul>
+            	<xmp><ul class="tags"><li>手续费 </li></ul></xmp>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+    	<h3 class="base_style_title">二级tab</h3>
+    	<div class="col-lg-12 col-md-12 col-xs-12">
+    		<div class="col-lg-6 col-md-6">
+    			<div class="tabbable-line tabbable-style">
+	    			<ul class="nav nav-tabs second_tab">
+						<li class="active">
+							<a aria-expanded="false" href="#" data-toggle="tab">销售机构</a>
+						</li>
+						<li>
+							<a aria-expanded="false" href="#" data-toggle="tab">托管户</a>
+						</li>
+						<li>
+							<a aria-expanded="false" href="#" data-toggle="tab">内部划转</a>
+						</li>
+						<li>
+							<a aria-expanded="false" href="#" data-toggle="tab">手工划款</a>
+						</li>
+					</ul>
+				</div>
+	<xmp>
+	<div class="tabbable-line tabbable-style">
+		<ul class="nav nav-tabs second_tab">
+			<li class="active">
+				<a aria-expanded="false" href="#" data-toggle="tab">销售机构</a>
+			</li>
+			<li>
+				<a aria-expanded="false" href="#" data-toggle="tab">托管户</a>
+			</li>
+			<li>
+				<a aria-expanded="false" href="#" data-toggle="tab">内部划转</a>
+			</li>
+			<li>
+				<a aria-expanded="false" href="#" data-toggle="tab">手工划款</a>
+			</li>
+		</ul>
+	</div>
+	</xmp>
+    		</div>
+    	</div>
+    </div>
+    <hr />
+    <div class="row">
+        <h3 class="base_style_title">银行卡片-card:</h3>
+        <div class="col-lg-12 col-md-12">
+            <div class="bank-account col-lg-3 col-md-3 col-sm-12 view-bank-account-list xy-element-card">
+                <div class="xy-card-item xy-card-contact">
+                    <div class="xy-card-title">
+                        <div class="caption">
+                            <span class="caption-subject">认购专户 </span>
+                        </div>
+                        <div class="infos">
+                            <span>中国工商银行</span>
+                        </div>
+                    </div>
+                    <div class="xy-card-content">
+                        <div class="row">
+                            <label class="col-md-4">账号</label><span class="col-md-8">23010100000001</span>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4">账户名称</label><span class="col-md-8">230101清算认购账户</span>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-4">开户行</label><span class="col-md-8">天津宝坻</span>
+                        </div>
+                    </div>
+                    <ul class="xy-card-actions right">
+                        <li><a class="fa-act-item card-view" href="javascript:;" ><i class="fa fa-file-o"></i></a></li>
+                        <li><a class="fa-act-item card-edit hide" href="javascript:;"><i class="fa fa-edit"></i></a></li>
+                        <li><a class="fa-act-item card-remove hide" href="javascript:;"><i class="fa fa-remove"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bank-account col-lg-3 col-md-3 col-sm-12 view-bank-account-list xy-element-card">
+                <div class="xy-card-item simple add xy-card-item-h178 xy-card-item-no-title">
+					<div class="xy-card-content">
+						<div class="card-add">
+							<i class="fa fa-plus"></i>
+						</div>
+					</div>
+				</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <xmp>
+            	<div class="bank-account col-lg-3 col-md-3 col-sm-12 col-md-3 view-bank-account-list xy-element-card">
+                    <div class="xy-card-item xy-card-contact">
+                        <div class="xy-card-title">
+                            <div class="caption">
+                                <span class="caption-subject">认购专户 </span>
+                            </div>
+                            <div class="infos">
+                                <span>中国工商银行</span>
+                            </div>
+                        </div>
+                        <div class="xy-card-content">
+                            <div class="row">
+                                <label class="col-md-4">账号</label><span class="col-md-8">23010100000001</span>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4">账户名称</label><span class="col-md-8">230101清算认购账户</span>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-4">开户行</label><span class="col-md-8">天津宝坻</span>
+                            </div>
+                        </div>
+                        <ul class="xy-card-actions right">
+                            <li><a class="fa-act-item card-view" href="#"><i class="fa fa-file-o"></i></a></li>
+                            <li><a class="fa-act-item card-edit hide" href="#"><i class="fa fa-edit"></i></a></li>
+                            <li><a class="fa-act-item card-remove hide" href="#"><i class="fa fa-remove"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                </xmp>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+    	<h3 class="base_style_title">模态框编辑表单-单列表单</h3>
+    	<button class="btn btn-action-lv1" data-toggle="modal" data-target="#myModal">
+			新增
+		</button>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">
+							新增银行账户
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form_wrap_single_row">
+							<div class="form_wrap_single_row_group">
+								<div class="form_wrap_single_row_group_title">		
+									归属于 :
+								</div>
+								<div class="form_wrap_single_row_group_content">
+									<div class="mt-radio-inline form-toggle_edit">     
+										<label class="mt-radio mt-radio-outline"> 总部
+										  <input type="radio" value="1" name="test">
+										  <span></span>
+										</label>
+										<label class="mt-radio mt-radio-outline"> 分支机构
+											<input type="radio" value="1" name="test">
+											<span></span>
+										</label>
+										<label class="mt-radio mt-radio-outline"> 代理结算机构
+											<input type="radio" value="1" name="test">
+											<span></span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form_wrap_single_row_group">
+								<div class="form_wrap_single_row_group_title">		
+									账户编号 :
+								</div>
+								<div class="form_wrap_single_row_group_content">
+									<div class="xyz_select2 xyz_validate_inst" name="product">
+									    <span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 100%;">
+									    	<span class="selection">
+									    		<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product-nf-container" style="border-left: 3px solid rgb(231, 80, 90);">
+									    			<span class="select2-selection__rendered" id="select2-product-nf-container" title="100004_130201清算账户">
+									    				<span class="select2-selection__placeholder">没有选中任何项</span>
+									    			</span>
+									    			<span class="select2-selection__arrow" role="presentation">
+									    				<b role="presentation"></b>
+									    			</span>
+									    		</span>
+									    	</span>
+									    	<span class="dropdown-wrapper" aria-hidden="true"></span>
+									    </span>
+									</div>
+								</div>
+							</div>
+							<div class="form_wrap_single_row_group">
+								<div class="form_wrap_single_row_group_title">		
+									账户名称 :
+								</div>
+								<div class="form_wrap_single_row_group_content">
+									<div class="xyz_select2 xyz_validate_inst" name="product">
+									    <span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 100%;">
+									    	<span class="selection">
+									    		<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product-nf-container" style="border-left: 3px solid rgb(231, 80, 90);">
+									    			<span class="select2-selection__rendered" id="select2-product-nf-container" title="100004_130201清算账户">
+									    				<span class="select2-selection__placeholder">没有选中任何项</span>
+									    			</span>
+									    			<span class="select2-selection__arrow" role="presentation">
+									    				<b role="presentation"></b>
+									    			</span>
+									    		</span>
+									    	</span>
+									    	<span class="dropdown-wrapper" aria-hidden="true"></span>
+									    </span>
+									</div>
+								</div>
+							</div>
+							<div class="form_wrap_single_row_group">
+								<div class="form_wrap_single_row_group_title">		
+									所属银行 :
+								</div>
+								<div class="form_wrap_single_row_group_content">
+									<div class="xyz_select2 xyz_validate_inst" name="product">
+									    <span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 100%;">
+									    	<span class="selection">
+									    		<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product-nf-container" style="border-left: 3px solid rgb(231, 80, 90);">
+									    			<span class="select2-selection__rendered" id="select2-product-nf-container" title="100004_130201清算账户">
+									    				<span class="select2-selection__placeholder">没有选中任何项</span>
+									    			</span>
+									    			<span class="select2-selection__arrow" role="presentation">
+									    				<b role="presentation"></b>
+									    			</span>
+									    		</span>
+									    	</span>
+									    	<span class="dropdown-wrapper" aria-hidden="true"></span>
+									    </span>
+									</div>
+								</div>
+							</div>
+							<div class="form_wrap_single_row_group">
+								<div class="form_wrap_single_row_group_title">		
+									账户别名 :
+								</div>
+								<div class="form_wrap_single_row_group_content">
+									<div class="xyz_select2 xyz_validate_inst" name="product">
+									    <span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 100%;">
+									    	<span class="selection">
+									    		<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product-nf-container" style="border-left: 3px solid rgb(231, 80, 90);">
+									    			<span class="select2-selection__rendered" id="select2-product-nf-container" title="100004_130201清算账户">
+									    				<span class="select2-selection__placeholder">没有选中任何项</span>
+									    			</span>
+									    			<span class="select2-selection__arrow" role="presentation">
+									    				<b role="presentation"></b>
+									    			</span>
+									    		</span>
+									    	</span>
+									    	<span class="dropdown-wrapper" aria-hidden="true"></span>
+									    </span>
+									</div>
+								</div>
+							</div>
+							<div class="form_wrap_single_row_group">
+								<div class="form_wrap_single_row_group_title">		
+									开户行 :
+								</div>
+								<div class="form_wrap_single_row_group_content">
+									<div class="xyz_select2 xyz_validate_inst" name="product">
+									    <span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 100%;">
+									    	<span class="selection">
+									    		<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product-nf-container" style="border-left: 3px solid rgb(231, 80, 90);">
+									    			<span class="select2-selection__rendered" id="select2-product-nf-container" title="100004_130201清算账户">
+									    				<span class="select2-selection__placeholder">没有选中任何项</span>
+									    			</span>
+									    			<span class="select2-selection__arrow" role="presentation">
+									    				<b role="presentation"></b>
+									    			</span>
+									    		</span>
+									    	</span>
+									    	<span class="dropdown-wrapper" aria-hidden="true"></span>
+									    </span>
+									</div>
+								</div>
+							</div>
+							<div class="form_wrap_single_row_group">
+								<div class="form_wrap_single_row_group_title">		
+									币种 :
+								</div>
+								<div class="form_wrap_single_row_group_content">
+									<div class="xyz_select2 xyz_validate_inst" name="product">
+									    <span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 100%;">
+									    	<span class="selection">
+									    		<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product-nf-container" style="border-left: 3px solid rgb(231, 80, 90);">
+									    			<span class="select2-selection__rendered" id="select2-product-nf-container" title="100004_130201清算账户">
+									    				<span class="select2-selection__placeholder">没有选中任何项</span>
+									    			</span>
+									    			<span class="select2-selection__arrow" role="presentation">
+									    				<b role="presentation"></b>
+									    			</span>
+									    		</span>
+									    	</span>
+									    	<span class="dropdown-wrapper" aria-hidden="true"></span>
+									    </span>
+									</div>
+								</div>
+							</div>
+							<div class="form_wrap_single_row_group">
+								<div class="form_wrap_single_row_group_title">		
+									所属省份:
+								</div>
+								<div class="form_wrap_single_row_group_content_province">
+									<div class="xyz_select2 xyz_validate_inst" name="product">
+					    <select class="search-form form-contro xyz-select2 select2-hidden-accessible xy-required" name="product" required="" tabindex="-1" aria-hidden="true"><option value="100004">100004_130201清算账户</option><option value="100051">100051_110101清算总账户</option><option value="100001">100001_120201清算账户</option></select><span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product-nf-container" style="border-left: 3px solid rgb(231, 80, 90);"><span class="select2-selection__rendered" id="select2-product-nf-container" title="100004_130201清算账户"><span class="select2-selection__placeholder">没有选中任何项</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+					</div>
+								</div>
+								<div class="form_wrap_single_row_group_title">		
+									市:
+								</div>
+								<div class="form_wrap_single_row_group_content_province">
+									<div class="xyz_select2 xyz_validate_inst" name="product">
+					    <select class="search-form form-contro xyz-select2 select2-hidden-accessible xy-required" name="product" required="" tabindex="-1" aria-hidden="true"><option value="100004">100004_130201清算账户</option><option value="100051">100051_110101清算总账户</option><option value="100001">100001_120201清算账户</option></select><span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product-nf-container" style="border-left: 3px solid rgb(231, 80, 90);"><span class="select2-selection__rendered" id="select2-product-nf-container" title="100004_130201清算账户"><span class="select2-selection__placeholder">没有选中任何项</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+					</div>
+								</div>
+							</div>
+							<div class="form_wrap_single_row_group">
+								<div class="form_wrap_single_row_group_title">		
+									备注 :
+								</div>
+								<div class="form_wrap_single_row_group_content">
+									<textarea rows="3" placeholder="" maxlength="127" id="txt-bank-note-modal" name="note" class="form-control form-control-ctl"></textarea>
+								</div>	
+							</div>
+							
+						</div>
+					</div>
+					<div class="modal-footer" style="margin-top: 30px;">
+						<button type="button" class="btn btn-cancel-lv1" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-action-lv1">
+							确定
+						</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		<xmp>
+			<div class="form_wrap_single_row">
+				<div class="form_wrap_single_row_group">
+					<div class="form_wrap_single_row_group_title">		
+						
+					</div>
+					<div class="form_wrap_single_row_group_content">
+						
+					</div>
+				</div>
+			</div>
+		</xmp>
+		<h3 style="color: red; margin-left: 20px;">注：class="form_wrap_single_row_group_title"属于标题，class="form_wrap_single_row_group_content"为内容。</h3>
+    </div>
+    <hr />
+    <div class="row">
+        <h3 class="base_style_title">按钮组</h3>
+        <div class="col-lg-12 col-md-12">
+            <div class="btn-group status-group" data-toggle="buttons">
+                <label class="btn btn-outline btn-group-first btn-left active">
+                    <input type="radio" name="status-option">未划款
+                </label>
+                <label class="btn btn-outline btn-group-middle btn-center ">
+                    <input type="radio" name="status-option">划款中
+                </label>
+                <label class="btn btn-outline btn-group-last btn-right btn-group-last-other ">
+                    <input type="radio" name="status-option">划款成功
+                </label>
+            </div>
+            <xmp><div class="btn-group status-group" data-toggle="buttons">
+                <label class="btn btn-outline btn-group-first btn-left active">
+                    <input type="radio" name="status-option">未划款
+                </label>
+                <label class="btn btn-outline btn-group-middle btn-center ">
+                    <input type="radio" name="status-option">划款中
+                </label>
+                <label class="btn btn-outline btn-group-last btn-right btn-group-last-other ">
+                    <input type="radio" name="status-option">划款成功
+                </label>
+            </div></xmp>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <h3 class="base_style_title">步骤条</h3>
+        <h3 style="color: red">注：请参考shine-step组件</h3>
+       	
+    </div>
+    <hr />
+    <div class="row">
+    	<h3 class="base_style_title">带竖线标题</h3>
+    	<div class="col-lg-12 col-md-12 col-xs-12">
+    		<h5 class="section pull-left">基础信息</h5>
+    		<xmp><h5 class="section pull-left">基础信息</h5></xmp>
+    	</div>
+    </div>
+    <hr />
+    <div class="row">
+    	<h3 class="base_style_title">带竖线标题和按钮的组合</h3>
+    	<div class="title_btn_group" style="padding: 0px 15px;">
+    		<h5 class="section pull-left">基础信息</h5>
+    		<button class="btn btn-edit pull-right"><i class="fa fa-edit"></i>修改</button>
+    	</div>
+    	<xmp>
+    		<div class="title_btn_group">
+	    		<h5 class="section pull-left">基础信息</h5>
+	    		<button class="btn btn-edit pull-right"><i class="fa fa-edit"></i>修改</button>
+	    	</div>
+    	</xmp>
+    </div>
+    <hr />
+    <div class="row">
+    	<h3 class="base_style_title">单选复选</h3>
+    	<div class="col-lg-12 col-md-12 col-xs-12">
+    		<div class="col-lg-6 col-md-6">
+    			<div class="mt-radio-inline form-toggle_edit">     
+					<label class="mt-radio mt-radio-outline"> 总部
+					  <input type="radio" value="总部" name="test">
+					  <span></span>
+					</label>
+					<label class="mt-radio mt-radio-outline"> 分支机构
+						<input type="radio" value="分支机构" name="test">
+						<span></span>
+					</label>
+					<label class="mt-radio mt-radio-outline"> 代理结算机构
+						<input type="radio" value="代理结算机构" name="test">
+						<span></span>
+					</label>	
+    			</div>
+		<xmp>
+	<div class="mt-radio-inline form-toggle_edit">     
+	<label class="mt-radio mt-radio-outline"> 总部
+	  <input type="radio" value="1" name="test">
+	  <span></span>
+	</label>
+	<label class="mt-radio mt-radio-outline"> 分支机构
+		<input type="radio" value="1" name="test">
+		<span></span>
+	</label>
+	<label class="mt-radio mt-radio-outline"> 代理结算机构
+		<input type="radio" value="1" name="test">
+		<span></span>
+	</label>
+		</div>
+		</xmp>
+    		</div>
+    		<div class="col-lg-6 col-md-6">
+    			<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+    				<input type="checkbox" class="checkboxes"/>
+    				按周期
+    				<span></span>
+    			</label>
+    			<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+    				<input type="checkbox" class="checkboxes" disabled/>
+    				按周期
+    				<span></span>
+    			</label>
+    			<h3 style="color: red">没加disabled</h3>
+    			<xmp>
+			<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+    				<input type="checkbox" class="checkboxes"/>
+    				按周期
+    				<span></span>
+    		</label>
+    		</xmp>
+    		<h3 style="color: red">有加disabled</h3>
+    		<xmp>
+    			<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+    				<input type="checkbox" class="checkboxes" disabled/>
+    				按周期
+    				<span></span>
+    			</label>
+    			</xmp>
+    		</div>
+    	</div>
+	<h3 style="color: red">注：span标签为选中时的样式，请勿漏加！！！ 若需要复选框为不可点击状态，则需要在input加个disabled</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+	
+	<div class="col-sm-12 col-md-6 col-lg-6">
+		<h3 class="base_style_title">必填输入框</h3>
+        <div class="input-icon right" style="margin-left: 15px;">
+        	<input class="form-control xy-required require_input">
+        </div>
+        <xmp>
+    	<div class="input-icon right">
+        	<input class="form-control xy-required require_input">
+        </div>
+        </xmp>
+    </div>
+   
+	<div class="col-sm-12 col-md-6 col-lg-6">
+		<h3 class="base_style_title">搜索框</h3>
+        <div class="input_group_search">
+			<input type="text" class="form-control search_single_input_btn" placeholder="">
+			<span class="input_single_group_btn">
+				<button type="button" class="btn search_single_icon_btn">
+					<i class="fa fa-search"></i>
+				</button>
+			</span>
+		</div>
+        <xmp>
+    	<div class="input_group_search">
+			<input type="text" class="form-control search_single_input_btn" placeholder="">
+			<span class="input_single_group_btn">
+				<button type="button" class="btn search_single_icon_btn">
+					<i class="fa fa-search"></i>
+				</button>
+			</span>
+		</div>
+        </xmp>
+		<h3 style="color: red">注：placeholder为搜素框提示信息，需要自己填写，默认不提示任何信息</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">阴影背景</h3>
+	<div style="margin-left: 15px; margin-right: 15px;">
+		<div class="col-lg-12 col-md-12 shadow_background" style="width: 100%; height: 200px; text-align: center;"></div>
+	</div>
+	
+	<xmp>
+		<div class="shadow_background"></div>
+	</xmp>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">滚动条</h3>
+	<div style="width: 500px; height: 100px; overflow: auto;">
+		<div style="width: 650px; height: 150px;"></div>
+	</div>
+	
+	<xmp>
+		
+	</xmp>
+</div>
+<hr />
+<div class="row">
+	<i class="xy-icon xy-new-refresh default_flag" style="margin-left: 25px;"></i>
+	<xmp>
+		<i class="xy-icon xy-default2 default_flag"></i>
+	</xmp>
+</div>
+<hr />
+<div class="row">
+    <h3 class="base_style_title">双列表单-基础信息</h3>
+    <form id="myform" class="shine_form">
+        <div class="title_btn_group">
+            <h5 class="section pull-left">带编辑状态表单</h5>
+            <button type="button" class="btn btn-edit pull-right" id="edit_btn"><i class="fa fa-edit"></i> 修改</button>
+            <button type="button" class="btn btn-save pull-right" id="save_btn"><i class="fa fa-save"></i> 保存</button>
+            <button type="button" class="btn btn-cancel pull-right" id="cancel_btn"><i class="fa fa-reply"></i> 取消</button>
+        </div>
+        <div class="form_wrap">
+            <div class="form_wrap_group">
+                <div class="form_wrap_group_title" >
+                    资产名称
+                </div>
+                <div class="form_wrap_group_content">
+                    <div field="fund_name" lbl></div>
+                    <div ctl>
+                        <input class="form-control xyz_validate_input" name="fund_name" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="form_wrap_group">
+                <div class="form_wrap_group_title" >
+                    资产类型
+                </div>
+                <div class="form_wrap_group_content">
+                    <div field="fund_type" lbl></div>
+                    <div ctl>
+                        <input class="form-control xyz_validate_input" name="fund_type" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="form_wrap_group">
+                <div class="form_wrap_group_title" >
+                    备注
+                </div>
+                <div class="form_wrap_group_content">
+                    <div field="note" lbl></div>
+                    <div ctl>
+                        <input class="form-control xyz_validate_input" name="note" value="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+<xmp><form id="myform" class="shine_form">
+    <div class="title_btn_group">
+        <h5 class="section pull-left">带编辑状态表单</h5>
+        <button type="button" class="btn btn-edit pull-right" id="edit_btn"><i class="fa fa-edit"></i> 修改</button>
+        <button type="button" class="btn btn-save pull-right" id="save_btn"><i class="fa fa-save"></i> 保存</button>
+        <button type="button" class="btn btn-cancel pull-right" id="cancel_btn"><i class="fa fa-reply"></i> 取消</button>
+    </div>
+    <div class="form_wrap">
+        <div class="form_wrap_group">
+            <div class="form_wrap_group_title" >
+                资产名称
+            </div>
+            <div class="form_wrap_group_content">
+                <div field="fund_name" lbl></div>
+                <div ctl>
+                    <input class="form-control xyz_validate_input" name="fund_name" value="" />
+                </div>
+            </div>
+        </div>
+        <div class="form_wrap_group">
+            <div class="form_wrap_group_title" >
+                资产类型
+            </div>
+            <div class="form_wrap_group_content">
+                <div field="fund_type" lbl></div>
+                <div ctl>
+                    <input class="form-control xyz_validate_input" name="fund_type" value="" />
+                </div>
+            </div>
+        </div>
+        <div class="form_wrap_group">
+            <div class="form_wrap_group_title" >
+                备注
+            </div>
+            <div class="form_wrap_group_content">
+                <div field="note" lbl></div>
+                <div ctl>
+                    <input class="form-control xyz_validate_input" name="note" value="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</xmp>
+<h3 style="color: red; margin-left: 20px;">注意：组件div需标识ctl属性, 组件显示文本标记lbl属性, 属性field值与组件的name一致  </h3>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">表格表单</h3>
+	    <div class="condition_top_body">
+	        <div class="condition_top">
+	            <div class="condition_top_left">
+	                <div class="condition_top_content_div">
+	                    <div class="condition_top_content_title">产品类型</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	                <div class="condition_top_content_div">
+	                    <div class="condition_top_content_title">产品</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	                <div class="condition_top_content_div">
+	                    <div class="condition_top_content_title">托管人</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	                <div class="condition_top_content_div conceal clear_both">
+	                    <div class="condition_top_content_title">产品状态</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	                <div class="condition_top_content_div conceal">
+	                    <div class="condition_top_content_title">币种</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	                <div class="condition_top_content_div conceal">
+	                    <div class="condition_top_content_title">TA类型</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	            </div>
+	            <div class="condition_top_right">
+	                <div class="condition_top_more_div">
+	                    <div class="condition_top_more_btn_div">
+	                        <span class="more">更多</span>
+	                        <i class="xy-icon xy-drop-down condition_top_more_btn"></i>
+	                    </div>
+	                    <div class="condition_top_more_search">
+	                        <button class="btn btn-view-lv1 condition_top_query_btn" id="query_btn">查询</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	<xmp>
+	    <div class="condition_top_body">
+	        <div class="condition_top">
+	            <div class="condition_top_left">
+	                <div class="condition_top_content_div">
+	                    <div class="condition_top_content_title">产品类型</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	                <div class="condition_top_content_div">
+	                    <div class="condition_top_content_title">产品</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	                <div class="condition_top_content_div">
+	                    <div class="condition_top_content_title">托管人</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	                <div class="condition_top_content_div conceal clear_both">
+	                    <div class="condition_top_content_title">产品状态</div>
+	                    <div class="condition_top_content_dom"></div>
+	                </div>
+	            </div>
+	            <div class="condition_top_right">
+	                <div class="condition_top_more_div">
+	                    <div class="condition_top_more_btn_div">
+	                        <span class="more">更多</span>
+	                        <i class="xy-icon xy-drop-down condition_top_more_btn"></i>
+	                    </div>
+	                    <div class="condition_top_more_search">
+	                        <button class="btn btn-view-lv1 condition_top_query_btn" id="query_btn">查询</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</xmp>
+<h3 style="color: red; margin-left: 20px;">
+	注意：下拉框内容放在class="condition_top_content_dom"，需要在此加个id值，用id值生成下拉框
+	<br>
+	更多按钮事件：<br />
+	<xmp>
+    $('.condition_top_body').find('.condition_top_more_btn_div').click(function(){
+        var self = $(this);
+        var cndTopDom = self.parents('.condition_top');
+        if(cndTopDom.hasClass('open_shadow')){   //当前为显示状态, 做隐藏操作
+            cndTopDom.find('.conceal').hide();
+            cndTopDom.removeClass('open_shadow');
+            cndTopDom.find('.condition_top_more_btn').removeClass('xy-shangla').addClass('xy-drop-down');
+        } else {
+            cndTopDom.find('.conceal').show();
+            cndTopDom.addClass('open_shadow');
+            cndTopDom.find('.condition_top_more_btn').removeClass('xy-drop-down').addClass('xy-shangla');
+        }
+    });
+	</xmp>
+</h3>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">表单组合</h3>
+	<div class="form_combination">
+		<div class="form_block">
+			<div class="form_block_title section">
+				销售机构
+			</div>
+			<div class="form_block_content">
+				<div class="xyz_select2 xyz_validate_inst" name="product">
+				    <select class="search-form form-contro xyz-select2 select2-hidden-accessible xy-required" name="product" required="" tabindex="-1" aria-hidden="true"></select>
+				    <span class="select2 select2-container select2-container--default select2-container--focus" dir="ltr" style="width: 100%;">
+				    	<span class="selection">
+				    		<span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-product-nf-container" style="border-left: 3px solid rgb(231, 80, 90);">
+				    			<span class="select2-selection__rendered" id="select2-product-nf-container" title="100004_130201清算账户">
+				    				<span class="select2-selection__placeholder">没有选中任何项</span></span>
+				    				<span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
+				    		</span>
+				    	</span>
+				    	<span class="dropdown-wrapper" aria-hidden="true"></span>
+				    </span>
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-action-lv1 form_btn pull-left hide">重新匹配</button>
+		<div class="form_text pull-left hide">
+			最新自动匹配时间：2018-12-27 10:58:14
+		</div>
+		<div class="form_checkbox pull-left">
+			<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+				<input type="checkbox" class="checkboxes"/>
+				按周期
+				<span></span>
+			</label>
+		</div>
+		<div class="form_checkbox pull-left">
+			<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+				<input type="checkbox" class="checkboxes"/>
+				按周期
+				<span></span>
+			</label>
+		</div>
+		<button class="btn btn-view-lv1 form_btn pull-right">查询</button>
+	</div>
+	<xmp>
+		<div class="form_combination">
+			<div class="form_block">
+				<div class="form_block_title">
+					销售机构
+				</div>
+				<div class="form_block_content">
+					
+				</div>
+			</div>
+			<button class="btn btn-action-lv1 form_btn pull-left">重新匹配</button>
+			<div class="form_text pull-left">
+				最新自动匹配时间：2018-12-27 10:58:14
+			</div>
+			<div class="form_checkbox pull-left">
+				<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+					<input type="checkbox" class="checkboxes"/>
+					按周期
+					<span></span>
+				</label>
+			</div>
+		</div>
+	</xmp>
+	<h3 style="color: red; margin-left: 20px;">
+		form_block：为条件选择框<br />
+		form_btn: 为按钮<br />
+		form_text： 为纯文字展示<br />
+		form_checkbox：为单复选框
+	</h3>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">表格顶部状态按钮</h3>
+	<div class="status_group" style="padding-left: 15px; padding-right: 15px;">
+		<div class="total_amount">
+			<span class="checklist">共勾选:<span class="sum_money">0</span>笔</span>，
+			<span class="checklist">金额合计:<span class="sum_money">￥0.000</span></span>
+		</div>
+		<div class="status_btn">
+			<button type="button" class="btn btn-reject pull-right"><i class="xy-icon xy-reject"></i>驳回</button>
+			<button type="button" class="btn btn-via pull-right"><i class="xy-icon xy-via"></i>通过</button>
+		</div>
+	</div>
+	<xmp>
+		<div class="status_group">
+			<div class="total_amount">
+				<span class="checklist">共勾选:<span class="sum_money">0</span>笔</span>，
+				<span class="checklist">金额合计:<span class="sum_money">￥0.000</span></span>
+			</div>
+			<div class="status_btn">
+				<button type="button" class="btn btn-reject pull-right"><i class="xy-icon xy-reject"></i>驳回</button>
+				<button type="button" class="btn btn-via pull-right"><i class="xy-icon xy-via"></i>通过</button>
+			</div>
+		</div>
+	</xmp>
+	<h3 style="color: red; margin-left: 20px;">注意：与表格搭配使用</h3>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">自定义表格</h3>
+	<div class="custom_table_wrap" style="padding: 0px 25px;">
+		<table class="table custom_table">
+			<thead>
+				<tr>
+					<th>销售机构</th>
+					<th>划款摘要</th>
+					<th>交收日</th>
+					<th>销售机构</th>
+					<th>划款摘要</th>
+					<th>交收日</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>江南农村商业银行</td>
+					<td>赎回款摘要</td>
+					<td>20170504</td>
+					<td>江南农村商业银行</td>
+					<td>赎回款摘要</td>
+					<td>20170504</td>
+				</tr>
+				<tr>
+					<td>江南农村商业银行</td>
+					<td>赎回款摘要</td>
+					<td>20170504</td>
+					<td>江南农村商业银行</td>
+					<td>赎回款摘要</td>
+					<td>20170504</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<xmp>
+		<div class="custom_table_wrap">
+			<table class="table custom_table">
+				<thead>
+					<tr>
+						<th>销售机构</th>
+						<th>划款摘要</th>
+						<th>交收日</th>
+						<th>销售机构</th>
+						<th>划款摘要</th>
+						<th>交收日</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>江南农村商业银行</td>
+						<td>赎回款摘要</td>
+						<td>20170504</td>
+						<td>江南农村商业银行</td>
+						<td>赎回款摘要</td>
+						<td>20170504</td>
+					</tr>
+					<tr>
+						<td>江南农村商业银行</td>
+						<td>赎回款摘要</td>
+						<td>20170504</td>
+						<td>江南农村商业银行</td>
+						<td>赎回款摘要</td>
+						<td>20170504</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</xmp>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">颜色号</h3>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_1"></div>
+		<p class="system_p">1号颜色class名称：system_color_1</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_2"></div>
+		<p class="system_p">2号颜色class名称：system_color_2</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_3"></div>
+		<p class="system_p">3号颜色class名称：system_color_3</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_4"></div>
+		<p class="system_p">4号颜色class名称：system_color_4</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_5"></div>
+		<p class="system_p">5号颜色class名称：system_color_5</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_6"></div>
+		<p class="system_p">6号颜色class名称：system_color_6</p>
+	</div>
+		<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_7"></div>
+		<p class="system_p">7号颜色class名称：system_color_7</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_8"></div>
+		<p class="system_p">8号颜色class名称：system_color_8</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_9"></div>
+		<p class="system_p">9号颜色class名称：system_color_9</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_10"></div>
+		<p class="system_p">10号颜色class名称：system_color_10</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_11"></div>
+		<p class="system_p">11号颜色class名称：system_color_11</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_12"></div>
+		<p class="system_p">12号颜色class名称：system_color_12</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_13"></div>
+		<p class="system_p">13号颜色class名称：system_color_13</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_14"></div>
+		<p class="system_p">14号颜色class名称：system_color_14</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_15"></div>
+		<p class="system_p">15号颜色class名称：system_color_15</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_16"></div>
+		<p class="system_p">16号颜色class名称：system_color_16</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_17"></div>
+		<p class="system_p">17号颜色class名称：system_color_17</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_18"></div>
+		<p class="system_p">18号颜色class名称：system_color_18</p>
+	</div>
+		<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_19"></div>
+		<p class="system_p">19号颜色class名称：system_color_19</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_20"></div>
+		<p class="system_p">20号颜色class名称：system_color_20</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_21"></div>
+		<p class="system_p">21号颜色class名称：system_color_21</p>
+	</div>
+	<div class="col-lg-2 col-md-2">
+		<div class="rounded_square system_color_22"></div>
+		<p class="system_p">22号颜色class名称：system_color_22</p>
+	</div>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">悬浮背景色</h3>
+	<div class="list_suspension_bgcolor" style="width: 100px; height: 50px;"></div>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">字体大小</h3>
+	<div class="col-lg-12 col-md-12">
+		<div class="font_size_12">12号字体</div>
+		<div class="font_size_13">13号字体</div>
+		<div class="font_size_14">14号字体</div>
+		<div class="font_size_15">15号字体</div>
+		<div class="font_size_16">16号字体</div>
+		<xmp>
+			<div class="font_size_12">12号字体</div>
+			<div class="font_size_13">13号字体</div>
+			<div class="font_size_14">14号字体</div>
+			<div class="font_size_15">15号字体</div>
+			<div class="font_size_16">16号字体</div>
+		</xmp>
+		<h3 style="color: red; margin-left: 20px;">注意：需加在class名称里，覆盖掉原本字号</h3>
+	</div>
+</div>
+<hr />
+<div class="row">
+	<h3 class="base_style_title">上下布局</h3>
+	<div class="row top_bottom_layout">
+		<div class="top_layout_wrap">
+			<div class="condition_top_body">
+		        <div class="condition_top">
+		            <div class="condition_top_left">
+		                <div class="condition_top_content_div">
+		                    <div class="condition_top_content_title">产品类型</div>
+		                    <div class="condition_top_content_dom"></div>
+		                </div>
+		                <div class="condition_top_content_div">
+		                    <div class="condition_top_content_title">产品</div>
+		                    <div class="condition_top_content_dom"></div>
+		                </div>
+		                <div class="condition_top_content_div">
+		                    <div class="condition_top_content_title">托管人</div>
+		                    <div class="condition_top_content_dom"></div>
+		                </div>
+		                <div class="condition_top_content_div conceal clear_both">
+		                    <div class="condition_top_content_title">产品状态</div>
+		                    <div class="condition_top_content_dom"></div>
+		                </div>
+		                <div class="condition_top_content_div conceal">
+		                    <div class="condition_top_content_title">币种</div>
+		                    <div class="condition_top_content_dom"></div>
+		                </div>
+		                <div class="condition_top_content_div conceal">
+		                    <div class="condition_top_content_title">TA类型</div>
+		                    <div class="condition_top_content_dom"></div>
+		                </div>
+		            </div>
+		            <div class="condition_top_right">
+		                <div class="condition_top_more_div">
+		                    <div class="condition_top_more_btn_div">
+		                        <span class="more">更多</span>
+		                        <i class="xy-icon xy-drop-down condition_top_more_btn"></i>
+		                    </div>
+		                    <div class="condition_top_more_search">
+		                        <button class="btn btn-view-lv1 condition_top_query_btn" id="query_btn">查询</button>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+	    </div>
+	    <div class="bottom_layout_wrap">
+	    	<div class="status_group">
+				<div class="total_amount">
+				</div>
+				<div class="status_btn">
+					<button type="button" class="btn btn-action-lv2 pull-right">变更联系人方式</button>
+					<button type="button" class="btn btn-action-lv1 pull-right">新增产品</button>
+				</div>
+			</div>
+			<div class="table_example">
+				<div id="generalLedgerAcctQueryTable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+					<div class="row">
+						<div class="col-md-4 col-sm-12">
+							<div class="table-group-actions pull-right">
+							</div>
+						</div>
+					</div>
+					<div class="table-scrollable">
+						<div class="DTFC_ScrollWrapper" style="position: relative; clear: both; height: 855px;">
+							<div class="DTFC_LeftWrapper" style="position:absolute; top:0; left:0;">
+								<div class="DTFC_LeftHeadWrapper" style="position:relative; top:0; left:0; overflow:hidden;">
+								</div>
+								<div class="DTFC_LeftBodyWrapper" style="position:relative; top:0; left:0; overflow:hidden;">
+									<div class="DTFC_LeftBodyLiner" style="position:relative; top:0; left:0; overflow-y:scroll;">
+									</div>
+								</div>
+								<div class="DTFC_LeftFootWrapper" style="position:relative; top:0; left:0; overflow:hidden;">
+								</div>
+							</div>
+							<div class="dataTables_scroll">
+								<div class="dataTables_scrollHead" style="overflow: hidden; position: relative; border: 0px; width: 100%; top: 0px; z-index: 0;">
+									<div class="dataTables_scrollHeadInner" style="box-sizing: content-box; width: 1913px; padding-right: 0px;">
+										<table class="table table-striped table-nobordered table-hover xyz_datatables dataTable no-footer" role="grid" style="margin-left: 0px; width: 1913px;">
+										<thead>
+										<tr role="row" style="height: 38px;">
+											<th data-column-index="0" class="sorting_disabled" rowspan="1" colspan="1" style="width: 60px; cursor: pointer;" aria-label=" ">
+												<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+												<input type="checkbox" data-set="generalLedgerAcctQueryTable checkboxes" class="group-checkable">
+												<span></span>
+												</label>
+											</th>
+											<th data-column-index="1" class="sorting" tabindex="0" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 90px; cursor: ew-resize;" aria-label="销售机构: activate to sort column ascending">
+												销售机构
+											</th>
+											<th data-column-index="2" class="sorting_disabled" rowspan="1" colspan="1" style="width: 90px; cursor: pointer;" aria-label="机构收款账户">
+												机构收款账户
+											</th>
+											<th data-column-index="3" class="sorting" tabindex="0" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 256px; cursor: pointer;" aria-label="待申请金额: activate to sort column ascending">
+												待申请金额
+											</th>
+											<th data-column-index="4" class="sorting" tabindex="0" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 257px; cursor: pointer;" aria-label="应交收金额: activate to sort column ascending">
+												应交收金额
+											</th>
+											<th data-column-index="5" class="sorting" tabindex="0" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 120px;" aria-label="已申请金额: activate to sort column ascending">
+												已申请金额
+											</th>
+											<th data-column-index="6" class="sorting" tabindex="0" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 120px; cursor: pointer;" aria-label="划款摘要: activate to sort column ascending">
+												划款摘要
+											</th>
+											<th data-column-index="7" class="sorting" tabindex="0" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 120px; cursor: pointer;" aria-label="交收日: activate to sort column ascending">
+												交收日
+											</th>
+											<th data-column-index="8" class="sorting" tabindex="0" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 120px; cursor: pointer;" aria-label="币种: activate to sort column ascending">
+												币种
+											</th>
+											<th data-column-index="9" class="sorting_disabled" rowspan="1" colspan="1" style="width: 130px; cursor: pointer;" aria-label="指令编号">
+												指令编号
+											</th>
+											<th data-column-index="10" class="sorting_disabled" rowspan="1" colspan="1" style="width: 190px;" aria-label="操作">
+												操作
+											</th>
+										</tr>
+										</thead>
+										</table>
+									</div>
+								</div>
+								<div class="dataTables_scrollBody" style="position: relative; overflow: auto; width: 100%;">
+									<table class="table table-striped table-nobordered table-hover xyz_datatables dataTable no-footer" id="generalLedgerAcctQueryTable" role="grid" aria-describedby="generalLedgerAcctQueryTable_info" style="width: 1913px;">
+									<thead>
+									<tr role="row" style="height: 0px;">
+										<th data-column-index="0" class="sorting_disabled" rowspan="1" colspan="1" style="width: 60px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label=" ">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+												<input type="checkbox" data-set="generalLedgerAcctQueryTable checkboxes" class="group-checkable">
+												<span></span>
+												</label>
+											</div>
+										</th>
+										<th data-column-index="1" class="sorting" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 90px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="销售机构: activate to sort column ascending">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												销售机构
+											</div>
+										</th>
+										<th data-column-index="2" class="sorting_disabled" rowspan="1" colspan="1" style="width: 90px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="机构收款账户">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												机构收款账户
+											</div>
+										</th>
+										<th data-column-index="3" class="sorting" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 256px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="待申请金额: activate to sort column ascending">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												待申请金额
+											</div>
+										</th>
+										<th data-column-index="4" class="sorting" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 257px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="应交收金额: activate to sort column ascending">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												应交收金额
+											</div>
+										</th>
+										<th data-column-index="5" class="sorting" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 120px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="已申请金额: activate to sort column ascending">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												已申请金额
+											</div>
+										</th>
+										<th data-column-index="6" class="sorting" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 120px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="划款摘要: activate to sort column ascending">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												划款摘要
+											</div>
+										</th>
+										<th data-column-index="7" class="sorting" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 120px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="交收日: activate to sort column ascending">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												交收日
+											</div>
+										</th>
+										<th data-column-index="8" class="sorting" aria-controls="generalLedgerAcctQueryTable" rowspan="1" colspan="1" style="width: 120px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="币种: activate to sort column ascending">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												币种
+											</div>
+										</th>
+										<th data-column-index="9" class="sorting_disabled" rowspan="1" colspan="1" style="width: 130px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="指令编号">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												指令编号
+											</div>
+										</th>
+										<th data-column-index="10" class="sorting_disabled" rowspan="1" colspan="1" style="width: 190px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="操作">
+											<div class="dataTables_sizing" style="height: 0px; overflow: hidden;">
+												操作
+											</div>
+										</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr role="row" class="odd" style="height: 42px;">
+										<td>
+											<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+											<input type="checkbox" class="checkboxes">
+											<span></span>
+											</label>
+										</td>
+										<td>
+											105
+										</td>
+										<td>
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											0
+										</td>
+										<td>
+											赎回款摘要
+										</td>
+										<td>
+											20170504
+										</td>
+										<td>
+										</td>
+										<td>
+											12017061500001622
+										</td>
+										<td>
+											<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+										</td>
+									</tr>
+									<tr role="row" class="even" style="height: 43px;">
+										<td>
+											<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+											<input type="checkbox" class="checkboxes">
+											<span></span>
+											</label>
+										</td>
+										<td>
+											105
+										</td>
+										<td>
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											0
+										</td>
+										<td>
+											赎回款摘要
+										</td>
+										<td>
+											20170504
+										</td>
+										<td>
+										</td>
+										<td>
+											12017061500001622
+										</td>
+										<td>
+											<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+										</td>
+									</tr>
+									<tr role="row" class="odd" style="height: 43px;">
+										<td>
+											<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+											<input type="checkbox" class="checkboxes">
+											<span></span>
+											</label>
+										</td>
+										<td>
+											105
+										</td>
+										<td>
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											0
+										</td>
+										<td>
+											赎回款摘要
+										</td>
+										<td>
+											20170504
+										</td>
+										<td>
+										</td>
+										<td>
+											12017061500001622
+										</td>
+										<td>
+											<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+										</td>
+									</tr>
+									<tr role="row" class="even" style="height: 43px;">
+										<td>
+											<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+											<input type="checkbox" class="checkboxes">
+											<span></span>
+											</label>
+										</td>
+										<td>
+											105
+										</td>
+										<td>
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											0
+										</td>
+										<td>
+											赎回款摘要
+										</td>
+										<td>
+											20170504
+										</td>
+										<td>
+										</td>
+										<td>
+											12017061500001622
+										</td>
+										<td>
+											<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+										</td>
+									</tr>
+									<tr role="row" class="odd" style="height: 44px;">
+										<td>
+											<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+											<input type="checkbox" class="checkboxes">
+											<span></span>
+											</label>
+										</td>
+										<td>
+											105
+										</td>
+										<td>
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											18400
+										</td>
+										<td>
+											0
+										</td>
+										<td>
+											赎回款摘要
+										</td>
+										<td>
+											20170504
+										</td>
+										<td>
+										</td>
+										<td>
+											12017061500001622
+										</td>
+										<td>
+											<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+										</td>
+									</tr>
+									</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="DTFC_RightWrapper" style="position: absolute; top: 0px; right: 0px; width: 211px; height: 1px;">
+								<div class="DTFC_RightHeadWrapper" style="position: relative; top: 0px; left: 0px; z-index: 1;">
+									<div class="DTFC_RightHeadBlocker DTFC_Blocker" style="position: absolute; top: 0px; bottom: 0px; width: 7px; right: -7px; display: none;">
+									</div>
+									<table class="table table-striped table-nobordered table-hover xyz_datatables dataTable no-footer DTFC_Cloned" role="grid" style="margin-left: 0px; width: 100%;">
+									<thead>
+									<tr role="row" style="height: 38px;">
+										<th data-column-index="10" class="sorting_disabled" rowspan="1" colspan="1" style="width: 190px; cursor: pointer;" aria-label="操作">
+											操作
+										</th>
+									</tr>
+									</thead>
+									</table>
+								</div>
+								<div class="DTFC_RightBodyWrapper" style="position: relative; top: 0px; left: 0px; overflow: hidden; height: 817px;">
+									<div class="DTFC_RightBodyLiner" style="position: relative; top: 0px; left: 0px; overflow-y: scroll; width: 218px; height: 817px;">
+										<table class="table table-striped table-nobordered table-hover xyz_datatables dataTable no-footer DTFC_Cloned" role="grid" aria-describedby="generalLedgerAcctQueryTable_info" style="width: 100%; padding: 0px; margin: 0px;">
+										<thead>
+										<tr role="row" style="height: 0px;">
+											<th data-column-index="10" class="sorting_disabled" rowspan="1" colspan="1" style="width: 190px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;" aria-label="操作">
+											</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr role="row" class="odd" data-dt-row="0" style="height: 42px;">
+											<td data-dt-row="0" data-dt-column="0">
+												<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+											</td>
+										</tr>
+										<tr role="row" class="even" data-dt-row="1" style="height: 43px;">
+											<td data-dt-row="1" data-dt-column="0">
+												<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+											</td>
+										</tr>
+										<tr role="row" class="odd" data-dt-row="2" style="height: 43px;">
+											<td data-dt-row="2" data-dt-column="0">
+												<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+											</td>
+										</tr>
+										<tr role="row" class="even" data-dt-row="3" style="height: 43px;">
+											<td data-dt-row="3" data-dt-column="0">
+												<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+											</td>
+										</tr>
+										<tr role="row" class="odd" data-dt-row="4" style="height: 43px;">
+											<td data-dt-row="4" data-dt-column="0">
+												<button class="btn btn-edit"><i class="fa fa-edit"></i>修改</button><button class="btn btn-cancel"><i class="fa fa-reply"></i> 取消</button>
+											</td>
+										</tr>
+										</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="DTFC_RightFootWrapper" style="position:relative; top:0; left:0;">
+									<div class="DTFC_RightFootBlocker DTFC_Blocker" style="position: absolute; top: 0px; bottom: 0px; width: 7px; right: -7px; display: none;">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 table-pagination-right">
+							<div class="dataTables_paginate paging_bootstrap_full_number" id="generalLedgerAcctQueryTable_paginate">
+								<ul class="pagination" style="visibility: visible;">
+									<li class="prev disabled"><a href="#" title="首页"><i class="fa fa-angle-double-left"></i></a></li>
+									<li class="prev disabled"><a href="#" title="前一页"><i class="fa fa-angle-left"></i></a></li>
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li class="next"><a href="#" title="后一页"><i class="fa fa-angle-right"></i></a></li>
+									<li class="next"><a href="#" title="尾页"><i class="fa fa-angle-double-right"></i></a></li>
+								</ul>
+							</div>
+							<div class="dataTables_info" id="generalLedgerAcctQueryTable_info" role="status" aria-live="polite">
+								无记录 (filtered from NaN total entries)
+							</div>
+							<div class="dataTables_length" id="generalLedgerAcctQueryTable_length" style="margin-left: 10px;">
+								<div class="btn-group dt_pageLength_select dropup">
+									<input type="text" class="btn btn-default pageLength_value" value="10">
+									<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li length="10"><a href="#">10条/页</a></li>
+										<li length="20"><a href="#">20条/页</a></li>
+										<li length="50"><a href="#">50条/页</a></li>
+										<li length="100"><a href="#">100条/页</a></li>
+										<li length="200"><a href="#">200/页</a></li>
+										<li length="500"><a href="#">500/页</a></li>
+									</ul>
+								</div>
+								<span>条 /页</span>
+							</div>
+							<div class="dt-buttons btn-group">
+								<a title="设置" class="btn btn-default dt-button fa fa-gear" id="usersetbtn"></a><a class="btn btn-default buttons-print fa fa-print dt-button" tabindex="0" aria-controls="generalLedgerAcctQueryTable" href="#" title="打印"><span></span></a><a title="下载" class="btn btn-default dt-button fa fa-download"><span></span></a><a title="刷新" class="btn btn-default dt-button fa fa-refresh"><span></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<xmp>
+		<div class="top_bottom_layout">
+			<div class="top_layout_wrap">
+				
+			</div>
+			<div class="bottom_layout_wrap">
+				
+			</div>
+		</div>
+	</xmp>
+	<h3 style="color: red; margin-left: 20px;">
+		注意：上下布局只提供外层框架布局，里面内容需要自行添加<br>
+		上面实例内容为：表格表单，表格顶部状态按钮，xyz-datatables（找不到分别搜索这些个标题即可），如需别的内容可自行查找添加
+	</h3>
+</div>
+</body>
+<script>
+    seajs.use(['../dist/base-style-manage-debug','jquery','xyz-select2','xyz-datatables', 'shine-metron'],function(Main, $){
+        //TODO 示例代码
+        Main.changeStyle('blue');
+        // setTimeout(function(){
+        //     Main.changeStyle('blue');
+        // }, 5000);
+    	$('.mt-checkbox').off('click').on('click',function(e){
+			if ($(e.target).is('input')){
+				if($('.mt-checkbox').find('input[type="checkbox"]').prop('checked')){
+					alert('当前为选中状态')
+				}else{
+					alert('当前为未选中状态')
+				}
+			}
+		});
+		$('.mt-radio').off('click').on('click',function(e){
+			if ($(e.target).is('input')){
+				var val=$('input:radio[name="test"]:checked').val();
+            	alert(val);
+			}
+		});
+		$('#edit').on('click',function(e){
+			$('.show_state').hide();
+			$('.edit_state').show();
+			$('#cancellation').hide();
+			$(this).hide();
+			$('#save').show();
+			$('#cancel').show()
+		});
+		$('#cancel').on('click',function(e){
+			$('.show_state').show();
+			$('.edit_state').hide();
+			$('#cancellation').hide();
+			$(this).hide();
+			$('#cancellation').show();
+			$('#edit').show();
+			$('#save').hide();
+		});
+        $('.condition_top_body').find('.condition_top_more_btn_div').click(function(){
+            var self = $(this);
+            var cndTopDom = self.parents('.condition_top');
+            if(cndTopDom.hasClass('open_shadow')){   //当前为显示状态, 做隐藏操作
+                cndTopDom.find('.conceal').hide();
+	            cndTopDom.removeClass('open_shadow');
+	            cndTopDom.find('.condition_top_more_btn').removeClass('xy-shangla').addClass('xy-drop-down');
+            } else {
+                cndTopDom.find('.conceal').show();
+	            cndTopDom.addClass('open_shadow');
+	            cndTopDom.find('.condition_top_more_btn').removeClass('xy-drop-down').addClass('xy-shangla');
+            }
+        });
+        /*折叠*/
+        $(".left_nav li .t").click(function(){
+			$(this).toggleClass("hover");
+			$(this).next(".txt").slideToggle()
+		});
+    });
+</script>
+</html>

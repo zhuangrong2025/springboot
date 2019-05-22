@@ -1,0 +1,24 @@
+{
+    "name": "xyz-component-base",
+    "version": "0.1.13",
+    "description": "xyz组件基类",
+    "keywords":["组件基类", "公共模块", "业务逻辑模块"],
+    "homepage": "",
+    "main": "./src/xyz-component-base.js",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "devDependencies": {
+        "xyz-datepicker-tag": "~0.1",
+        "xyz-select-tag": "~0.1"
+    },
+    "dependencies": {
+        "jquery": "~1.8",
+        "xyz-jsonRPC": "~0.1",
+        "lodash": "~3"
+    },
+    "buildArgs": "cmd",
+    "tests": ["xyz-component-base"],
+    "output": {
+        "xyz-component-base.js": "."
+    },
+    "assets":null
+}

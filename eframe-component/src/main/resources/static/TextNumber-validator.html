@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+  <style>
+  .tips{color:#f00;padding:10px 0;font-size:12px;}
+  .btn-sub{background-color: #0cf;display: block;width: 100px;padding: 5px 10px;text-align: center;border-radius: 5px;}
+  </style>
+</head>
+<body>
+  <h2>1、用户名和密码校验 2、post所有input值</h2>
+  <form id="loginForm" action="">
+    <div class="tips"></div>
+    <div>
+      <label>用户名：</label>
+      <input type="text" name="username" maxlength="8" style="border:1px solid #ddd" value="user"/>
+    </div>
+    <div>
+      <label>密码：</label>
+      <input type="password" name="password" maxlength="8" style="border:1px solid #ddd" value="psw"/>
+    </div>
+    <a class="btn-sub">提交</a>
+    <div class="arguments"></div>
+  </form>
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+  seajs.use(['./component/textnumber/TextNumber-validator', 'jquery'], function(TextNumber, $) {
+    new TextNumber({
+      el: "#loginForm"
+    }).render()
+  });
+</script>
+
+</html>

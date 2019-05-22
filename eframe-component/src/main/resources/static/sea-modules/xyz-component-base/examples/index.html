@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+</head>
+<body>
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+    <input type="text" id="date1" name="date1" required class="xyz_datepicker_trans"/>
+    <input type="text" name="date2"  class="xyz_datepicker_trans" d-on-change=""/>
+    
+    <!-- 本地数据 -->
+    <select name="curt_type" class="xyz_select_trans" data-empty>
+        <option value="CNY">人民币</option>
+        <option value="HKD">港币</option>
+        <option value="USD">美元</option>
+    </select>
+</body>
+<script>
+    seajs.use(['../dist/xyz-component-base-debug'],function(ComponentBase){
+        //TODO 示例代码
+
+
+        var ComponentA = ComponentBase.extend({
+            constructor: function(options) {
+                ComponentA.superclass.constructor.call(this, options);
+                this.initialize(options);
+            },
+            initialize: function(options) {
+                console.log("init arguments.");
+                console.log(options);
+            },
+            setValue: function(v) {
+                this.emit("change", v);
+                console.log("setValue:" + v);
+            }
+        });
+        var cmpA = new ComponentA({
+            el:"#e4"
+        });
+        cmpA.on("change", function(data) {
+            alert("值变化, 最新值为:" + data);
+        });
+        cmpA.setValue("aaaa");
+        //按el从组件库中获取组件对象
+        ComponentBase.getComponent("#e4").setValue("999");
+        //创建所有标签组件
+        ComponentBase.createAll();
+
+        
+    });
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+</head>
+<body>
+    <button class="btn btn-action-lv1" id="coverlap">打开coverlap</button>
+</body>
+<script>
+    seajs.use(['../dist/base-style-manage-debug','jquery','xyz-coverlap'],function(Main, $, XyzCover){
+        //TODO 示例代码
+        Main.changeStyle('darkblue');
+
+        $('#coverlap').click(function(){
+            var cov = new XyzCover({
+                id: '',
+                child: {
+                    path: '/examples/child/coverlap',       //子模块js的绝对路径    必填
+                }
+            });
+            cov.render();
+        })
+    });
+</script>
+</html>

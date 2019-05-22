@@ -1,0 +1,25 @@
+{
+    "name": "shine-step",
+    "version": "0.1.2",
+    "description": "步骤控件封装, 支持子模块模式的加载模式",
+    "keywords":["基础界面模块", "步骤组件"],
+    "homepage": "",
+    "main": "./src/shine-step.js",
+    "author": "chenming<chenming@shinetechnology.com>",
+    "devDependencies": {
+        "base-common-module": "~0.1"
+    },
+    "dependencies": {
+        "jquery": "~1.8",
+        "xyz-component-base": "~0.1",
+        "base-style-manage": "~0.1",
+        "stringformat": "~0.1",
+        "lodash": "~3"
+    },
+    "buildArgs": "cmd",
+    "tests": ["shine-step"],
+    "output": {
+        "shine-step.js": "."
+    },
+    "assets":null
+}

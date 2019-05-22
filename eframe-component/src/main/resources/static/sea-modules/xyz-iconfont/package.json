@@ -1,0 +1,19 @@
+{
+    "name": "xyz-iconfont",
+    "version": "0.1.25",
+    "description": "字体图标",
+    "keywords":["业务界面模块","icon","font"],
+    "homepage": "",
+    "main": "./src/xyz-iconfont.js",
+    "author": "chenyudong<chenyudong@shinetechnology.com>",
+    "devDependencies": {},
+    "dependencies": {},
+    "buildArgs": "cmd",
+    "tests": ["xyz-iconfont"],
+    "output": {
+        "xyz-iconfont.js": "."
+    },
+    "assets":{
+		"assets/xyz-iconfont": "assets/xyz-iconfont/*"
+	}
+}

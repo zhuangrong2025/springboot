@@ -1,0 +1,258 @@
+fileName: app.js
+71行,36列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+84行,43列:  预期结果为'!==', 实际却为'!='(if语句后应加大括号).【Expected '!==' and instead saw '!='.】, 错误代码W116
+102行,57列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+120行,57列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+129行,86列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+130行,89列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+141行,52列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+141行,78列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+142行,50列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+143行,62列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+151行,36列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+154行,41列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+163行,50列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+163行,39列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+165行,59列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+165行,46列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+194行,52列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+194行,78列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+195行,48列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+196行,51列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+196行,70列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+199行,49列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+199行,70列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+224行,22列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+224行,40列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+224行,51列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+234行,55列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+234行,64列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+235行,80列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+238行,61列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+239行,58列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+249行,88列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+259行,35列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+259行,30列:  预期结果为'!==', 实际却为'!='(if语句后应加大括号).【Expected '!==' and instead saw '!='.】, 错误代码W116
+294行,99列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+334行,50列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+360行,52列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+361行,61列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+367行,60列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+440行,47列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+440行,34列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+473行,37列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+474行,37列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+494行,43列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+504行,152列:  该行的内容太长.【Line is too long.】, 错误代码W101
+508行,71列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+509行,53列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+513行,41列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+519行,63列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+530行,50列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+530行,50列:  错误太多.【Too many errors.】 (51% scanned)., 错误代码undefined
+
+
+fileName: jquery-blockui.js
+16行,9列:  不正确的jshint选项参数的值.【Bad option value.】, 错误代码E002
+17行,21列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+38行,28列:  预期结果为'{', 实际却为'$m'(if语句后应加大括号).【Expected '{' and instead saw '$m'.】, 错误代码W116
+39行,30列:  预期结果为'{', 实际却为'$m'(if语句后应加大括号).【Expected '{' and instead saw '$m'.】, 错误代码W116
+40行,44列:  预期结果为'{', 实际却为'timeout'(if语句后应加大括号).【Expected '{' and instead saw 'timeout'.】, 错误代码W116
+85行,25列:  预期结果为'{', 实际却为'return'(if语句后应加大括号).【Expected '{' and instead saw 'return'.】, 错误代码W116
+90行,48列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+235行,167列:  该行的内容太长.【Line is too long.】, 错误代码W101
+252行,32列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+257行,21列:  预期结果为'{', 实际却为'return'(if语句后应加大括号).【Expected '{' and instead saw 'return'.】, 错误代码W116
+262行,21列:  预期结果为'{', 实际却为'opts'(if语句后应加大括号).【Expected '{' and instead saw 'opts'.】, 错误代码W116
+269行,21列:  预期结果为'{', 实际却为'remove'(if语句后应加大括号).【Expected '{' and instead saw 'remove'.】, 错误代码W116
+274行,39列:  预期结果为'!==', 实际却为'!='(if语句后应加大括号).【Expected '!==' and instead saw '!='.】, 错误代码W116
+283行,25列:  预期结果为'{', 实际却为'data'(if语句后应加大括号).【Expected '{' and instead saw 'data'.】, 错误代码W116
+295行,217列:  该行的内容太长.【Line is too long.】, 错误代码W101
+295行,21列:  预期结果为'{', 实际却为'lyr1'(if语句后应加大括号).【Expected '{' and instead saw 'lyr1'.】, 错误代码W116
+297行,21列:  预期结果为'{', 实际却为'lyr1'(if语句后应加大括号).【Expected '{' and instead saw 'lyr1'.】, 错误代码W116
+300行,21列:  预期结果为'{', 实际却为'lyr2'(if语句后应加大括号).【Expected '{' and instead saw 'lyr2'.】, 错误代码W116
+302行,181列:  该行的内容太长.【Line is too long.】, 错误代码W101
+302行,21列:  预期结果为'{', 实际却为'lyr2'(if语句后应加大括号).【Expected '{' and instead saw 'lyr2'.】, 错误代码W116
+305行,174列:  该行的内容太长.【Line is too long.】, 错误代码W101
+313行,180列:  该行的内容太长.【Line is too long.】, 错误代码W101
+324行,152列:  该行的内容太长.【Line is too long.】, 错误代码W101
+335行,25列:  预期结果为'{', 实际却为'lyr3'(if语句后应加大括号).【Expected '{' and instead saw 'lyr3'.】, 错误代码W116
+340行,21列:  预期结果为'{', 实际却为'lyr2'(if语句后应加大括号).【Expected '{' and instead saw 'lyr2'.】, 错误代码W116
+345行,21列:  预期结果为'{', 实际却为'lyr1'(if语句后应加大括号).【Expected '{' and instead saw 'lyr1'.】, 错误代码W116
+365行,25列:  预期结果为'{', 实际却为'$'(if语句后应加大括号).【Expected '{' and instead saw '$'.】, 错误代码W116
+380行,192列:  该行的内容太长.【Line is too long.】, 错误代码W101
+380行,33列:  预期结果为'{', 实际却为's'(if语句后应加大括号).【Expected '{' and instead saw 's'.】, 错误代码W116
+382行,33列:  预期结果为'{', 实际却为's'(if语句后应加大括号).【Expected '{' and instead saw 's'.】, 错误代码W116
+384行,159列:  该行的内容太长.【Line is too long.】, 错误代码W101
+384行,33列:  预期结果为'{', 实际却为's'(if语句后应加大括号).【Expected '{' and instead saw 's'.】, 错误代码W116
+386行,33列:  预期结果为'{', 实际却为's'(if语句后应加大括号).【Expected '{' and instead saw 's'.】, 错误代码W116
+387行,39列:  预期结果为'{', 实际却为's'(if语句后应加大括号).【Expected '{' and instead saw 's'.】, 错误代码W116
+388行,39列:  预期结果为'{', 实际却为's'(if语句后应加大括号).【Expected '{' and instead saw 's'.】, 错误代码W116
+391行,279列:  该行的内容太长.【Line is too long.】, 错误代码W101
+391行,39列:  预期结果为'{', 实际却为's'(if语句后应加大括号).【Expected '{' and instead saw 's'.】, 错误代码W116
+396行,166列:  该行的内容太长.【Line is too long.】, 错误代码W101
+405行,25列:  预期结果为'{', 实际却为'lyr3'(if语句后应加大括号).【Expected '{' and instead saw 'lyr3'.】, 错误代码W116
+407行,25列:  预期结果为'{', 实际却为'lyr3'(if语句后应加大括号).【Expected '{' and instead saw 'lyr3'.】, 错误代码W116
+409行,25列:  预期结果为'{', 实际却为'$'(if语句后应加大括号).【Expected '{' and instead saw '$'.】, 错误代码W116
+413行,21列:  预期结果为'{', 实际却为'lyr1'(if语句后应加大括号).【Expected '{' and instead saw 'lyr1'.】, 错误代码W116
+419行,25列:  预期结果为'{', 实际却为'lyr2'(if语句后应加大括号).【Expected '{' and instead saw 'lyr2'.】, 错误代码W116
+421行,25列:  预期结果为'{', 实际却为'lyr3'(if语句后应加大括号).【Expected '{' and instead saw 'lyr3'.】, 错误代码W116
+425行,25列:  预期结果为'{', 实际却为'lyr2'(if语句后应加大括号).【Expected '{' and instead saw 'lyr2'.】, 错误代码W116
+427行,25列:  预期结果为'{', 实际却为'lyr3'(if语句后应加大括号).【Expected '{' and instead saw 'lyr3'.】, 错误代码W116
+429行,25列:  预期结果为'{', 实际却为'opts'(if语句后应加大括号).【Expected '{' and instead saw 'opts'.】, 错误代码W116
+439行,25列:  预期结果为'{', 实际却为'setTimeout'(if语句后应加大括号).【Expected '{' and instead saw 'setTimeout'.】, 错误代码W116
+442行,21列:  预期结果为'{', 实际却为'center'(if语句后应加大括号).【Expected '{' and instead saw 'center'.】, 错误代码W116
+448行,29列:  预期结果为'{', 实际却为'$'(if语句后应加大括号).【Expected '{' and instead saw '$'.】, 错误代码W116
+448行,29列:  错误太多.【Too many errors.】 (72% scanned)., 错误代码undefined
+
+
+fileName: jquery-slimscroll.js
+38行,32列:  将小数点放在头部易被混淆为一个点: '.4'.【A leading decimal point can be confused with a dot: '.4'.】, 错误代码W008
+53行,36列:  将小数点放在头部易被混淆为一个点: '.2'.【A leading decimal point can be confused with a dot: '.2'.】, 错误代码W008
+102行,50列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+102行,58列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+120行,71列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+130行,61列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+133行,62列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+150行,48列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+170行,30列:  'rail'在未定义之前被使用.【'rail' was used before it was defined.】, 错误代码W003
+185行,29列:  'bar'在未定义之前被使用.【'bar' was used before it was defined.】, 错误代码W003
+202行,46列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+219行,45列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+225行,61列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+231行,59列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+237行,57列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+338行,31列:  'e'已被定义.【'e' is already defined.】, 错误代码W004
+363行,43列:  'scrollContent'在未定义之前被使用.【'scrollContent' was used before it was defined.】, 错误代码W003
+370行,60列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+370行,88列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+388行,64列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+420行,41列:  'attachWheel'在未定义之前被使用.【'attachWheel' was used before it was defined.】, 错误代码W003
+425行,64列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+429行,42列:  'getBarHeight'在未定义之前被使用.【'getBarHeight' was used before it was defined.】, 错误代码W003
+437行,49列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+449行,43列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+454行,44列:  预期结果为'!==', 实际却为'!='(if语句后应加大括号).【Expected '!==' and instead saw '!='.】, 错误代码W116
+455行,60列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+89行,36列:  函数的圈复杂度太高. (13)【This function's cyclomatic complexity is too high. (13)】, 错误代码W074
+222行,29列:  't'没有被定义过.【't' is not defined.】, 错误代码W117
+223行,29列:  'pageY'没有被定义过.【'pageY' is not defined.】, 错误代码W117
+226行,33列:  'currTop'没有被定义过.【'currTop' is not defined.】, 错误代码W117
+226行,43列:  't'没有被定义过.【't' is not defined.】, 错误代码W117
+226行,57列:  'pageY'没有被定义过.【'pageY' is not defined.】, 错误代码W117
+227行,48列:  'currTop'没有被定义过.【'currTop' is not defined.】, 错误代码W117
+
+
+fileName: layer.js
+1行,0列:  这个字段会被某些浏览器所删除.(可尝试将编码设置为utf-8无bom格式)【This character may get silently deleted by one or more browsers.】, 错误代码W100
+12行,5列:  不必要的分号.【Unnecessary semicolon.】, 错误代码W032
+13行,21列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+18行,50列:  预期结果为'{', 实际却为'return'(if语句后应加大括号).【Expected '{' and instead saw 'return'.】, 错误代码W116
+19行,66列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+24行,38列:  预期结果为'{', 实际却为'e'(if语句后应加大括号).【Expected '{' and instead saw 'e'.】, 错误代码W116
+44行,89列:  预期看到委托或函数调用，却看到一个表达式.【Expected an assignment or function call and instead saw an expression.】, 错误代码W030
+58行,28列:  'module'已被定义.【'module' is already defined.】, 错误代码W004
+62行,33列:  预期结果为'{', 实际却为'return'(if语句后应加大括号).【Expected '{' and instead saw 'return'.】, 错误代码W116
+73行,62列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+74行,34列:  预期看到委托或函数调用，却看到一个表达式.【Expected an assignment or function call and instead saw an expression.】, 错误代码W030
+75行,61列:  预期看到委托或函数调用，却看到一个表达式.【Expected an assignment or function call and instead saw an expression.】, 错误代码W030
+75行,76列:  不必要的分号.【Unnecessary semicolon.】, 错误代码W032
+76行,47列:  预期看到委托或函数调用，却看到一个表达式.【Expected an assignment or function call and instead saw an expression.】, 错误代码W030
+83行,26列:  预期结果为'{', 实际却为'fn'(if语句后应加大括号).【Expected '{' and instead saw 'fn'.】, 错误代码W116
+93行,26列:  预期结果为'{', 实际却为'yes'(if语句后应加大括号).【Expected '{' and instead saw 'yes'.】, 错误代码W116
+118行,26列:  预期结果为'{', 实际却为'end'(if语句后应加大括号).【Expected '{' and instead saw 'end'.】, 错误代码W116
+171行,186列:  该行的内容太长.【Line is too long.】, 错误代码W101
+205行,342列:  该行的内容太长.【Line is too long.】, 错误代码W101
+199行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+200行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+208行,499列:  该行的内容太长.【Line is too long.】, 错误代码W101
+208行,102列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+208行,122列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+209行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+210行,219列:  该行的内容太长.【Line is too long.】, 错误代码W101
+209行,43列:  预期结果为'!==', 实际却为'!='(if语句后应加大括号).【Expected '!==' and instead saw '!='.】, 错误代码W116
+210行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+210行,94列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+210行,167列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+211行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+211行,32列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+212行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+212行,32列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+213行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+214行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+215行,182列:  该行的内容太长.【Line is too long.】, 错误代码W101
+216行,203列:  该行的内容太长.【Line is too long.】, 错误代码W101
+216行,154列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+216行,202列:  预期看到委托或函数调用，却看到一个表达式.【Expected an assignment or function call and instead saw an expression.】, 错误代码W030
+219行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+221行,81列:  预期看到委托或函数调用，却看到一个表达式.【Expected an assignment or function call and instead saw an expression.】, 错误代码W030
+227行,17列:  在'+'前的行被阻断.【Bad line breaking before '+'.】, 错误代码W014
+237行,38列:  预期结果为'{', 实际却为'return'(if语句后应加大括号).【Expected '{' and instead saw 'return'.】, 错误代码W116
+249行,33列:  'content'已被定义.【'content' is already defined.】, 错误代码W004
+250行,293列:  该行的内容太长.【Line is too long.】, 错误代码W101
+255行,61列:  预期看到委托或函数调用，却看到一个表达式.【Expected an assignment or function call and instead saw an expression.】, 错误代码W030
+259行,74列:  预期看到委托或函数调用，却看到一个表达式.【Expected an assignment or function call and instead saw an expression.】, 错误代码W030
+264行,61列:  预期看到委托或函数调用，却看到一个表达式.【Expected an assignment or function call and instead saw an expression.】, 错误代码W030
+272行,34列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+272行,34列:  错误太多.【Too many errors.】 (25% scanned)., 错误代码undefined
+
+
+fileName: layout.js
+29行,50列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+29行,98列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+83行,83列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+92行,34列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+96行,50列:  脚本路径.【Script URL.】, 错误代码W107
+96行,33列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+97行,53列:  脚本路径.【Script URL.】, 错误代码W107
+97行,36列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+98行,33列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+99行,36列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+104行,63列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+154行,155列:  该行的内容太长.【Line is too long.】, 错误代码W101
+186行,227列:  该行的内容太长.【Line is too long.】, 错误代码W101
+186行,115列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+192行,160列:  该行的内容太长.【Line is too long.】, 错误代码W101
+197行,159列:  该行的内容太长.【Line is too long.】, 错误代码W101
+197行,102列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+208行,57列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+209行,66列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+209行,67列:  缺少基数参数【Missing radix parameter.】, 错误代码W065
+210行,59列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+220行,38列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+221行,56列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+222行,52列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+236行,53列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+237行,49列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+257行,46列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+257行,58列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+268行,46列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+280行,155列:  该行的内容太长.【Line is too long.】, 错误代码W101
+280行,98列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+292行,46列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+294行,155列:  该行的内容太长.【Line is too long.】, 错误代码W101
+294行,98列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+312行,56列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+317行,29列:  预期结果为'===', 实际却为'=='(if语句后应加大括号).【Expected '===' and instead saw '=='.】, 错误代码W116
+326行,61列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+331行,61列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+348行,64列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+357行,55列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+376行,40列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+412行,36列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+412行,65列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+414行,56列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+415行,59列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+416行,71列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+421行,56列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+422行,68列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+423行,59列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+424行,57列:  字符串必须使用单引号.【Strings must use singlequote.】, 错误代码W109
+424行,57列:  错误太多.【Too many errors.】 (61% scanned)., 错误代码undefined
+
+
+fileName: shine-metron.js
+success:  shine-metron.js您的代码很完美， 不存在语法错误
+
+
+

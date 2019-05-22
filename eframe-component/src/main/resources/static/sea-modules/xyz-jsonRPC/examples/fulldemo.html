@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>各类调用demo</title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<script>
+    seajs.use(['../dist/xyz-jsonRPC-debug', 'jquery', 'mockjax'],function(Main, $, Mock){
+        //TODO 示例代码
+        Mock($);
+        Main($);
+
+        //模拟数据请求
+        $.mockjax({
+            url: '/test?*',
+            responseTime: 30,
+            responseText: {
+                result: {data: {},jsonrpc: '2.1', retCode:0},
+                status: {code:0, message: '操作成功!'}
+            }
+        });
+
+        //模拟数据请求
+        $.mockjax({
+            url: '/api?*',
+            responseTime: 30,
+            responseText: {
+                "name": "新资管项目配置",
+                "cache": true,
+                "cacheTime": 5,
+                "ajax": [{
+                    "id": "searchForDepart",
+                    "description": "搜索部门",
+                    "url":  "/search/depart",
+                    "params":  {
+                        "params": {
+                            "a": "1",
+                            "b": "2"
+                        }
+                    },
+                    "cache": true,
+                    "cacheTime": 5
+                }]
+            }
+        });
+
+        //模拟部门请求
+        $.mockjax({
+            url: '/search/depart?*',
+            responseTime: 30,
+            responseText: {
+                result: {data: {search: true},jsonrpc: '2.1', retCode:0},
+                status: {code:0, message: '操作成功!'}
+            }
+        });
+
+        //常规自定义模式
+        $.jsonRPC.request({
+            url: '/test',
+            serviceUri:'12.12.1',
+            params: {
+                params: {
+                    a: '1',
+                    b: '2'
+                }
+            },
+            success: function (response, url) {
+                console.log(response);
+            }
+        });
+
+        //缓存模式
+        $.jsonRPC.request({
+            url: '/test',
+            params: {
+                params: {
+                    a: '1',
+                    b: '2'
+                }
+            },
+            success: function (response, url) {
+                console.log(response);
+            },
+            cache: true,
+            cacheTime: 6   //cache为true时生效，不设置cacheTime时，默认值为5， 单位分钟
+        });
+
+        //配置请求模式
+        $.jsonRPC.setConfigBase('/');   //设置配置文件的默认路由， 默认为'/'
+        //极简模式
+        $.jsonRPC.fetch('api.searchForDepart', function(error, data, url){
+            if(error){
+                console.log(error);
+                return false;
+            }
+            console.log(data);
+        });
+        $.jsonRPC.fetch('api.searchForDepart', {
+            params: {params: {c: 1}}
+        }, function(error, data){
+            console.log(data);
+        });
+
+        //设置全局host（跨域），支持开发调试
+        $.jsonRPC.setHost('http://192.168.1.1');
+        //跨域请求模式
+        $.jsonRPC.request({
+            url: '/test',
+            params: {
+                params: {
+                    a: '1',
+                    b: '2'
+                }
+            },
+            success: function (response, url) {
+                console.log(response);
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

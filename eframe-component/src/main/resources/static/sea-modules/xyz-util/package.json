@@ -1,0 +1,27 @@
+{
+    "name": "xyz-util",
+    "version": "0.1.54",
+    "description": "原xyz.js中的util工具方法",
+    "keywords": ["业务逻辑模块", "第三方", "千分位", "pageutil", "formUtil"],
+    "homepage": "",
+    "main": "./src/xyz-util.js",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "devDependencies": {
+        "jquery": "~1.8",
+        "xyz-select2": "~0.1",
+        "xyz-multiselect": "~0.1",
+        "xyz-datepicker": "~0.1"
+    },
+    "dependencies": {
+        "lodash": "~3",
+        "jquery": "~1.8",
+        "observer": "~0.1",
+        "stringformat": "~0.1"
+    },
+    "buildArgs": "cmd",
+    "tests": ["xyz-util"],
+    "output": {
+        "xyz-util.js": "."
+    },
+    "assets": null
+}

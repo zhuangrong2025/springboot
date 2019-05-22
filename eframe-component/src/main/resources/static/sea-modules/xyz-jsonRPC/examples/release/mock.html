@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>mock</title>
+</head>
+<body>
+<script id="seajsnode" src="../../sea-modules/sea-debug.js"></script>
+<script src="../../sea-modules/seajs-helper.js"></script>
+
+<div id="main"></div>
+<script>
+    seajs.use(['../../dist/xyz-jsonRPC-debug', 'jquery'],function(Main, $){
+        Main($);
+        //常规自定义模式
+        $.jsonRPC.setDebug(true);
+        $.jsonRPC.setMock(true);
+        $.jsonRPC.request({
+            // url: 'http://10.168.3.150:3003/yunying',
+            url: 'http://10.168.0.130:3386/EPSERVICERUN/table/USAccess/dataTables.do?service=esowpCollect.esowpCollect_soCollectTaskService.queryAllCollectTaskByPage',
+            params: {params: {a: 1,b: 2}},
+            success: function (response) {
+                console.log(response);
+            }
+        });
+
+        // $.ajax({
+        //     url: 'http://10.168.2.154:8080/EPSERVICERUN/table/USAccess/dataTables.do?service=esowpCollect.esowpCollect_soCollectObjectService.queryAllCollectObjectByPage',
+        //     type: 'post'
+        // })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+</head>
+<body class="base_style_manage_style_v1 style_v1">
+555555
+
+</body>
+<script>
+    seajs.use(['../dist/xyz-coverlap-debug', 'jquery', 'observer'],function(Main, $, observer){
+        //TODO 示例代码
+        var cov = new Main({
+            remote: 'test.html',
+            id:  'testChildClose',
+            title: '标题',
+            returnbtn: true,
+            onDispose: function(s){
+                if(s){
+                    console.log('点击了返回按钮');
+                } else {
+                    console.log('外部调用');
+                }
+            }
+        });
+        cov.render();
+//      setTimeout(function(){
+//          cov.dispose();
+//      }, 5000);
+
+    });
+</script>
+</html>

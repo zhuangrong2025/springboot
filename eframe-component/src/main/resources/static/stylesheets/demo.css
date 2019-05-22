@@ -295,3 +295,145 @@ em, h3 {
   padding: 10px;
   min-height: 580px;
 }
+
+/* coverlap */
+.xyz_coverlap {
+    outline: 0;
+    overflow-y: auto !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    -webkit-overflow-scrolling: touch;
+    background-color: #F5F5F5;
+    opacity: 1;
+}
+
+.xyz_coverlap .portlet-title {
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    width: 100%;
+    height: 41px;
+    margin-bottom: 10px;
+}
+
+.xyz_coverlap .portlet-body {
+    height: calc(100% - 51px);
+    position: relative;
+}
+
+.xyz_coverlap .coverlap_iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.xyz_coverlap .portlet {
+    height: calc(100% - 5px);
+    margin: 0px !important;
+}
+
+.xyz_coverlap .top-return {
+    border-bottom: 1px solid #eee;
+    height: 41px;
+    background: white;
+    position: relative;
+    padding: 5px 0 0 15px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.xyz_coverlap .return-btn {
+    color: #616161;
+    display: block;
+    width: 70px;
+}
+
+.xyz_coverlap .return-btn:hover {
+    text-decoration: none;
+}
+
+.xyz_coverlap .return-btn > i {
+    color: #ff7300;
+    font-size: 25px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.xyz_coverlap .return-btn > span {
+    margin-bottom: 1px;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.xyz_coverlap .coverlap_return_img {
+    color: #FF7300;
+}
+
+.coverlap-open.coverlap {
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: block;
+}
+
+.coverlap-open .coverlap.coverlap_iframe {
+    overflow-x: hidden;
+    overflow-y: hidden !important;
+    display: block;
+}
+
+.coverlap-header {
+    height: 41px;
+    background-color: #FFF;
+}
+
+.coverlap-header .back-link {
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.coverlap-header .back-link .back-icon {
+    margin-right: 10px;
+    vertical-align: -1px;
+}
+
+.coverlap-header .line-icon {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    height: 19px;
+    text-indent: -999px;
+    border-left: 1px solid #a2a2a2;
+}
+
+.coverlap .coverlap-title {
+    margin-top: 15px;
+    font-size: 20px;
+    padding: 0;
+    letter-spacing: -1px;
+    vertical-align: middle;
+    display: inline-block;
+    float: inherit;
+    white-space: nowrap;
+    color: #171d25;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+
+.coverlap .coverlap-title {
+    border-left: 3px solid #FF7300;
+}
+
+.coverlap-title small {
+    margin-left: 20px;
+    font-size: 14px;
+    letter-spacing: 0;
+    font-weight: 300;
+    color: #888;
+}

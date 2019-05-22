@@ -1,0 +1,1 @@
+define("#/stringformat/0.1.0/stringformat",[],function(n,r,e){e.exports=function(){if(0===arguments.length)return null;for(var n=arguments[0],r=1,e=arguments.length;e>r;r++){var t=new RegExp("\\{"+(r-1)+"\\}","gm");n=n.replace(t,arguments[r])}return n}},{});

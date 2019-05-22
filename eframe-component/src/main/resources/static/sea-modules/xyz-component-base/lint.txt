@@ -1,0 +1,5 @@
+fileName: xyz-component-base.js
+success:  xyz-component-base.js您的代码很完美， 不存在语法错误
+
+
+

@@ -1,0 +1,25 @@
+{
+    "name": "xyz-coverlap",
+    "version": "0.1.31",
+    "description": "覆盖层模块, 链接配置的url地址",
+    "keywords":["基础界面模块", "覆盖层", "弹出层", "iframe"],
+    "homepage": "",
+    "main": "./src/xyz-coverlap.js",
+    "author": "chenyudong<chenyudong@shinetechnology.com>",
+    "devDependencies": {
+        "observer": "~0.1"
+    },
+    "dependencies": {
+        "jquery": "~1.8",
+        "xyz-util": "~0.1",
+        "stringformat": "~0.1",
+        "xyz-iconfont": "~0.1",
+        "observer": "~0.1"
+    },
+    "buildArgs": "cmd",
+    "tests": ["xyz-coverlap"],
+    "output": {
+        "xyz-coverlap.js": "."
+    },
+    "assets":null
+}

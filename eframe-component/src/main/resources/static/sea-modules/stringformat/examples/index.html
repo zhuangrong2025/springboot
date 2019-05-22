@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+<script id="seajsnode" src="../sea-modules/sea.js"></script>
+<script src="../sea-modules/seajs-helper.js"></script>
+
+<!-- TODO: 其他HTML标记 -->
+<div id="main">
+    tpl:<div class="tpl"></div>
+    htmlTpl:<div class="html_tpl"></div>
+</div>
+<script>
+    seajs.use(['../dist/Stringformat-debug', 'jquery'],function(format, $){
+        //TODO 示例代码
+        var tpl = '这是第一条数据:{0}, 这是第二条数据: {1}';
+        var htmlTpl = '<h1>h1的内容: {0}</h1><h2>h2的内容: {1}</h2>';
+        var tplStr = format(tpl, 'data1', 'data2');
+        var htmlTplStr = format(htmlTpl, 'h1Data', 'h2Data');
+        $('.tpl').html(tplStr);
+        $('.html_tpl').html(htmlTplStr);
+    });
+</script>
+</body>
+</html>
