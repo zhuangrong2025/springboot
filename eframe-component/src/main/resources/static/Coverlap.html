@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="main"></div>
+  <button id="btn">新增</button>
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+  seajs.use(['./component/coverlap/Coverlap', 'jquery'], function(Coverlap, $) {
+    $("#btn").on("click", function() {
+      var coverlap = new Coverlap({
+        el: "#main",
+        data: {
+          id: 'dep_role_add_cover',
+          title: '标题',
+          child: {
+            path: '../../child/CoverlapChild',
+            options: {}
+          }
+        },
+        events:{
+          
+        },
+        onShow: function(){ // 显示时候回调
+          console.log("显示")
+        }
+      }).render();
+    })
+  });
+</script>
+
+</html>

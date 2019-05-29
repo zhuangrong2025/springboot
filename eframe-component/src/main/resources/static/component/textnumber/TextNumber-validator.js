@@ -40,7 +40,7 @@ define(function(require, exports, module) {
           keys.push(key)
           values.push(val)
         })
-        this.data = _.zipObject(keys, values)
+        this.data = _.zipObject(keys, values) //  将input中的name和value组合为一个对象数组 [{username: value},{password: value1}]
       },
       // setValue dom是当前点击的input
       setValue: function(value, dom){

@@ -297,6 +297,7 @@ em, h3 {
 }
 
 /* coverlap */
+.coverlap,
 .xyz_coverlap {
     outline: 0;
     overflow-y: auto !important;
@@ -305,12 +306,13 @@ em, h3 {
     right: 0;
     bottom: 0;
     left: 0;
-    display: none;
+    /* display: none; */
     -webkit-overflow-scrolling: touch;
     background-color: #F5F5F5;
     opacity: 1;
 }
 
+.coverlap .portlet-title,
 .xyz_coverlap .portlet-title {
     border-bottom: 1px solid #eee;
     background: #fff;
@@ -425,11 +427,9 @@ em, h3 {
     text-overflow: ellipsis;
     font-weight: bold;
 }
-
 .coverlap .coverlap-title {
     border-left: 3px solid #FF7300;
 }
-
 .coverlap-title small {
     margin-left: 20px;
     font-size: 14px;

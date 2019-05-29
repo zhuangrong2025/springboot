@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+
+</head>
+<body>
+<!-- 每个li绑定不同事件 -->
+<ul>
+  <li>a</li>
+  <li>b</li>
+  <li>c</li>
+  <li>d</li>
+  <li>d</li>
+</ul>
+</body>
+<script>
+// 正确示例
+function test(){
+  var lis = document.getElementsByTagName("li")
+  // 立即执行方式，每次执行的上下文的j值都是一样的
+  for(var i=0; i< lis.length; i++){
+    (function(j){
+      lis[j].onclick = function(){
+        console.log(j)
+      }
+    }(i))
+  }
+}
+test()  // 点击li 输出都0,1,2,3,4
+
+
+
+
+</script>
+</html>
