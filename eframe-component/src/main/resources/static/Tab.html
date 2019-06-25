@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="main"></div>
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+  seajs.use(['./component/tab/Tab', 'jquery'], function(Tab, $) {
+      var user = { name: 'bbb'}
+      var tab = new Tab({
+        el: "#main",
+        view: 'card',
+        config: [{
+          id: "tab1",
+          title: "表格111",
+          child: {
+            path: '../../child/Tab1',
+            options: { name : 'aaa'},
+            refresh: true // 是否每次切换到当前页面时都刷新
+          }
+        },{
+          id: "tab2",
+          title: "表格2",
+          child: {
+            path: '../../child/Tab2',
+            options: function(){  // 支持动态传参的方式, 当首次切换到该tab时，动态获取当前的参数
+              // return { name: 'bbb'}
+              return user
+            }
+          }
+        }],
+        events: {
+          change: function(id, _m){
+              console.log('切换后, id:' + id);
+          },
+          beforeChange: function(id, cb, _m){
+              console.log('切换前，先保存，beforeChange, id:' + id);
+              cb();
+          }
+        }
+      }).render()
+  });
+</script>
+
+</html>

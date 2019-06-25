@@ -8,6 +8,8 @@
   <title>Document</title>
 </head>
 <body>
+  实例访问路径：
+  http://localhost:8082/esystem/deprole/deprolemanage/DepRoleManage.html
   <button id="btn">dialog12356</button>
   <p>-----------------</p>
   <button id="btn2">dialog2</button>
@@ -17,6 +19,8 @@
 <script id="seajsnode" src="./sea-modules/sea.js"></script>
 <script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
+
+
   seajs.use(['./component/dialog/Dialog', 'jquery'], function(Dialog, $) {
     $("#btn").on("click", function() {
       var dialog = new Dialog({

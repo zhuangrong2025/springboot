@@ -437,3 +437,39 @@ em, h3 {
     font-weight: 300;
     color: #888;
 }
+.xyz_tabs_ul{
+  background-color: #eee;
+}
+.xyz_tabs_ul li{
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+}
+.xyz_tabs_ul li.active{
+  background-color: #fff;
+  border:1px solid #ccc;
+  border-bottom: none;
+}
+.xyz_tab_content_div > .xyz_tab_content {
+  display: none;
+}
+.xyz_tab_content_div > .xyz_tab_content.active{
+  display: block;
+}
+
+.tabbable-line > .nav-tabs  li{
+  border: none;
+}
+.tabbable-line {
+    position: relative;
+}
+.tabbable-line > .nav-tabs > li.active {
+    border-color: #3b89ff;
+}
+.tabbable-line > .nav-tabs > li.active {
+    border-bottom: 2px solid #3b89ff;
+}
+.tabbable-line > .nav-tabs > li:hover > a,
+.tabbable-line > .nav-tabs > li.active > a {
+    color: #3b89ff;
+}

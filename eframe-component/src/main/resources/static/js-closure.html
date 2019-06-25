@@ -9,17 +9,23 @@
 
 </head>
 <body>
-<!-- 每个li绑定不同事件 -->
-<ul>
-  <li>a</li>
-  <li>b</li>
-  <li>c</li>
-  <li>d</li>
-  <li>d</li>
-</ul>
+  <!-- <h2>案例一 每个li绑定不同事件</h2> -->
+  <!-- 案例一 每个li绑定不同事件 -->
+  <ul>
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+    <li>d</li>
+    <li>d</li>
+  </ul>
+
+<!-- 案例二 内存泄漏查找 -->
+<!-- <h2>案例二 内存泄漏查找</h2> -->
 </body>
 <script>
-// 正确示例
+
+
+// 案例一
 function test(){
   var lis = document.getElementsByTagName("li")
   // 立即执行方式，每次执行的上下文的j值都是一样的
@@ -33,7 +39,22 @@ function test(){
 }
 test()  // 点击li 输出都0,1,2,3,4
 
+// 案例二  内存泄漏查找
+var iframe = document.createElement('iframe')
+iframe.src = "Dialog.html"
+document.body.appendChild(iframe)
+iframe.addEventListener('load', function(){
+  var local_variable = iframe.contentWindow
+  function leakingListener(){
+    if(local_variable){
+      console.log("加载完成！")
+    }
+  }
+  document.body.addEventListener('my-debug-event', leakingListener); // 监听事件绑定了，iframe的引用
+  document.body.removeChild(iframe)
 
+  //document.body.removeEventListener('my-debug-event', leakingListener); // 删除监听，删除引用，防止内存溢出
+})
 
 
 </script>
