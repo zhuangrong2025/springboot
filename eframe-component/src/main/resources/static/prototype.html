@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+prototype
+</body>
+<script>
+    /*
+    * 原型链继承圣杯模式
+    */
+    Father.prototype.lastName = "Deng"
+    function Father(){
+    }
+    function Son(){
+    }
+
+    function extend(Target, Origin){
+        function F(){}
+        F.prototype = Origin.prototype
+        Target.prototype = new F()
+        Target.prototype.constructor = Target // 指针指向Son
+    }
+    extend(Son, Father)
+    Son.prototype.sex = "male"
+    var son = new Son()
+    var father = new Father()
+
+
+
+
+
+
+
+</script>
+
+</html>
