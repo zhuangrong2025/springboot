@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+apply
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+  // 作用一 --> 传参
+  function test(a, b){
+    console.log(a + '&' + b)
+  }
+  test.apply(null, [1, 2])
+
+  // this 指向
+  var name = "deng";
+  var student = {
+      name: 'lao',
+      sayName: function(){
+          console.log(this.name)
+      }
+  }
+  // 情况1
+  student.sayName() // this 是 window
+
+  // 情况2
+  var sayName = student.sayName
+  sayName() // deng,  执行期上下文是window，this指向window
+
+  // 情况3 call
+  sayName.call(student)  // 通过call修改this指向
+  sayName.apply(student)
+  sayName.call(student)
+
+</script>
+
+</html>

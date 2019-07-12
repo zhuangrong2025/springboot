@@ -129,3 +129,68 @@ var env = {};
 
    // mse.iStorage().set('user2', 'zr2');
  })();
+
+ /**
+  * 模拟模块，方法注册register, 调用 invoke
+  * 实现过程： 1、 register ,invoke
+  *           2、 callFn -- 传method， args
+  *           3、 invokeExecutor(options) -- 用{method:'getflow',params: [], }组合成类c++接口函数|~|
+  */
+(function(){
+    var fns = {} // {method: fn, method: fn}
+    mse.mocks = {
+        register: function(method, fn){
+            fns[method] = fn
+        },
+        invoke: function(method, args){
+            if(!fns[method]){
+                throw new Error("没有方法" + method)
+            }
+            return fns[method].apply(this, args)
+        }
+    }
+})();
+(function(){ // 调用invoke，并分解str接口值，传参
+    var separator = '|~|'
+    function cppFns(str){ // str = '0|~|method|~|str1|~|str2'
+        var sections = str.split(separator),
+            len = sections.length,
+            method = len > 1 ? sections[1] : '',
+            args = [];
+        if(len > 2){
+            for(var i = 2; i < len ; i++){
+                args.push(sections[i])
+            }
+        }
+        return mse.mocks.invoke(method, args)
+    }
+    if(!window.callCppFuncs){
+        window.callCppFuncs = cppFns
+    }
+})();
+/*
+    mse.invokeExecutors({
+        method: 'getflow',
+        params: [a, b],
+        success: function(data) {
+
+        }
+    })
+*/
+(function(){
+    var separator = '|~|'
+    mse.invokeExecutors = function(options){
+        options = options || {};
+        var method = options.method,
+            module = 0,
+            params = options.params || [],
+            success = options.success || mse.noop;
+        var p = [];
+        p.push(module);
+        p.push(method);
+        var callStr = p.concat(params).join(separator); // '0|~|method|~|str1|~|str2'
+        var ret = window.callCppFuncs(callStr);
+        return ret;
+    }
+
+})();

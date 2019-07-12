@@ -17,5 +17,21 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/mse.js"></script>
   <script src="iGet.js"></script>
+  <script type="text/javascript">
+    // 模拟模块调用mock
+    (function(){
+        mse.mocks.register("getflow", function(str1, str2){
+            console.log(str1 + str2)
+            var json = [{'name': 'deng'}]
+            return json
+        })
+    }())
+    // 调用mock.register
+    // var getJson = mse.mocks.invoke('getflow', [1, 2]) // 立即执行getflow方法，并返回json
+
+    var str = '0|~|getflow|~|str1|~|str2'
+    window.callCppFuncs(str)
+
+  </script>
 </body>
 </html>

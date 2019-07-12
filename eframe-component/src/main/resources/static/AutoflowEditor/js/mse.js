@@ -428,7 +428,7 @@ mse.BaseModule = mse.extend(mse.BaseEvent, {});
 mse.BaseComponent = mse.extend(mse.BaseEvent, {});
 /**
  * 用于JS调用C++的接口.
- * mse.invokeExecutor('method', args);
+ * mse.invokeExecutor({method:'', params: []});
  */
 (function() {
 	var errReg = /&\$\$\$\$\$\$&(\d+)&\$\$\$\$\$\$&(.*?)&\$\$\$\$\$\$&/;
@@ -440,11 +440,11 @@ mse.BaseComponent = mse.extend(mse.BaseEvent, {});
 			params = options.params || [],
 			success = options.success || mse.noop,
 			error = options.error;
-		var p = [];
+		var p = [];  // ['0', 'getflow']
 		p.push(module); //模块名, 固定为0，表示公共模块
 		p.push(method);	//调用方法
-		var callStr = p.concat(params).join(separator);
-		var ret = mse.mock.isLocal(method) ? window.callMockCppFunc(callStr) : window.callCppFunc(callStr);
+		var callStr = p.concat(params).join(separator); // '0|~|getflow|~|str1'
+		var ret = mse.mock.isLocal(method) ? window.callMockCppFunc(callStr) : window.callCppFunc(callStr); // mse.mock.invoke(method, args);
 		if(ret && errReg.test(ret)) {//返回异常
 			var group = ret.match(errReg),
 				errCode = group[1], //错误代码
@@ -489,7 +489,7 @@ mse.BaseComponent = mse.extend(mse.BaseEvent, {});
 })();
 (function() {
 	var separator = '|~|';
-	function cppFn(str) {
+	function cppFn(str) {  // str --> 'getflow|~|str1|~|str2' --> 第一个是方法名，后面是参数
 		var sections = str.split(separator),
 			len = sections.length,
 			method = len > 1 ? sections[1] : '',

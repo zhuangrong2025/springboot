@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./stylesheets/demo.css">
   <title>Document</title>
 
 </head>
@@ -23,21 +22,31 @@
 <!-- <h2>案例二 内存泄漏查找</h2> -->
 </body>
 <script>
-
-
 // 案例一
 function test(){
   var lis = document.getElementsByTagName("li")
   // 立即执行方式，每次执行的上下文的j值都是一样的
   for(var i=0; i< lis.length; i++){
-    (function(j){
-      lis[j].onclick = function(){
-        console.log(j)
+      lis[i].onclick = function(){ // 这里只是函数表达式，没有执行，等i循环到5是时候才
+        console.log(i)
       }
-    }(i))
   }
 }
-test()  // 点击li 输出都0,1,2,3,4
+test()  // 点击li 输出都5，5，5, 5, 5
+
+// 案例一
+// function test(){
+//   var lis = document.getElementsByTagName("li")
+//   // 立即执行方式，每次执行的上下文的j值都是一样的
+//   for(var i=0; i< lis.length; i++){
+//     (function(j){
+//       lis[j].onclick = function(){
+//         console.log(j)
+//       }
+//     }(i))
+//   }
+// }
+// test()  // 点击li 输出都0,1,2,3,4
 
 // 案例二  内存泄漏查找
 var iframe = document.createElement('iframe')

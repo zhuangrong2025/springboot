@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+<body>
+closure
+</body>
+<script>
+    // 闭包实现变量私有化--必须有return一个函数
+    var name = 'lao';
+    var init = (function(){
+        var name = "deng";
+        function callName(name){
+            console.log(name);
+        }
+        return function(){
+            callName(name);
+        }
+    }())
+    init();
+    var initDeng = (function(){
+        var name = "xiaodeng";
+        function callName(name){
+            console.log(name);
+        }
+        return function(){
+            callName(name);
+        }
+    }())
+    initDeng()
+
+</script>
+</html>
