@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="role_transfer"></div>
+
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+  seajs.use(['./component/transferPop/transferPop', 'jquery', 'lodash', './component/transferPop/data.json','./component/transferPop/value.json'], function(TransferPop, $, _ , data, value) {
+    // console.log(data)
+    var transferPop = new TransferPop({
+      el: "#role_transfer",
+      key: "role_id",
+      text: "{role_name}",
+      value: value,
+      title: ['角色','已选角色']
+    })
+    TransferPop.render()
+    TransferPop.load(data)
+
+  });
+</script>
+
+</html>

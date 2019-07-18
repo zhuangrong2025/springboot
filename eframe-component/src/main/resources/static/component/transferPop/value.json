@@ -1,0 +1,17 @@
+[{
+  role_name: "test0318",
+  dep_id: 1000,
+  role_id: 96,
+  dep_name: "总部"
+},   {
+  role_name: "总部角色测试",
+  dep_id: 1000,
+  role_id: 42,
+  dep_name: "总部"
+}, {
+  role_name: "测试3",
+  note: "测试3",
+  dep_id: 1000,
+  role_id: 107,
+  dep_name: "总部"
+}]
