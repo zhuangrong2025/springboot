@@ -4,7 +4,7 @@
 define(function(require, exports, module) {
     var $ = require('jquery'),
         _ = require('lodash'),
-        Base = require('../component/Base'),
+        Base = require('../Base'),
         objformat = require('objectformat');
 
     // transfer样式
@@ -138,6 +138,7 @@ define(function(require, exports, module) {
             key = this.key,
             alias = this.alias,
             newSelection = [];
+        console.log(selections);
         _.each(selections, function(item){
             var obj = {};
             obj[key] = item[key]
@@ -164,10 +165,9 @@ define(function(require, exports, module) {
         if(!data || !data.length) {
             return;
         }
-        var text = this.text,
-            key = this.key,
+        var key = this.key,
             remark = this.remark,
-            lessText = text.replace(/^\{|\}$/g,''),
+            text = _.trim(this.text, '{}'),
             alias = this.alias,
             allDataMap = _.indexBy(data, key);
         if(this.value) {//有传入选中值情况
@@ -184,17 +184,14 @@ define(function(require, exports, module) {
                 return !datamap[item[key]];
             });
 
-            _.each(list, function(item){ // list中添加alias属性（别名）
-                var name = item[lessText]
-                item[alias] = name
+            _.each(list, function(item){ // 左边list中添加alias属性（别名）
+                item[alias] = item[text]
             }, this)
-
             this.leftBox.load(list);
             this.rightBox.load(selections);
         } else {//新增的情况
             _.each(data, function(item){ // 所有data中添加alias属性（别名）
-                var name = item[lessText]
-                item[alias] = name
+                item[alias] = item[text]
             }, this)
             this.leftBox.load(data);
             this.rightBox.load([]);
@@ -204,7 +201,7 @@ define(function(require, exports, module) {
     Transfer.prototype._replaceData = function(id, value, remark) {
         var newCheckbox = '',
             alias = this.alias,
-            rightData = this.rightBox.getData()
+            rightData = this.rightBox.getData(),
             key = this.key,
             checkboxTpl = '<input type="checkbox" class="checkboxes" value="{id}">{text}<span></span>';
         var currIndex = _.findIndex(rightData, function(item){
@@ -509,6 +506,7 @@ define(function(require, exports, module) {
                     remark: currRemark
                 });
             this.el.find('.esys-transfer-bd').append(maskTpl);
+            this.el.parent().siblings().append(maskTpl)
             $curItem.append(popHtml);
         },
         popHide: function () {
@@ -516,7 +514,7 @@ define(function(require, exports, module) {
         },
         dispose: function () {
             this.el.find(".transfer-pop").remove()
-            this.el.find(".transfer-pop-mask").remove()
+            this.el.parents('.esys-transfer-wrap').find(".transfer-pop-mask").remove()
         },
         refresh: function(){
         },

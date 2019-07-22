@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+apply
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+  /*
+   * 代码合集
+   */
+
+  // clone --> 深拷贝，独立的内存空间
+    Object.prototype.lastname = 'deng' // 这个是原型链上的属性不克隆
+    var obj = {
+        name: 'abc',
+        age: 28,
+        card: ['vista', 'master'],
+        house: {
+            addr: 'beijing',
+            area: 160
+        }
+    }
+    
+    var obj1 = {}
+
+    /*
+     * 遍历对象 for prop in object
+     * 1、判断是不是原始值 typeof prop
+     * 2、判断是对象还是数组 toString.call
+     * 3、建立相应的对象和数组，然后递归
+     */
+    function deepClone(origin, target){
+        var target = target || {},
+            toStr = Object.prototype.toString,
+            arrObj = '[object Array]';
+        for(var prop in origin){
+            if(origin.hasOwnProperty(prop)){ // 保证属性是构造函数中的，而不是原型链上的属性
+                if(origin[prop] !== 'null' &&  typeof (origin[prop]) == 'object'){ //是引用值
+                    toStr.call(origin[prop]) == arrObj ? target[prop] = [] : target[prop] = {}  //
+                    deepClone(origin[prop], target[prop]) // 递归
+                }else{
+                    target[prop] = origin[prop]
+                }
+            }
+        }
+    }
+    deepClone(obj, obj1)
+    console.log(obj1)
+
+
+</script>
+
+</html>

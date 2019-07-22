@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+function
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+  /*
+   * 函数
+   * 1、fn.prototype.constructor  --> fn
+   * 2、Object原型链上的属性，fn.prototype也有这个数字
+   */
+
+   Object.prototype.lastName = 'lao'
+   Test.prototype.name = 'deng'
+   function Test(){
+
+   }
+   console.log(Test.prototype.lastName)  // Test原型链上有Object原型链上的属性lastName
+   console.log(Test.prototype.name)  // Test自己原型链上的属性
+   console.log(Test.prototype.constructor)  // function Test(){} 引用
+
+
+
+</script>
+
+</html>

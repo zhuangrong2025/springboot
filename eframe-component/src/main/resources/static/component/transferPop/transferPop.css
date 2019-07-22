@@ -38,7 +38,7 @@
     color: #3B89FF;
     margin: 2px 3px 0 10px;
 }
-.esys-transfer .esys-transfer-bd .transfer-pop-mask{
+.esys-transfer-wrap .transfer-pop-mask{
     position: absolute;
     top: 0;
     left: 0;

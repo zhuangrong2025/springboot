@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+function
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+
+/*
+ * 数组
+ */
+// 实现数组的push
+Array.prototype.pushx = function(){
+    for(var i = 0 ; i < arguments.length; i++){
+        this[i] = arguments[i]
+    }
+}
+var arr = []
+arr.pushx(1,2)
+console.log(arr) // [1, 2]
+
+
+
+
+</script>
+
+</html>

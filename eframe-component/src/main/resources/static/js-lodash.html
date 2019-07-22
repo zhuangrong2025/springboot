@@ -45,15 +45,23 @@ seajs.use(['jquery', 'lodash'], function($, _) {
     console.log(retainData) // {name: 'abc'}
 
 
-
-
     // _.keys
     var keysData = _.keys(obj)
     console.log(keysData) //  ['backlog_name', 'app_name', 'backlog_code']
 
-    // _.omit &&  _.keys  && _.pull  --> 保留某项'app_name'
+    // ★ _.omit &&  _.keys  && _.pull  --> 保留某项'app_name'
     var Data1 = _.omit(obj, _.pull(_.keys(obj), 'app_name', 'backlog_code'))
     console.log(Data1) // {'app_name': '来源系统01', 'backlog_code': 10}
+
+    // ★ _.mapKeys --> 将第一个key修改,value不变
+    var mapData = {'backlog_name': '投保反馈任务', 'app_name': '来源系统01', 'backlog_code': 10}
+    var mapData1 = _.mapKeys(mapData, function(value, key){
+        if(key == 'backlog_name'){
+            return key = 'backlog_alias'
+        }
+        return key
+    })
+    console.log(mapData1) //{backlog_alias: "投保反馈任务", app_name: "来源系统01", backlog_code: 10}
 
     /*
     * ************
@@ -78,6 +86,36 @@ seajs.use(['jquery', 'lodash'], function($, _) {
     // _.trim
     var str = '{backlog_name}'
     console.log(_.trim(str, '{}')) //backlog_name
+
+    /*
+    * ************
+    * *
+    * Collection
+    * *
+    * ************
+    */
+    // 根据已知的值key=20，修改对应对象另外的属性值
+    var allData = [ {backlog_name: "投保反馈任务", app_name: '来源系统01', backlog_code: 10},
+                    {backlog_name: "排班任务",  app_name: '来源系统02', backlog_code: 20}]
+    var key = 20
+
+    _.each(allData, function(item){
+        if(item['backlog_code'] == key){
+            item['backlog_name'] = '新名字'
+        }
+    })
+    console.log(allData)
+
+    // _.find() --> 只是匹配其中一个
+    var users = [
+        { 'user': 'barney',  'age': 42, 'active': false },
+        { 'user': 'fred',    'age': 2, 'active': false },
+        { 'user': 'pebbles', 'age': 1,  'active': false }]
+
+    var output = _.find(users, function(o){
+        return o.age < 40
+    })
+    console.log(output)
 
 
 });
