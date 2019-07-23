@@ -601,6 +601,7 @@ body {
 
 .index_container {
     width: 100%;
+    height: 899px;
     position: relative;
     overflow: hidden;
     -webkit-box-sizing: border-box;
@@ -624,7 +625,7 @@ body {
 
 .index_container .index_broadside_wrapper {
     float: left;
-    left: -200px;
+    left: 0;
     width: 200px;
     height: 100%;
     position: relative;
@@ -854,7 +855,7 @@ body {
     position: relative;
     width: 100%;
     height: 30px;
-    top: -30px;
+    top: 0px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     /* theme */

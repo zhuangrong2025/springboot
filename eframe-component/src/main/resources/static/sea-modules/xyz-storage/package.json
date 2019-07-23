@@ -1,0 +1,19 @@
+{
+    "name": "xyz-storage",
+    "version": "0.1.1",
+    "description": "对localStorage, sessionStoreage获取机制的封装",
+    "keywords":["业务逻辑模块", "工具类", "localStorage", "sessionStoreage"],
+    "homepage": "",
+    "main": "./src/xyz-storage.js",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "devDependencies": {},
+    "dependencies": {
+        "lodash": "~3"
+    },
+    "buildArgs": "cmd",
+    "tests": ["xyz-storage"],
+    "output": {
+        "xyz-storage.js": "."
+    },
+    "assets":null
+}

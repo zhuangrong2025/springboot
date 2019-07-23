@@ -1,14 +1,25 @@
 define(function(require, exports, module) {
     var $ = require('jquery'),
         _ = require('lodash'),
+        baseCommon = require('base-common-module'),
+        observer = require('observer'),
+        storage = require('xyz-storage'),
+        IndexScene = require('./IndexScene'),
+        IndexToolBar = require('./IndexToolBar'),
         IndexMenu = require('./IndexMenu');
 
 
     require('xyz-iconfont');
     require('font-Awesome');
 
-    var  menuData = [{"parent_menu_code":"00000000","order_code":"010000","show_num":10,"menu_name":"系统管理","deploy_name":"EPWEBRUN","menu_level":1,"menu_code":"50021002","func_code":"00010000","app_id":0},{"parent_menu_code":"00000000","order_code":"020000","show_num":10,"menu_name":"系统管理2","deploy_name":"EPWEBRUN","menu_level":1,"menu_code":"50021003","func_code":"00020000","app_id":0},{"parent_menu_code":"50022003","order_code":"010100","show_num":10,"menu_name":"部门管理","deploy_name":"EPWEBRUN","menu_level":3,"menu_code":"50023005","func_code":"00010100","app_id":0},{"parent_menu_code":"50023005","order_code":"010101","show_num":10,"menu_name":"部门信息维护","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024001","func_path":"epframe/release/esystem/department/depmanage/DepManage.html","func_code":"00010101","app_id":0},{"parent_menu_code":"50023005","order_code":"010200","show_num":10,"menu_name":"部门权限管理","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024002","func_code":"00010200","app_id":0},{"parent_menu_code":"50023005","order_code":"010201","show_num":10,"menu_name":"部门角色维护","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024003","func_path":"epframe/release/esystem/deprole/deprolemanage/DepRoleManage.html","func_code":"00010201","app_id":0},{"parent_menu_code":"50022003","order_code":"010300","show_num":10,"menu_name":"用户管理","deploy_name":"EPWEBRUN","menu_level":3,"menu_code":"50023006","func_code":"00010300","app_id":0},{"parent_menu_code":"50023006","order_code":"010301","show_num":10,"menu_name":"用户信息维护","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024004","func_path":"epframe/release/esystem/user/usermanage/UserManage.html","func_code":"00010301","app_id":0},{"parent_menu_code":"50023006","order_code":"010400","show_num":10,"menu_name":"用户权限管理","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024005","func_code":"00010400","app_id":0},{"parent_menu_code":"50023006","order_code":"010401","show_num":10,"menu_name":"用户角色维护","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024006","func_path":"epframe/release/esystem/userrole/userrolemanage/UserRoleManage.html","func_code":"00010401","app_id":0},{"parent_menu_code":"50022003","order_code":"010800","show_num":10,"menu_name":"审计","deploy_name":"EPWEBRUN","menu_level":3,"menu_code":"50023007","func_code":"00010800","app_id":0},{"parent_menu_code":"50023007","order_code":"010801","show_num":10,"menu_name":"登录退出日志查询","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024007","func_path":"epframe/release/esystem/log/uservisitlog/UserVisitLog.html","func_code":"00010801","app_id":0},{"parent_menu_code":"50023007","order_code":"010802","show_num":10,"menu_name":"操作日志查询","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024008","func_path":"epframe/release/esystem/log/oploginfo/OpLogInfo.html","func_code":"00010802","app_id":0},{"parent_menu_code":"50021002","order_code":"200010","show_num":10,"menu_name":"用户信息管理","deploy_name":"EPWEBRUN","menu_level":2,"menu_code":"50022003","func_code":"50022003","app_id":0},{"parent_menu_code": "50021002","order_code": "200020","show_num": 10,"menu_name": "用户信息管理2","deploy_name": "EPWEBRUN","menu_level": 2,"menu_code": "50022001","func_code": "50022001","app_id": 0}];
+    //扩展方法：防止原有data方法自动类型转换
+    $.fn.dataString || ($.fn.dataString = function(dataKey) {
+        return '' + $(this).data(dataKey);
+    });
 
+    var maxReg = /.*?(?:\?|&)maximize=1(&)*/g; //菜单最大化参数正则表达式
+    // 模拟菜单数据
+var  menuData = [{"parent_menu_code":"00000000","order_code":"010000","show_num":10,"menu_name":"系统管理","deploy_name":"EPWEBRUN","menu_level":1,"menu_code":"50021002","func_code":"00010000","app_id":0},{"parent_menu_code":"00000000","order_code":"020000","show_num":10,"menu_name":"系统管理2","deploy_name":"EPWEBRUN","menu_level":1,"menu_code":"50021003","func_code":"00020000","app_id":0},{"parent_menu_code":"50022003","order_code":"010100","show_num":10,"menu_name":"部门管理","deploy_name":"EPWEBRUN","menu_level":3,"menu_code":"50023005","func_code":"00010100","app_id":0},{"parent_menu_code":"50021003","order_code":"010210","show_num":10,"menu_name":"系统2","deploy_name":"EPWEBRUN","menu_level":3,"menu_code":"50022005","func_code":"00010500","app_id":0},{"parent_menu_code":"50023005","order_code":"010101","show_num":10,"menu_name":"部门信息维护","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024001","func_path":"index/pages/DepManage.html","func_code":"00010101","app_id":0},{"parent_menu_code":"50023005","order_code":"010200","show_num":10,"menu_name":"部门权限管理","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024002","func_code":"00010200","app_id":0},{"parent_menu_code":"50023005","order_code":"010201","show_num":10,"menu_name":"部门角色维护","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024003","func_path":"epframe/release/esystem/deprole/deprolemanage/DepRoleManage.html","func_code":"00010201","app_id":0},{"parent_menu_code":"50022003","order_code":"010300","show_num":10,"menu_name":"用户管理","deploy_name":"EPWEBRUN","menu_level":3,"menu_code":"50023006","func_code":"00010300","app_id":0},{"parent_menu_code":"50023006","order_code":"010301","show_num":10,"menu_name":"用户信息维护","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024004","func_path":"epframe/release/esystem/user/usermanage/UserManage.html","func_code":"00010301","app_id":0},{"parent_menu_code":"50023006","order_code":"010400","show_num":10,"menu_name":"用户权限管理","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024005","func_code":"00010400","app_id":0},{"parent_menu_code":"50023006","order_code":"010401","show_num":10,"menu_name":"用户角色维护","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024006","func_path":"epframe/release/esystem/userrole/userrolemanage/UserRoleManage.html","func_code":"00010401","app_id":0},{"parent_menu_code":"50022003","order_code":"010800","show_num":10,"menu_name":"审计","deploy_name":"EPWEBRUN","menu_level":3,"menu_code":"50023007","func_code":"00010800","app_id":0},{"parent_menu_code":"50023007","order_code":"010801","show_num":10,"menu_name":"登录退出日志查询","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024007","func_path":"epframe/release/esystem/log/uservisitlog/UserVisitLog.html","func_code":"00010801","app_id":0},{"parent_menu_code":"50023007","order_code":"010802","show_num":10,"menu_name":"操作日志查询","deploy_name":"EPWEBRUN","menu_level":4,"menu_code":"50024008","func_path":"epframe/release/esystem/log/oploginfo/OpLogInfo.html","func_code":"00010802","app_id":0},{"parent_menu_code":"50021002","order_code":"200010","show_num":10,"menu_name":"用户信息管理","deploy_name":"EPWEBRUN","menu_level":2,"menu_code":"50022003","func_code":"50022003","app_id":0},{"parent_menu_code":"50021002","order_code":"200020","show_num":10,"menu_name":"用户信息管理2","deploy_name":"EPWEBRUN","menu_level":2,"menu_code":"50022001","func_code":"50022001","app_id":0}];
 
     //模板引入
     var mainTpl = require('./template/IndexMain.html');
@@ -29,7 +40,6 @@ define(function(require, exports, module) {
             var _this = this;
             this.el.html(mainTpl);
             this._beforeInit();
-
         }
     };
 
@@ -44,7 +54,7 @@ define(function(require, exports, module) {
     Index.prototype._init = function() {
         var _this = this,
             jdom = this.jdom;
-
+        var isDefaultApp = true; //是否为默认的系统
 
         //create indexMenu
         this.indexMenu = new IndexMenu({
@@ -68,10 +78,181 @@ define(function(require, exports, module) {
             }
         });
 
+        //create indexScene
+        this.indexScene = new IndexScene({
+            el: '#scene',
+            main: this,
+            events: {
+                changeScene: function(code, menu, options) {
+                    var custMap = _this.indexScene.getCustData();
+                    if(custMap[code]) {//自定义菜单
+                        if(maxReg.test(custMap[code].url)) {//最大化
+                            _this._collapseSideMenu(); //最大化页面
+                        }
+                    }
+                    _this._configActiveMenu(menu);
+                    _this.indexMenu.setActiveCode(code, (null === options || true !== options.fromMenu) ? true : false);
+                }
+            }
+        }).render();
+
+        //create indexToolBar
+        this.indexToolBar = new IndexToolBar({
+            el: '#headerToolbar',
+            main: this, //首页主模块
+            isContainer: isDefaultApp,
+            events: {
+                openCustomedTab: function(tabCode, tabName, tabUrl) {
+                    _this.indexScene.openCustomedTab(tabCode, tabName, tabUrl);
+                },
+                openMenuTab: function(menuCode) {
+                    _this.indexScene.openMenuTab(menuCode);
+                },
+                changeTheme: function(theme) {
+                    storage.setSessItem('global_theme', theme);
+                    _this.indexScene.changeTheme(theme);
+                }
+            }
+        }).render();
 
         // 渲染menu --> 原文件-在_loadAppMenus
         _this._processMenuData(menuData)
+        console.log(_this._CACHE.MENU);
         _this.indexMenu.setMenuData(_this._CACHE.MENU, true);
+        _this.indexScene.setMenuData(_this._CACHE.MENU);
+        var loginInfo = {
+            context: {
+              "app_id": "0"
+            },
+            control_permission: [{
+                "menu_code": "00010000",
+                "exclude": [],
+                "func_code": "00010000"
+              },
+              {
+                "menu_code": "00010100",
+                "exclude": [],
+                "func_code": "00010100"
+              },
+              {
+                "menu_code": "00010101",
+                "exclude": [],
+                "func_code": "00010101"
+              },
+              {
+                "menu_code": "00010200",
+                "exclude": [],
+                "func_code": "00010200"
+              },
+              {
+                "menu_code": "00010201",
+                "exclude": [],
+                "func_code": "00010201"
+              },
+              {
+                "menu_code": "00010300",
+                "exclude": [],
+                "func_code": "00010300"
+              },
+              {
+                "menu_code": "00010301",
+                "exclude": [],
+                "func_code": "00010301"
+              },
+              {
+                "menu_code": "00010400",
+                "exclude": [],
+                "func_code": "00010400"
+              },
+              {
+                "menu_code": "00010401",
+                "exclude": [],
+                "func_code": "00010401"
+              },
+              {
+                "menu_code": "00010500",
+                "exclude": [],
+                "func_code": "00010500"
+              },
+              {
+                "menu_code": "00010501",
+                "exclude": [],
+                "func_code": "00010501"
+              },
+              {
+                "menu_code": "00010600",
+                "exclude": [],
+                "func_code": "00010600"
+              },
+              {
+                "menu_code": "00010601",
+                "exclude": [],
+                "func_code": "00010601"
+              },
+              {
+                "menu_code": "00010800",
+                "exclude": [],
+                "func_code": "00010800"
+              },
+              {
+                "menu_code": "00010801",
+                "exclude": [],
+                "func_code": "00010801"
+              },
+              {
+                "menu_code": "00010802",
+                "exclude": [],
+                "func_code": "00010802"
+              },
+              {
+                "menu_code": "00020000",
+                "exclude": [],
+                "func_code": "00020000"
+              },
+              {
+                "menu_code": "00020100",
+                "exclude": [],
+                "func_code": "00020100"
+              },
+              {
+                "menu_code": "00020101",
+                "exclude": [],
+                "func_code": "00020101"
+              },
+              {
+                "menu_code": "00020102",
+                "exclude": [],
+                "func_code": "00020102"
+              },
+              {
+                "menu_code": "00020103",
+                "exclude": [],
+                "func_code": "00020103"
+              },
+              {
+                "menu_code": "00020104",
+                "exclude": [],
+                "func_code": "00020104"
+              },
+              {
+                "menu_code": "00020105",
+                "exclude": [],
+                "func_code": "00020105"
+              }
+            ],
+            user:{
+              "user_group": "1",
+              "dep_id": "1000",
+              "user_code": "ADMIN",
+              "user_name": "管理员",
+              "is_update_pwd": "0",
+              "dep_name": "总部",
+              "dep_code": "#000000001",
+              "user_theme": "blue"
+            }
+        };
+        _this._CACHE.USER = loginInfo;
+        _this.indexToolBar.setUserData(_this._CACHE.USER);
 
 
 
@@ -165,9 +346,43 @@ define(function(require, exports, module) {
     };
 
 
+    //设置活动菜单
+    Index.prototype._configActiveMenu = function(menuInfo) {
+        var _this = this,
+            activeMenu = null;
+        if (undefined === menuInfo || null === menuInfo) {
+            activeMenu = {
+                menu_code: null,
+                func_code: null,
+                app_id: this.curAppId,
+                orig_app_id: null
+            };
+        } else {
+            activeMenu = {
+                menu_code: menuInfo.menu_code,
+                func_code: menuInfo.func_code,
+                app_id: _.isUndefined(menuInfo.app_id) ? this.curAppId : menuInfo.app_id,
+                orig_app_id: _.isUndefined(menuInfo.orig_app_id) ? null : menuInfo.orig_app_id
+            };
 
+        }
+        baseCommon.setActiveMenu(activeMenu);
+        this._saveLocalData('activeMenu', activeMenu); //保存当前页面打开菜单
+        // menuInfo && this.indexHistory.recordLastHistoricMenu(menuInfo.menu_code); // 暂时隐藏 ^^
+    };
 
+    //折叠左侧菜单，页面最大化
+    Index.prototype._collapseSideMenu = function() {
+        this.jdom.index.addClass('index_collapse');
+        this._adjustPanelSize();
+    };
 
+    Index.prototype._saveLocalData = function(key, data) {
+        if (!this.localData) {
+            this.localData = {};
+        }
+        this.localData[key] = data;
+    };
 
 
 

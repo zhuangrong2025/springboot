@@ -1,0 +1,5 @@
+fileName: xyz-storage.js
+success:  xyz-storage.js您的代码很完美， 不存在语法错误
+
+
+

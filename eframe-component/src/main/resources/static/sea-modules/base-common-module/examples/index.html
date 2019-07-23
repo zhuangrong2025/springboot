@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>权限配置</title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+</head>
+<body>
+<!-- TODO: 其他HTML标记 -->
+<div id="main"></div>
+<input type="text" id="pdate2" name="pdate" required class="xyz_datepicker_trans"/>
+</body>
+<script>
+    seajs.use(['../dist/base-common-module-debug', 'jquery', 'xyz-storage'],function(base, $, storage){
+        base.createAll(); //标签创建组件并渲染
+        var mockLogin = {
+            "context": {"app_id": 1},
+            "user": {"user_code": "001", "user_name": "小张", "dept_id": 100, "dept_code": "0016", "dept_name": "清算部"},
+            "control_permission": [
+                {
+                    "menu_code": "menu_code1",
+                    "func_code": "00001701",
+                    "exclude": ["control_code11","control_code12"]    //无权限的控件代码
+                }, {
+                    "menu_code": "menu_code2",
+                    "func_code": "00001702",
+                    "exclude": ["control_code21","control_code22"]
+                }
+            ]
+        };
+        storage.setSessItem('login', mockLogin);//模拟登录成功， 设置用户权限
+
+        base.setActiveMenu({menu_code:'menu_code1', func_code:'00001701', orig_app_id: 0});   //设置选中的菜单
+        console.log('菜单对应系统APP_ID:', base.getCurrentAppId()); //取菜单对应系统APP_ID
+        console.log('登录系统APP_ID:', base.getContext()["app_id"]); //取登录系统APP_ID
+        console.log(base.getUser()); //取用户信息 ==> {user_code: "001", user_name: "小张", dept_id: 100, dept_code: "0016", dept_name: "清算部"}
+        console.log(base.getAppContext()); //获取应用上下文信息, 包括当前登录用户信息、应用系统、用户权限等信息
+
+        var htmlStr = '<button sth-as="control_code11">无权限的按钮，不显示</button>' +
+            '<button sth-as="control_code111">有权限按钮</button>' +
+            '<button sth-as="control_code21">有权限按钮</button>' +
+            '<button sth-as="control_code222">有权限按钮</button>';
+        $('#main').append(htmlStr);
+        
+    });
+</script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>父级窗口页面</title>
+    <script id="seajsnode" src="../sea-modules/sea.js"></script>
+    <script src="../sea-modules/seajs-helper.js"></script>
+</head>
+<body>
+<!-- TODO: 其他HTML标记 -->
+<iframe src="index.html" id="aaa">
+
+</iframe>
+</body>
+<script>
+    document.getElementById("aaa").onload = function(){
+        console.log(document.getElementById("aaa").contentWindow.ModulesGlobal.Observer);
+    }
+</script>
+</html>

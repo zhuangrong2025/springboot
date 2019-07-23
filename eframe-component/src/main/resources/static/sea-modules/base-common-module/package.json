@@ -1,0 +1,31 @@
+{
+    "name": "base-common-module",
+    "version": "0.1.30",
+    "description": "通用公共模块，用于拼接公共的html中meta标签，暴露模块化组件的相关功能到全局对象window.ModulesGlobal等功能",
+    "keywords":["公共模块"],
+    "homepage": "",
+    "main": "./src/base-common-module.js",
+    "author": "yinshijie<yinshijie@shinetechnology.com>",
+    "devDependencies": {
+        "xyz-datepicker-tag": "~0.1"
+    },
+    "dependencies": {
+        "json2": "~1",
+        "jquery": "~1.8",
+        "lodash": "~3",
+        "observer": "~0.1",
+        "base-style-manage": "~0.1",
+        "xyz-alert": "~0.1",
+        "xyz-util": "~0.1",
+        "xyz-iconfont": "~0.1",
+        "xyz-jsonRPC": "~0.1",
+        "xyz-storage": "~0.1",
+        "xyz-component-base": "~0.1"
+    },
+    "buildArgs": "cmd",
+    "tests": ["base-common-module"],
+    "output": {
+        "base-common-module.js": "."
+    },
+    "assets":null
+}

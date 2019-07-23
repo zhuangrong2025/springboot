@@ -66,7 +66,7 @@ define(function(require, exports, module) {
     //----------------------- 开放接口 - start
 
     //设置菜单数据
-    IndexMenu.prototype.setMenuData = function(menuData, render) {
+    IndexMenu.prototype.setMenuData = function(menuData, render) { //在首页引用，渲染IndexMenu
         this._CACHE.MENU = menuData;
         this._CACHE.activeCode = null;
         if (true === render) {
@@ -94,7 +94,7 @@ define(function(require, exports, module) {
     IndexMenu.prototype._renderTopMenu = function() {
         var menuArr = this._CACHE.MENU.menuArr,
             html = '', menuCls = false;
-        $.each(menuArr, function(i, item) {
+        $.each(menuArr, function(i, item) { // 如果有4级，就出现下拉菜单
             menuCls = item.childArr && item.childArr.length && item.$totallevel > 3 ? 'dropdown_wrapper' : 'menu_item';
             _.assign(item, {
                 cls : menuCls
@@ -107,7 +107,7 @@ define(function(require, exports, module) {
     //渲染次级菜单
     IndexMenu.prototype._renderSubMenu = function(topMenuCode) {
         var _this = this;
-        if (null == topMenuCode) {
+        if (null == topMenuCode) { // 先进入这里，在进入else
             this.jdom.broadside.empty();
             this.jdom.broadside.data('code', '');
         } else {
@@ -131,7 +131,7 @@ define(function(require, exports, module) {
                 html = format(subMenuTpl, { menu: html });
             }
             this.jdom.broadside.html(html);
-            this.jdom.broadside.data('code', topMenuCode);
+            this.jdom.broadside.data('code', topMenuCode); // 这行没有设置data-code
         }
     };
 
@@ -223,6 +223,7 @@ define(function(require, exports, module) {
 
     //切换顶部菜单
     IndexMenu.prototype._changeTopMenuItem = function(target) {
+
         var item = $(target),
             parent = item.parent('.dropdown_menu'),
             pItem = item.parent().closest('li'),
