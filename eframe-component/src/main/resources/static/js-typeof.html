@@ -13,6 +13,7 @@
 <script id="seajsnode" src="./sea-modules/sea.js"></script>
 <script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
+  console.log('***********隐式类型转换****************')
   /*
     * 隐式类型转换
     *  + 号隐式调用String()
@@ -33,6 +34,32 @@
   var c = {'key': 123}
   c = !c
   console.log(typeof(c) + ' : ' + c ) // boolean : false
+
+  console.log('***********type函数****************')
+  /*
+   * type函数，判断值是什么类型的
+   * 1、★新建一个对象，对象的key是类型的返回值，对象value为要输出的结果
+   * 2、先判断null，再判断引用值，再原始值
+   */
+  function type(target){
+      var ret = typeof(target);
+      var template = {
+          '[object Number]': 'number -- object',
+          '[object String]': 'string -- object',
+          '[object Object]': 'object -- object',
+          '[object Boolean]': 'Boolean -- object',
+          '[object Array]': 'Array -- object',
+      }
+      if(target === null){
+          return 'null';
+      }
+      if(ret == 'object'){ // 判断引用值 --> 对象，数组，包装类(new Number('123'))
+        var str = Object.prototype.toString.call(target);
+        return template[str];
+    }else{
+        return ret;
+    }
+  }
 </script>
 
 </html>

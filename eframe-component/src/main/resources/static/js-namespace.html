@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+function
+</body>
+<script id="seajsnode" src="./assets/jquery/jquery.js"></script>
+<script>
+  /*
+   * 命名空间
+   *
+   */
+   if(!window.xy) window.xy = {};
+   //生成命名空间
+   xy.namespace = function() {
+   	var o, d;
+   	$.each(arguments, function(i, v) {
+   		d = v.split(".");
+   		o = window[d[0]] = window[d[0]] || {}; // o 默认为euap
+   		$.each(d.slice(1), function(j, v2) {
+   			o = o[v2] = o[v2] || {};  // 每次遍历都将 o 赋值为下一个值  o = xy => o = {xy.widget} => o = {xy.widget.Dialog}
+   		});
+   	});
+   	return o;
+   };
+   xy.ns = xy.namespace;
+   // var t = xy.ns("xy.widget.Dialog");
+   // var a = xy.ns("xy.widget");
+
+   //初始化命名空间
+   xy.ns("euap.config.data");
+   euap.config.data.get = function(){
+       function set(){
+           console.log('a')
+       }
+        return {
+            setValue: set
+        }
+   }()
+    euap.config.data.get.setValue()
+
+
+
+
+
+</script>
+
+</html>

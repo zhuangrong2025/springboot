@@ -28,6 +28,21 @@ function
    console.log(Test.prototype.name)  // Test自己原型链上的属性
    console.log(Test.prototype.constructor)  // function Test(){} 引用
 
+   /*
+    * 函数表达式加上括号，是执行后返回值给变量
+    */
+   var test = function(){
+       console.log("执行");
+       function getValue(val){
+           console.log(val)
+       }
+       return {
+           'get': getValue,
+       }
+
+   }()  //要加上括号，相当于匿名函数执行完，返回值赋值给euap,
+
+   test.get('a')
 
 
 </script>

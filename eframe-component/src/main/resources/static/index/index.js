@@ -6,6 +6,7 @@ define(function(require, exports, module) {
         storage = require('xyz-storage'),
         IndexScene = require('./IndexScene'),
         IndexToolBar = require('./IndexToolBar'),
+        IndexFavorite = require('./IndexFavorite'),
         IndexMenu = require('./IndexMenu');
 
 
@@ -68,8 +69,8 @@ var  menuData = [{"parent_menu_code":"00000000","order_code":"010000","show_num"
                     }
                     _this.indexScene.openMenuTab(menuCode, { fromMenu: true });
                 },
-                clickTopMenu: function(menuCode) {
-                    var favIcon = jdom.header_tool.find('.favorite a i')
+                clickTopMenu: function(menuCode) { //通过顶部点击trigger，收藏夹，会触发两次
+                    var favIcon = jdom.header_tool.find('.favorite a i.fa-star')
                     favIcon.trigger('click');
                     if (_this.jdom.index.hasClass('index_collapse')) {
                         _this.jdom.header_logo.find('div.submenu_toggler').trigger('click');
@@ -114,6 +115,17 @@ var  menuData = [{"parent_menu_code":"00000000","order_code":"010000","show_num"
                 }
             }
         }).render();
+
+        // 打开收藏夹
+        this.indexFavorite = new IndexFavorite({
+            main: this,
+            events: {
+                openMenuTab : function(menuCode) {
+                    _this.indexScene.openMenuTab(menuCode);
+                }
+            }
+        });
+        this.indexFavorite.render();
 
         // 渲染menu --> 原文件-在_loadAppMenus
         _this._processMenuData(menuData)
@@ -253,6 +265,8 @@ var  menuData = [{"parent_menu_code":"00000000","order_code":"010000","show_num"
         };
         _this._CACHE.USER = loginInfo;
         _this.indexToolBar.setUserData(_this._CACHE.USER);
+        // 触发loadMenu事件，传递this._CACHE.MENU,到收藏
+        observer.trigger('loadMenu', _this._CACHE.MENU)
 
 
 
@@ -385,7 +399,27 @@ var  menuData = [{"parent_menu_code":"00000000","order_code":"010000","show_num"
     };
 
 
-
+    //获取全局数据
+    Index.prototype.getGlobalData = function() {
+        var user = {
+            dep_code: "",
+            dep_id: "",
+            dep_name: "",
+            is_update_pwd: "",
+            user_code: "",
+            user_group: "",
+            user_name: "",
+            user_theme: ""
+        };
+        if(this._CACHE.USER && this._CACHE.USER.user) {
+            user = this._CACHE.USER.user;
+        }
+        return {
+            menu: this._CACHE.MENU,
+            user: user,
+            appId: this.curAppId
+        }
+    }
     //-----------------------
 
     //绑定页面事件

@@ -15,13 +15,7 @@ define(function(require, exports, module) {
                     '  </li>' +
                     '  </ul>';
 
-    //服务网关前缀
-    var SERVICE_GATEWAY = '/EPSERVICERUN/json/USAccess/json.do?service=';
 
-    //服务网关地址
-    var service = {
-        SAVE_USER_THTME: SERVICE_GATEWAY + 'epframe.epbos_themeStyleService.saveThemeStyle'
-    };
 
     function IndexToolBar(options) {
         this.initialize(options);
@@ -35,7 +29,7 @@ define(function(require, exports, module) {
             this._CACHE = {};
             this.userInfo;
             this.themeLock = false;
-            this.main = options.main; //首页主模块
+            this.main = options.main; // 首页主模块
             this.events = $.extend({
                 openCustomedTab: function(tabCode, tabName, tabUrl) {},
                 openMenuTab: function(menuCode) {},
@@ -57,7 +51,8 @@ define(function(require, exports, module) {
     //初始化
     IndexToolBar.prototype._init = function() {
         //create indexMessage
-        // this.indexMessage = new IndexMessage({}).render(); // ^^
+        this.indexMessage = new IndexMessage({}).render(); // ^^
+        this.main.indexScece =
 
     };
 
@@ -238,7 +233,6 @@ define(function(require, exports, module) {
             _this._logout();
             return false;
         });
-
         //个人信息
         $('#header_gainProfileBtn').on('click', function() {
             if ($.isFunction(_this.events.openCustomedTab)) {
@@ -292,11 +286,12 @@ define(function(require, exports, module) {
             }
             return false;
         }); */
-        $('.favorite').on('click', 'i', function() {
+        $('.favorite').on('click', 'i', function() { // 通过顶部菜单点击trigger的话，会执行两次，因为有2个icon
             $(this).addClass('favShow').siblings().removeClass('favShow')
             if($(this).hasClass('fa-star-o'))   {
                 _this.main.indexFavorite.show()
             }   else{
+                console.log(2);
                 _this.main.indexFavorite.close()
             }
         });
