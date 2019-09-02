@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+    <div>design module</div>
+</body>
+<script type="text/javascript">
+class User{
+    constructor(name = '', viewPage = []){ //默认值
+        this.name = name;
+        this.viewPage = viewPage;
+    }
+    init(){
+        console.log(this.viewPage);
+    }
+}
+class UserFactory extends User{ //子类
+    constructor(name, viewPage){
+        super(name, viewPage)
+    }
+    create(role){
+        switch(role){
+            case 'superAdmin':
+                return new UserFactory('超级管理员', ['首页', '通讯录', '发现页', '应用数据', '权限管理'] );
+                break
+            case 'admin':
+                return new UserFactory('管理员', ['首页', '通讯录'] );
+                break
+            default:
+                throw new Error('params error')
+        }
+    }
+}
+</script>
+<script>
+ // 装饰器模式, 把实例当做装饰类的参数
+class Circle{
+    draw(){
+        console.log("draw a cir")
+    }
+}
+class Decorator{
+    constructor(circle){
+        this.circle = circle
+    }
+    draw(){
+        this.circle.draw()
+        this.setRedBorder()
+    }
+    setRedBorder(){
+        console.log('set red border')
+    }
+}
+var circle = new Circle()
+var decorator = new Decorator(circle)
+decorator.draw() // 先调用Circle中的draw，在家自己的SetRedborder
+
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+类型转换
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+  /*
+    * Object.defindProerty
+    * 设置对象可修改和可访问属性
+  */
+ var  obj = {
+     name: 'deng'
+ }
+ Object.defineProperty(obj, 'name', {
+     value: 'lao',
+     writable: false, //重写覆盖，false不可覆盖
+     enumerable: true,
+     configurable: true
+ })
+ obj.name = 'hi'
+ console.log(obj.name)
+
+</script>
+
+</html>

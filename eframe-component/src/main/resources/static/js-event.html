@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+<div style="width:100px;height:100px;background:#f00"></div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</ul>
+<a href="https://www.qq.com" style="display: block;width:100px;height:100px;background:#ff0">qq.com</a>
+
+</body>
+<script type="text/javascript" id="seajsnode" src="./assets/jquery/jquery.js"></script>
+<script>
+  /*
+   * 事件
+   * 事件对象，事件源event.target
+   * 兼容性
+   */
+ var div = document.getElementsByTagName('div')[0];
+ div.onclick =  function(e){
+    var event = e || window.envent;
+    console.log(event)
+ }
+
+// 用event.target, 事件冒泡  显示li对象，不用循环获取对象,可以动态扩展li，
+ var ul = document.getElementsByTagName('ul')[0];
+ ul.onclick = function(e){
+     var event = e || window.event; //兼容ie
+     var target = event.target || event.scrElement; //兼容ie
+     console.log(target.innerText);
+ }
+
+ /*
+  * 鼠标事件
+  * 1、mousedown mouseup 判断鼠标左右键
+  * 2、mousedown 和click冲突用事件差
+  */
+ document.onmousedown = function(e){
+    if(e.button == 0){
+        // console.log('left')
+    }else if(e.button == 2){
+        console.log('right')
+    }
+ }
+ // 2、mousedown 和click冲突用事件差
+var a = document.getElementsByTagName('a')[0];
+var firstTime, lastTime,
+    key = false; //开关
+ a.onmousedown = function(){
+    firstTime = new Date().getTime()
+ }
+ a.onmouseup = function(){
+    lastTime = new Date().getTime()
+ }
+ a.onclick = function(){
+    console.log(lastTime - firstTime)
+    key = lastTime - firstTime < 300 ? true : false  //小于300毫秒不触发事件，比如a链接 ，不跳转
+    if(key){
+        console.log(key)
+        console.log('click')
+    }else{
+        return false; //按住超过300毫秒，不执行跳转
+    }
+ }
+
+ function loadScript(url, callback){
+    var script = document.createElement('script')
+    script.type = 'type="text/javascript'
+
+    script.onload = function(){
+        callback()
+    }
+
+    script.src = url
+    document.head.appendChild(script)
+ }
+
+ 
+</script>
+
+</html>

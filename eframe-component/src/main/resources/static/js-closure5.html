@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+<body style="background-color:#252525">
+closure
+</body>
+<script>
+
+
+/*
+ * 闭包--依赖模块加载器
+ * 1、var modules = {} ,2、define() 3、get()
+ */
+var MyModule = (function(){
+    var modules = {} // module = {name: fn} => fn是闭包，是个内模块
+
+    function define(name, deps, impl){
+        for(var i=0; i<deps.length; i++){
+            deps[i] = modules[deps[i]] //定义依赖模块，添加到modules
+        }
+        console.log(deps) //
+        modules[name] = impl.apply(impl, deps) //主模块，或依赖模块（用用于另外一个模块调用）
+        console.log(modules)
+    }
+    function get(name){ // 获取主模块
+        return modules[name]
+    }
+
+    return {
+        define: define,
+        get: get
+    }
+})()
+
+// 定义bar模块：没有依赖模块
+MyModule.define('bar', [], function(){ // 这里 modules = {'bar': {...}}, fn的return对象
+    function hello(who){
+        return who
+    }
+    return {
+        hello: hello
+    }
+})
+// 定义foo模块：不能直接调用，要用get，有依赖模块bar
+MyModule.define('foo', ['bar'], function(modChild){ // bar需要定义才能调用，modules = {'bar': {...}, 'foo': {...}};
+    // 注意：这里modChild就是已经[{hello: helll()}]
+    var hungry = 'hippo'
+    function awesome(){
+        console.log( modChild.hello('John') + ' awesome') // John awesome
+    }
+    return {
+        awesome: awesome
+    }
+})
+var bar = MyModule.get('bar')
+var foo = MyModule.get('foo')
+console.log(bar.hello('beauty')) // beauty
+foo.awesome()
+
+
+
+
+
+</script>
+</html>

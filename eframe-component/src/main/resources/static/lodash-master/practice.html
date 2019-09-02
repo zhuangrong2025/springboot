@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+    <div>lodash</div>
+</body>
+<script type="module">
+import baseDifference from './.internal/baseDifference_test.js';
+
+
+var ret1 = baseDifference([1, 2], [1]);
+var ret = baseDifference([{ 'x': 2 }, { 'x': 1, 'y': 2 }, { 'x': 3 }], [{ 'x': 1 }], function(o){
+    return o.x
+});
+console.log(ret) // [{x: 2}]
+console.log(ret1) // [2]
+
+
+
+
+</script>
+</html>

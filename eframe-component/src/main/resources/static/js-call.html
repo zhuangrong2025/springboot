@@ -7,12 +7,23 @@
   <link rel="stylesheet" href="./stylesheets/demo.css">
   <title>Document</title>
 </head>
-<body>
+<body style="background-color:#252525">
 call
 </body>
 <script id="seajsnode" src="./sea-modules/sea.js"></script>
 <script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
+Father.prototype.sex = "male"
+function Father(){
+    this.age = '20'
+    this.lastName = 'deng'
+}
+function Son(){
+    Father.call(this)
+}
+var  son = new Son()
+
+
   // 作用一 --> 传参
   function test(a, b){
     console.log(a + '&' + b)
@@ -28,7 +39,7 @@ call
       }
   }
   // 情况1
-  student.sayName() // this 是 student
+  student.sayName() // lao => this 是 student
 
   // 情况2
   var sayName = student.sayName

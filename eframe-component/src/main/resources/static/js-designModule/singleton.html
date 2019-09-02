@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+    <nav>scss</nav>
+    <div>design module</div>
+</body>
+<script type="module">
+import Modal from './Singleton2.js';
+
+
+let question = new Modal('问题框');
+let answer = new Modal('回答框');
+
+console.log(question === answer); // true
+console.log(question.getName());  // '问题框'
+console.log(answer.getName());  // 输入相同，tofix
+
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+RegExp
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+    /*
+     * 正则表达式
+     */
+
+    // 1、字面量方式 ; new RegExp
+    var reg = /abc/g;
+    var reg11 = new RegExp()
+
+    // 2、reg.test(str) ==> true or false, str.match(reg) => ['']
+    var str = 'abcab'
+    reg.test(str) // true
+    str.match(reg) // ["abc"]
+
+    // []表示区间，每一位符合这个区间的
+    var reg2 = /[\w][0-9A-z]/g; // 遍历 每两个字符，看是否符合[a-z][a-z]区间
+    var str2 = 'ab1cd' //
+
+    // [^ ]表示非, \s代表任意的空白符，包括空格，制表符(Tab),换行符
+    var reg3 = /\S/g;
+    var str3 = 'ab cd' // ['a','b','c','d']
+
+    // \w代表着字母或数字 => [0-9A-z]
+
+    // ^	匹配字符串的开始
+    // $	匹配字符串的结束
+     var reg5 = /^ab/g;
+     var str5 = 'abcd' // ['ab']
+
+    /* ^\d{5,12}$
+     *  \d表示数字
+     *  {5, 12}必须重复最少5次，最多12次
+     *  因为使用了^和$， 所以输入的整个字符串都要用来和\d{5,12}来匹配
+     */
+     var reg6 = /^\d{5,12}$/
+     var str6 = '0123456789' //
+
+     /* 特殊字符转义
+      *  .  *  ^ 用反斜杠转义 \.  \*
+      *  deerchao\.net匹配deerchao.net，c:\\windows匹配c:\windows
+      */
+      var reg7 = /qq\.com/
+      var str7 = 'qq.com' //
+
+     /* 分组 ()
+      *  \d{1,3}
+      *  deerchao\.net匹配deerchao.net，c:\\windows匹配c:\windows
+      */
+      var reg8 = /(\d{1,3}\w)/
+      var str8 = '1b' //
+
+      /* 匹配首尾空格的正则表达式：
+       *  (^\s*)|(\s*$)
+       */
+       var reg9 = /(^\s*)|(\s*$)/g
+       var str9 = '     abc ' //
+       stra = str9.replace(reg9, 'x')
+
+       /* 匹配{}
+        * 内部不包含{}和空格
+        */
+        // this.useExpression = /\{[^\{\}].*\}/.test(this.text);
+       var reg10 = /^\{[^\{\}\s]*}$/g
+       var text = '{role}'
+       console.log(text.match(reg10))
+
+       /* 匹配整串字符串，没有空白符
+        * \S*
+        * ^ $ ,有这两个说明是整字符串
+        */
+       var reg11 = /^\S+$/g
+       var str11 = 'a1'
+       console.log(reg11.test(str11))
+
+</script>
+
+</html>

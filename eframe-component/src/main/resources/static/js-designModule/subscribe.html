@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+    <div>lodash</div>
+</body>
+<script type="module">
+import subscribe from './subscribe.js';
+
+var subs = new subscribe()
+var fn1 = function(x, y){
+    console.log(x, y)
+}
+var fn2 = function(x, y){
+    console.log(y, x)
+}
+subs.add(fn1)
+subs.add(fn2)
+subs.fire(30, 50)
+
+
+</script>
+</html>

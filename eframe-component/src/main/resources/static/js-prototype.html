@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
-<body>
+<body style="background-color:#252525">
 prototype
 </body>
 <script>
@@ -21,16 +21,32 @@ prototype
 
     function extend(Target, Origin){
         function F(){}
-        F.prototype = Origin.prototype
-        Target.prototype = new F()
+        F.prototype = Origin.prototype // 过渡类，避免son的原型链上的属性污染father上的原型链
+        Target.prototype = Origin.prototype
         Target.prototype.constructor = Target // 指针指向Son
     }
     extend(Son, Father)
-    Son.prototype.sex = "male"
+    Son.prototype.sex = "male"  // 这样sex属性就不在Father的原型链上
     var son = new Son()
     var father = new Father()
+    console.log(son.lastName)
 
+    /*
+    * 原型链上的方法和构造函数的方法的区别
+    */
+    function Foo(name){
+        this.name = name
+        this.say = function(){ // 构造函数上的方法，这是新建一实例，就创建一次
+            console.log('hello')
+        }
+    }
+    Foo.prototype.say = function(){ // 原型链上的方法，这是被引用
+        console.log('hi')
+    }
 
+    var foo = new Foo('deng')
+    var foo2 = new Foo('deng2')
+    foo.say()  // 默认先找构造函数中的方法，再找原型链上的方法 => 'hello'
 
 
 
