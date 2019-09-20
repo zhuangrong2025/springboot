@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <script src="" charset="utf-8"></script>
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+模板解析
+</body>
+<script language = "javascript" type=" text / javascript">
+  /*
+   * 简单模板解析
+   * 替换字符串中的{{name}}6225885913 083572
+   */
+var str = 'hello <%=user%>, age: <%=age%>!'
+var data = {
+    user: 'deng',
+    age: 18
+}
+function template(source){
+    var temp = source
+    return function(obj){ //闭包
+        for (var prop in obj ){
+            var tpl = '<%=' + prop + '%>'
+            if(temp.indexOf(tpl) > -1){
+                temp = temp.replace(tpl, obj[prop])
+                console.log(temp)
+            }
+        }
+        return temp
+    }
+}
+var complie = template(str)
+var ret = complie(data)
+console.log(ret)
+
+
+
+
+
+</script>
+
+</html>

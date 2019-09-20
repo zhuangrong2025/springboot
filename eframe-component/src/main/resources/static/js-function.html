@@ -44,6 +44,25 @@ function
 
    test.get('a')
 
+/*
+ * 函数的自定义属性，
+ * 不是原型上，也不是构造函数中
+ * 默认有name（函数名称）,和length
+ * 还可以添加自定义的属性
+ */
+ function Dep(){
+     this.subs = ['watcher1'] // 添加watcher
+ }
+ Dep.prototype.addSub = function(watcher){
+     this.subs.push(watcher)
+ }
+ Dep.target = null;
+ Dep.age = 'a';
+ console.log(Dep.name)
+ console.log(Dep.length)
+ console.log(Dep.target)
+
+
 
 </script>
 

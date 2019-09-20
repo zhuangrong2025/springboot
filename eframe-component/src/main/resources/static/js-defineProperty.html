@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="./stylesheets/demo.css">
   <title>Document</title>
 </head>
-<body>
+<body style="background-color:#252525">
 类型转换
+数据代理 vue
 </body>
 <script id="seajsnode" src="./sea-modules/sea.js"></script>
 <script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
@@ -28,6 +29,35 @@
  })
  obj.name = 'hi'
  console.log(obj.name)
+
+ /*
+  * 把key绑定到实例上方法
+  * 模拟数据劫持或代理 vm.data.name => vm.name
+  */
+ var Vm = function(data, exp){
+    this.data = data
+    var _this = this
+    Object.keys(data).forEach(function(key){
+        _this.proxyKeys(key)
+    })
+ }
+ Vm.prototype.proxyKeys = function(key){
+    var _this = this
+    Object.defineProperty(this, key, { // 定义vm[key] = 'vue3'
+        get: function(){
+            return _this.data[key]  //vm.name = vm.data.name
+        },
+        set: function(newVal){
+            _this.data[key] = newVal
+        }
+    })
+ }
+ var data = {
+    name: 'vue3'
+ }
+
+ var vm = new Vm(data, 'name')
+ console.log(vm.name) // vue3
 
 </script>
 

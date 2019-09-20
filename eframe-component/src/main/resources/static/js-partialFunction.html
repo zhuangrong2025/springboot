@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+function
+</body>
+<script>
+  /*
+   * 二次封装函数
+   * 已知函数 fn 执行需要 3 个参数。请实现函数 partial，调用之后满足如下条件：
+   * 1、返回一个函数 result，该函数接受一个参数
+   * 2、执行 result(str3) ，返回的结果与 fn(str1, str2, str3) 一致
+   * 3、看做回调函数，前面你两个为回调函数的参数
+   */
+
+
+var sayIt = function(greeting, name, punctuation) {
+        console.log(greeting + ', ' + name + ', ' + (punctuation || '!'));
+        return  greeting + ', ' + name + ', ' + (punctuation || '!');
+    }
+function partialUsingArguments(fn) {
+    //先获取函数第一个参数fn，之后的全部参数
+    var args = Array.prototype.slice.call(arguments,1);
+    console.log(args)
+    //声明result函数
+    var result = function(){
+        //使用concat合并两个或多个数组中的元素
+        // 这里arguments是result的参数，合并上面的args给fn做参数
+        return fn.apply(null, args.concat([].slice.call(arguments)));
+    }
+    return result;
+}
+partialUsingArguments(sayIt, 'Hello', 'Ellie')('sb','b2');
+
+console.log("*******分割线********")
+//call写法，不用arguments
+function partial(fn, str1, str2){ // 可以吧fn看做回调函数
+    var result = function(str3){
+        return fn.call(null, str1, str2, str3)
+    }
+    return result
+}
+partial(sayIt, 'hello', 'Ellie')('sb')
+
+</script>
+
+</html>

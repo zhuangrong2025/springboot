@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+watcher
+call
+
+</body>
+
+<script>
+/*
+ * 定义一个类，有回调函数cb
+ * 类的方法，cb.call(someClass, value)
+ * 参数值是 someClass的data[key],传另外一个类
+ */
+
+// watcher类，有回调函数
+function Watcher(vm, exp, cb){
+    this.vm = vm
+    this.exp = exp
+    this.cb = cb
+}
+Watcher.prototype = {
+    render: function(){
+        var value = this.vm.data[this.exp]
+        this.cb.call(this.vm, value) // 关键，回调函数call，data和传参
+    }
+}
+
+//vm类,通过这个类来传数据
+var Vm = function(data, exp){
+    this.data = data
+    var watcher = new Watcher(this, exp, function(value){
+        console.log('传参：' + value)
+    })
+    watcher.render()
+}
+
+var data2 = {
+    name: 'vue'
+}
+new Vm(data2, 'name')
+
+
+</script>
+
+</html>

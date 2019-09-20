@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+    <div>design module</div>
+</body>
+<script type="text/javascript">
+  /*
+   * 观察者模式
+   * 1、subject 存储  通知 observer,
+   * 2、subject 有状态变化 getState, setState
+   * 3、observer 有 name， subject； 并有update根据subject的notify
+   */
+
+    class Subject{
+        constructor(){
+            this.state = 0
+            this.observers = []
+        }
+        getState(){
+            return this.state
+        }
+        setState(state){
+            this.state = state
+            this.notifyAllObservers()
+        }
+        notifyAllObservers(){
+            this.observers.forEach(observer => {
+                observer.update()
+            })
+        }
+        attach(observer){
+            this.observers.push(observer)
+        }
+    }
+
+    class Observer{ // 把自己类添加到subject实例中
+        constructor(name, subject){
+            this.name = name
+            this.subject = subject;
+            this.subject.attach(this)
+        }
+        update(){
+            console.log(`${this.name} update, state: ${this.subject.getState()}`)
+        }
+    }
+
+    //调用
+    var s = new Subject()
+    var o1 = new Observer('o1', s)
+    var o2 = new Observer('o2', s)
+    var o3 = new Observer('o3', s)
+    s.setState(1)
+
+</script>

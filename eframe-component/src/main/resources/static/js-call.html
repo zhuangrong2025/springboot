@@ -6,12 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./stylesheets/demo.css">
   <title>Document</title>
+  <style>
+body{
+    font-family:'Cascadia Code' !important;
+}
+  </style>
 </head>
-<body style="background-color:#252525">
+<body style="background-color:#252525; font-size:18px;color:#fff; padding:55px">
+
 call
 </body>
-<script id="seajsnode" src="./sea-modules/sea.js"></script>
-<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
 <script>
 Father.prototype.sex = "male"
 function Father(){
@@ -73,6 +77,19 @@ var  son = new Son()
     console.log(params)
   }
 
+ // you donot konw js
+
+ function identify(){
+     return this.name.toUpperCase()
+ }
+ function speak(more){
+     var greeting = 'hi,' + identify.call(this)
+     console.log(greeting + more)
+ }
+ var me = {
+     name: 'kelly'
+ }
+ speak.call(me, 'you')
 </script>
 
 </html>

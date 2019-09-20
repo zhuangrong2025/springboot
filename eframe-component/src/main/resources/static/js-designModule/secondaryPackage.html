@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+    <div>design module</div>
+</body>
+
+<script>
+ /*
+  * 二次封装
+  */
+class Circle{
+    draw(){
+        console.log("draw a cir")
+    }
+}
+class Decorator{
+    constructor(circle){
+        this.circle = circle
+    }
+    draw(){
+        this.circle.draw()
+        this.setRedBorder()
+    }
+    setRedBorder(){
+        console.log('set red border')
+    }
+}
+var circle = new Circle()
+var decorator = new Decorator(circle)
+decorator.draw() // 先调用Circle中的draw，在家自己的SetRedborder
+
+
+</script>
+</html>

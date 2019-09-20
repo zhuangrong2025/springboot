@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525">
+模板引擎
+</body>
+<script>
+  /*
+   * 简单模板引擎
+   * 替换字符串中的{{name}}身份证
+   */
+
+var template = 'I am {{name}}, age is {{age}}'
+var data = {
+    name: 'deng',
+    age: 18
+}
+function render(template, data){
+    for (var key in data){
+        if(template.indexOf(key)){
+            var reg = new RegExp('{{' + key + '}}', 'g')  //  => /{{name}}/g
+            template = template.replace(reg,data[key])
+        }
+    }
+    template = template.replace(/\{\{(\w+)\}\}/g,'undefined')
+    return template
+}
+var ret = render(template, data)
+console.log(ret)
+，
+/*
+ * 第二种方法
+ */
+function render2(template, data){
+    var reg = /\{\{(\w+)\}\}/;
+    if(reg.test(template)){
+        var name = reg.exec(template)[1] // 注意exec匹配到的第一项是匹配字符串，第二项为分组内的字符串[{{name}},name]
+        template = template.replace(reg, data[name])
+        return render2(template, data)
+    }
+    return template
+}
+var ret2 = render2(template, data)
+console.log(ret2)
+
+</script>
+
+</html>

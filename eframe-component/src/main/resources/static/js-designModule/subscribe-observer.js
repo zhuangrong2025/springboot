@@ -9,6 +9,7 @@ class Subscribe{
     add(fn){
         var pond = this.pond,
             isExist = false;
+        // 去重
         pond.forEach(item => item === fn ? isExist = true : null);
         !isExist ? pond.push(fn) : null;
     }

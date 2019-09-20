@@ -36,7 +36,8 @@ import baseReduce from './.internal/baseReduce.js'
  * // => { '1': ['a', 'c'], '2': ['b'] } (iteration order is not guaranteed)
  */
 function reduce(collection, iteratee, accumulator) {
-  const func = Array.isArray(collection) ? arrayReduce : baseReduce
+  const func = Array.isArray(collection) ? arrayReduce : baseReduce //
+  var objects = {}
   const initAccum = arguments.length < 3
   return func(collection, iteratee, accumulator, initAccum, baseEach)
 }
