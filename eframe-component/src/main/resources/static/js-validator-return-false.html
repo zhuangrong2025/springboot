@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <script src="./assets/jquery/jquery.js" charset="utf-8"></script>
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+    <input id="text" type="text">
+    <button id='subm'>submit</button>
+</body>
+<script>
+  /*
+   * 表单验证
+   * 1、return false和！的理解
+   */
+
+$(function(){
+    //点击提交
+    $('#subm').on('click', function(){
+        var result = !validator('text') //返回的是Boolean
+        if(result) return false
+        save()
+    })
+})
+// 必须要有个Boolean返回值
+function validator(field){
+    var $field = $('#' + field)
+    var val = $field.val()
+    if(val == ''){
+        console.log('不能为空!')
+        return false // 必须加
+    }
+    // 验证通过必须返回true，调用时判断Boolean，继续执行下面的
+    return true
+}
+function save(){
+    console.log('save')
+}
+
+
+</script>
+
+</html>

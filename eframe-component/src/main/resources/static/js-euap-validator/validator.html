@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .xy-form-error{
+      font-size: 12px;
+      color: #fa0;
+  }
+  </style>
+</head>
+<body style="background-color:#252525; color:#0ff">
+    <table id="mod-base-table" data-group="one" border="0" cellspacing="10" cellpadding="0" class="xy-form-panel" width="100%">
+		<tbody>
+			<tr>
+				<td class="xy-label"><em class='star'>*</em> 业务名称：</td>
+				<td>
+                    <!-- 通过属性 required='required' 或  sernameext-->
+					<input id="sername_ext" name="sername_ext" type="text" class="xy-ipt"  required='required' data-validator="">
+					<i class="icon-ask" alt=""></i>
+					<span class="xy-form-error"></span>
+				</td>
+			</tr>
+			<tr>
+				<td class="xy-label"><em class='star'>*</em> ip：</td>
+				<td>
+                    <!-- 通过name="__sernameext"传递rules函数 -->
+					<input id="ip" name="__sernameext" type="text" class="xy-ipt" required='required'  data-validator="">
+					<i class="icon-ask" alt=""></i>
+					<span class="xy-form-error"></span>
+				</td>
+			</tr>
+            <!-- 通过参数option.type来传递规则，不从input的属性中 -->
+			<tr>
+				<td class="xy-label"><em class='star'>*</em> 参数传递规则：</td>
+				<td>
+					<input  type="text" class="xy-ipt"  data-validator="optionType" placeholder="测试不用填" >
+					<i class="icon-ask" alt=""></i>
+					<span class="xy-form-error"></span>
+				</td>
+			</tr>
+        </tbody>
+    </table>
+    <button id="tick">提交</button>
+</body>
+<script src="../assets/jquery/jquery.js"></script>
+<script src="./componentValidator.js"></script>
+<script src="./euapValidator.js"></script>
+<script>
+$(function(){
+    var checkAllResult
+    //创建表单验证对象，默认有keyup验证
+    var baseValidator = euap.config.Validator.createValidator($('#mod-base-table'))
+
+    //提交按钮验证
+    $('#tick').on('click', function(){
+        /*
+         * 1、baseValidator.validateAll() 返回true说明验证通过,执行saveData
+         */
+        checkAllResult = !baseValidator.validateAll()
+        if(checkAllResult) {
+            console.log('验证不通过！')
+            return false;
+        }
+        saveData();
+
+    })
+
+})
+function saveData(){
+    console.log('验证成功 执行saveData')
+}
+
+
+
+</script>
+</html>
