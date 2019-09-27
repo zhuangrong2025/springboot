@@ -1,0 +1,177 @@
+{
+"sername":"金证超级代理",
+"sercode":"1230",
+"version":"2.1.0.0",
+"pages": [
+        {
+            "title": "业务名称",
+            "key": "EUAPFP#businame",
+            "type": "text",
+            "validator": "required",
+			"defaultvalue":"金证超级代理",
+            "remark": "用于程序窗口显示业务名称。"
+        },
+        {
+            "title": "INI下载地址",
+            "key": "EUAPFP#bsiniurl",
+            "type": "text",
+            "validator": "",
+	    "defaultvalue":"http://ip:port/inidir/agent_ini/",
+            "remark": "业务配置文件INI的URL下载地址,该URL为JBOSS服务器的路径，格式为：http://ip:port/inidir/agent_ini/。空值代表使用本地默认的业务INI"
+        },
+	{
+            "title": "INI名称",
+            "key": "EUAPFP#bsininame",
+            "type": "text",
+            "validator": "required",
+	    "defaultvalue":"jz.ini",
+            "remark": "要下载的INI名称"
+        },
+        {
+            "title": "业务处理超时时间（秒）",
+            "key": "EUAPFP#COUNTERTIMEOUT",
+            "type": "text",
+            "validator": "required",
+	    "defaultvalue":"30",
+            "remark": "用于设置业务处理的超时时间，单位秒。填值必须大于等于30秒"
+        },
+        {
+            "title": "数据接收监听端口",
+            "key": "EUAPFP#LISTENPORT",
+            "type": "text",
+            "validator": "commonport",
+	    "defaultvalue":"5315",
+            "remark": "用于接收数据的监听端口。该端口不能被其它系统占用"
+        },
+         {
+            "title": "最大队列数",
+            "key": "EUAPFP#MAXLISTLENGTH",
+            "type": "text",
+            "validator": "required",
+	    "defaultvalue":"20000",
+            "remark": "能够接收的委托数据队列的最大数，最大不超过10万"
+        },
+
+	{
+            "title": "启用报文备份",
+            "key": "XYPROCESS#FILEBACKUP",
+            "type": "checkbox",
+            "validator": "required",
+            "remark": "是否启用业务报文备份。"
+        },
+	{
+            "title": "备份保留天数",
+            "key": "XYPROCESS#DATAKEEPDAY",
+            "type": "text",
+            "validator": "required",
+	    "defaultvalue":"3",
+            "remark": "报文备份后保留的天数。"
+        },
+        {
+            "title": "连接柜台线程",
+            "key": "XYPROCESS#THDNUM",
+            "type": "text",
+            "validator": "required",
+	    "defaultvalue":"20",
+            "remark": "连接柜台的线程数"
+        },
+
+        {
+            "title": "日志等级",
+            "key": "XYPROCESS#LOGLEVEL",
+            "type": "text",
+            "validator": "required",
+			"defaultvalue":"3",
+            "remark": "日志等级，0：记录出错信息并显示；1：只在界面显示，不记录日志；2：写中等重要日志，界面不显示；3：写全部日志，界面不显示。"
+        },
+         {
+            "title": "金证服务器IP",
+            "key": "XYPROCESS#AGENTIP",
+            "type": "text",
+            "validator": "required;ip",
+			"defaultvalue":"127.0.0.1",
+            "remark": "用于连接金证柜台的服务器IP地址。"
+        },
+         {
+            "title": "金证服务器端口",
+            "key": "XYPROCESS#AGENTPORT",
+            "type": "text",
+            "validator": "required",
+			"defaultvalue":"21000",
+            "remark": "用于连接金证柜台服务器的端口号。"
+        },
+	{
+            "title": "连接超时时间（毫秒）",
+            "key": "XYPROCESS#AGENTCONNTIMEOUT",
+            "type": "text",
+            "validator": "required",
+			"defaultvalue":"10000",
+            "remark": "用于连接金证服务器的超时时间（毫秒）。"
+        },
+         {
+            "title": "金证用户名",
+            "key": "XYPROCESS#AGENTUSERNAME",
+            "type": "text",
+            "validator": "required",
+			"defaultvalue":"KCXP00",
+            "remark": "用于连接金证柜台的用户名，对应KCBPCLI_SQLConnect的UserName。"
+        },
+        {
+            "title": "金证密码",
+            "key": "XYPROCESS#AGENTPWD",
+            "type": "password",
+            "validator": "required",
+            "defaultvalue":"888888",
+            "remark": "用于连接金证柜台的密码，对应KCBPCLI_SQLConnect的Password。"
+        },
+        {
+            "title": "发送队列名称",
+            "key": "XYPROCESS#AGENTREQNAME",
+            "type": "text",
+            "validator": "required",
+            "defaultvalue":"req",
+            "remark": "用于连接金证柜台的发送队列名称，对应结构体tagKCBPConnectOption里面的szSendQName，发送队列名称。"
+        },
+        {
+            "title": "接收队列名称",
+            "key": "XYPROCESS#AGENTREPNAME",
+            "type": "text",
+            "validator": "required",
+			"defaultvalue":"ans1",
+            "remark": "用于连接金证柜台的接收队列名称，对应结构体tagKCBPConnectOption里面的szReceiveQName，接收队列名称。"
+        },
+        {
+            "title": "KCBP服务器名称",
+            "key": "XYPROCESS#AGENTSERVERNAME",
+            "type": "text",
+            "validator": "required",
+			"defaultvalue":"KCBP01",
+            "remark": "用于连接金证柜台的服务名，用户自定义的金证KCBP服务器名称。"
+        },
+        {
+            "title": "金证服务号",
+            "key": "XYPROCESS#AGENTSERVERID",
+            "type": "text",
+            "validator": "required",
+			"defaultvalue":"1",
+            "remark": "用于连接金证柜台的服务号，对应金证接口里面的参数g_serverid。"
+        },
+        {
+            "title": "操作用户代码",
+            "key": "XYPROCESS#OPERATE_ID",
+            "type": "text",
+            "validator": "required",
+			"defaultvalue":"999999",
+            "remark": "操作用户代码，对应金证接口里面的参数g_operid。"
+        },
+        {
+            "title": "操作用户密码",
+            "key": "XYPROCESS#OPERATE_PWD",
+            "type": "password",
+            "validator": "required",
+			"defaultvalue":"1",
+            "remark": "操作用户密码，对应金证接口里面的参数g_operpwd。"
+        }
+
+    ]
+}

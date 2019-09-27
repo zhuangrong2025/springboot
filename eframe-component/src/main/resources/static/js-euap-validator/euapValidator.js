@@ -30,12 +30,55 @@ xy.ns("euap.config");
 
 /*验证eaup表单 -- 函数封装*/
 euap.config.Validator = function(){
+    /*
+     * setValidator的pages,item数据
+     * pages:[{
+        defaultvalue: "金证超级代理",
+        groupid: "200",
+        key: "EUAPFP#businame",
+        remark: "用于程序窗口显示业务名称。",
+        title: "业务名称",
+        type: "text",
+        validator: "required"
+        }]
+    */
+    //先添加表单校验属性，创建校验表单对象createValidator
+    function setValidator($target, data){
+        data = data || {}
+        var pages = data['pages']
+        $.each(pages, function(index, item){
+            var row = item;
+            var validatorFlag = row['validator']
+            var key = row['key']
+            var $tmpTarget = $target.find('[name=' + key + ']')
+            if(validatorFlag){
+                var flags = validatorFlag.split(';')
+                $.each(flags, function(index, flag){
+                    $tmpTarget.attr(flag, '')
+                })
+            }
+            $tmpTarget.attr('data-validator', '')
+        })
+        var validator = createValidator($target)
+        return validator;
+    }
+
+    //创建表单验证
     function createValidator($target){
         // 调用xy.widget.Validator
         var validator = new xy.widget.Validator({
             selector: $target.find("[data-validator]"), //dom数组 select[0] => 表单对象
             rules:{ // 规则函数
                 __sernameext:function(value,field){ //sernameext是input的属性，如果是单独属性说明是空串，不是undefined
+                    if(!value){
+                        return "";
+                    }
+                    if(isIP(value))
+                        return "";
+                    else
+                        return "此栏位必须为IP格式!!!";
+                },
+                __ip:function(value,field){
                     if(!value){
                         return "";
                     }
@@ -60,7 +103,8 @@ euap.config.Validator = function(){
         return validator;
     }
     return {
-        createValidator: createValidator
+        createValidator: createValidator,
+        buildValidator: setValidator
     }
 }() //在这里执行，返回是对象
 

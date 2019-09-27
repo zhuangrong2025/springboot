@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .xy-form-error{
+      font-size: 12px;
+      color: #fa0;
+  }
+  </style>
+</head>
+<body style="background-color:#252525; color:#0ff">
+    <table id="mod-ext-table" data-group="one" border="0" cellspacing="10" cellpadding="0" class="xy-form-panel" width="100%">
+    </table>
+    <button id="server">显示服务返回数据</button>
+    <button id="tick">提交</button>
+</body>
+<script src="../assets/jquery/jquery.js"></script>
+<script src="./componentValidator.js"></script>
+<script src="./euapValidator.js"></script>
+<script src="./commpages.js"></script>
+<script>
+$(function(){
+    var configView = euap.config.view.ConfigView
+
+    // 根据config_page.json生成表单，并显示默认值
+    $.ajax({
+        type: 'get',
+        url: './config_page.json',
+        dataType: 'json',
+        success: function(data){
+            configView.render($('#mod-ext-table'), data)
+        }
+    })
+
+    // config_server.json返回的数据，显示值
+    //设置成服务器返回的数据
+    $('#server').on('click', function(){
+        $.ajax({
+            type: 'get',
+            url: './config_server.json',
+            dataType: 'json',
+            success: function(data){
+                var outData = data['1_out']
+                console.log(outData)
+                configView.setValue($('#mod-ext-table'), outData)
+            }
+        })
+    })
+
+
+    //提交按钮验证,请求data
+    $('#tick').on('click', function(){
+        $.ajax({
+            type: 'get',
+            url: './config_page.json',
+            dataType: 'json',
+            success: function(data){
+                var extValidator = euap.config.Validator.buildValidator($('#mod-ext-table'), data)
+                var checkAllResult = !extValidator.validateAll()
+                if(checkAllResult) {
+                    console.log('验证不通过！')
+                    return false;
+                }
+                saveData();
+            }
+        })
+    })
+
+})
+function saveData(){
+    console.log('验证成功 执行saveData')
+}
+
+
+</script>
+</html>

@@ -49,7 +49,7 @@ function Validator(params){
             $siblingsWarning.text(text)
         }else{
             var errorTag
-            errorTag = $('<span>').addClass('.xy-form-error').text(text)
+            errorTag = $('<span>').addClass('xy-form-error').text(text)
             $field.after(errorTag)
         }
     }
