@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "json2": "~1",
-        "jquery": "~1.8",
+        "jquery": "~3.4",
         "lodash": "~3",
         "observer": "~0.1",
         "base-style-manage": "~0.1",
