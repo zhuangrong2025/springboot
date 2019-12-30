@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+function
+</body>
+<script>
+  /*
+   * 仿写Stack类
+   * 1、模拟栈
+   */
+    var Stack = function(){
+        this.count = 0;
+        this.storage = {};
+        this.push = function(value){
+            this.storage[this.count] = value;
+            this.count++
+        }
+        this.pushed = function(value){
+            this.storage[this.count] = value
+            this.count++
+        }
+        this.pop =  function(){
+            if(this.count === 0 ){
+                return undefined
+            }
+            this.count--;
+            var result = this.storage[this.count]
+            delete this.storage[this.count]
+            return result
+        }
+        this.peek = function(){
+            return this.storage[this.count - 1]
+        }
+        this.peak = function(){
+
+        }
+        this.size = function(){
+            return this.count
+        }
+    }
+    var sta = new Stack()
+    sta.push('a')
+    sta.push('b')
+    console.log(sta.storage)
+
+
+
+
+</script>
+
+</html>

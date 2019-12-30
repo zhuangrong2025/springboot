@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>word</title>
+    <link rel="stylesheet" href="words.css">
+</head>
+<body class="card card1 chrome">
+    <div id="MathJax_Message" style="display: none;"></div>
+    <div id="content">
+        <div class="answer" id="qa">
+
+
+            <!-- 从这里复制 -->
+            <div class="x-wrapper">
+                <div class="x-container">
+                    <div class="word-main">
+                        <!-- 刮刮图 -->
+                        <div class="picture">
+                            <div class="pic-box">
+                                <img src="cow.jpg">
+                            </div>
+                        </div>
+                        <!-- 英文 -->
+                        <div class="sourceText">Cow</div>
+                        <!-- 音标 -->
+                        <div class="phonetic">/kaʊ/</div>
+                        <!-- 音频 -->
+                        <div class="audio">
+                            <i class="icon-audio"></i>
+                            <audio src="cow1.mp3" preload=""></audio>
+                        </div>
+                        <!-- 提示 -->
+                    </div>
+                    <!-- 底部动画 -->
+                    <div class="f-animation">
+                        <img src="dog-animation.gif">
+                    </div>
+                    <!-- //底部动画 -->
+                </div>
+            </div>
+            <script src="jquery.min.js"></script>
+            <script>
+            $(function() {
+                // 点击提示
+                $('.btnHint').on("click", function() {
+                    $('.hintArea').show()
+                })
+                // 播放音频
+                $(".icon-audio").click(function(){
+            		$(".audio").find('audio')[0].currentTime = 0;
+            		$(".audio").find('audio')[0].play();
+            	})
+            })
+            </script>
+
+            <!-- //复制结束点 -->
+
+            <!-- 显示答案尾部 -->
+            <style>
+            .show-answer{line-height: 45px;background-color: #455A64;text-align: center;color:#fff;font-size: 18px;position: fixed;z-index: 99999;bottom: 0; left: 0;  right: 0;}
+            </style>
+            <div class="show-answer">显示答案</div>
+            <!-- //显示答案尾部 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

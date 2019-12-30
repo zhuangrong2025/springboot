@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+function
+</body>
+<script>
+  /*
+   * 惰性实例化
+   * 1、就是单例模式
+   */
+
+    var myNamespace = function(){
+        // 定制类
+        var Configure = function(){
+            var privateName = 'someone name';
+            var privateGetName = function(){
+                return privateName
+            }
+            var privateSetName = function(name){
+                privateName = name
+            }
+            return {
+                setName: privateSetName,
+                getName: privateGetName
+            }
+        }
+        // 存储实例,闭包
+        var instance
+
+        // 返回方法
+        return {
+            getInstance: function(){
+                if(!instance){
+                    console.log('once')
+                    instance = new Configure()
+                }
+                return instance
+            }
+        }
+    }()
+
+    myNamespace.getInstance().setName('molei')
+    var name = myNamespace.getInstance().getName()
+    console.log(name)
+
+    /*
+     * 优化调用函数，不用中间函数getInstance()
+     */
+     var myNamespace2 = function(){
+         // 定制类
+         var Configure = function(){
+             var privateName = 'someone name';
+             var privateGetName = function(){
+                 return privateName
+             }
+             var privateSetName = function(name){
+                 privateName = name
+             }
+             return {
+                 setName: privateSetName,
+                 getName: privateGetName
+             }
+         }
+         // 存储实例,闭包
+         var instance
+
+         // 返回方法
+         return {
+             init: function(){
+                 if(!instance){
+                     instance = new Configure()
+                 }
+                // 优化点
+                for(key in instance){
+                    if(instance.hasOwnProperty(key)){
+                        this[key] = instance[key] //myNamespace创建key,值为instance[key]
+                    }
+                }
+                this.init = null //只执行一次
+                return this
+             }
+         }
+     }()
+     myNamespace2.init() //初始化一次
+     myNamespace2.setName('NBA')
+     var name2 = myNamespace2.getName()
+     console.log(name2)
+
+    //柯里化函数
+    function curry(fn){
+        var args = Array.prototype.slice.call(arguments, 1)
+        return function(){
+            var innerArgs = Array.prototype.slice.call(arguments)
+            var finalArgs = args.concat(innerArgs)
+            return fn.apply(null, finalArgs)
+        }
+    }
+    function add(){
+        var args = Array.prototype.slice.call(arguments)
+        var lenth = args.length
+        var result = 0
+        for (var i = 0; i < lenth; i++) {
+            result += args[i]
+        }
+        return result
+    }
+    var a = curry(add, 5)
+    var b = a(6)
+    console.log(b) // 11
+
+
+</script>
+
+</html>

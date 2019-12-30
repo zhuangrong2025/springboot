@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+function
+</body>
+<script>
+  /*
+   * 表单校验函数，数组的每个验证函数都true，才是验证通过
+   * 1、校验器数组 validators = [fn, fn] ,fn为每个校验函数的返回结果
+   * 2、全部为true，dosomething(),
+   * 3、不通过 alert message
+   */
+
+    function checkNumber(){
+        return 1
+    }
+    function checkTime(){
+        return 0
+    }
+    var checkValidators = [checkNumber, checkTime];
+
+
+    //改造成return和break
+    var handleValidtor2 = validators => {
+        for(var i=0; i< validators.length; i++){
+            if(!validators[i]()){ //有个验证不通过
+                console.log('验证不通过')
+                return
+                // showMsg()
+            }
+        }
+        console.log('验证通过!')
+        console.log('doSomething!')
+    }
+
+    handleValidtor2(checkValidators)
+
+    var isBeauty = function(age, gender){
+        return age == 18 && gender == "female"
+    }
+    var isOld = function(age, gender){
+        return age == 81 && gender == "man"
+    }
+    function lottary(age, gender){
+        if(isBeauty(age, gender) || isOld(age, gender)){
+            console.log('win')
+        }else{
+            console.log('fail')
+        }
+    }
+    lottary(81, 'male')
+
+    var obj = {}
+    console.log(obj.xx) // 不报错 undefined
+    // console.log(obj.xx.yy) // 报错 TypeError
+    // 用&&避免报错
+    console.log(obj.xx && obj.xx.yy) // undefined
+
+    function getPropFixed(object, property, defaultValue){
+        if(!(property in obj)){
+            return defaultValue
+        }
+        return object[property]
+    }
+    var obj = {
+        name: 'Tom',
+        isValidator: false
+    }
+    console.log(getPropFixed(obj, 'isValidator', true));
+
+    // 判断数组时候是否有元素
+    var arr = [1, 2, 3, 'a', 'b']
+    if(arr.indexOf(1) >= 0){
+        console.log('yes');
+    }else{
+        console.log('no');
+    }
+    // es6  判断
+    if(arr.includes('b')){
+        console.log('yes1');
+    }else{
+        console.log('no1');
+    }
+
+    var Person = {
+        name: "noname",
+        age: 0,
+        greet: function() {
+        console.log(`Hello ${this.name}`);
+        }
+    };
+    var p2 = Object.create(Person)
+    console.log(p2.name)
+
+    /*
+     * 原型委托--任何一个对象都连接到原型对象，并从中继承属性
+     */
+
+    var obj1 = {
+        name: "Tom"
+    }
+    if( typeof Object.create !== 'function'){
+        Object.create =  function(o){
+            var F = function(){} // 中间临时类，避免修改obj2，把obj1的属性也改了
+            F.prototype = o
+            return new F() // F的实例的原型，就是o对象
+        }
+    }
+    var obj2 = Object.create(obj1) // 说明obj2继承obj1
+    obj2.name = 'trumpl' //修改
+    console.log(obj1.name) // Tom 78.25
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

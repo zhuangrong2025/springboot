@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+function
+</body>
+<script>
+  /*
+   * 函数
+   * 1、fibonacci函数，存储计算结果，用于后面直接使用率
+   * 2、用对象或数字存储初始值
+   *
+   */
+
+    var fibonacci = (function(){
+        var memo = [0, 1]
+        var fib = function(n){
+            var result = memo[n]
+            if(typeof result !== 'number'){
+                result = fib(n - 1) + fib(n - 2)
+                memo[n] = result
+            }
+            return result
+        }
+        return fib
+    })()
+    fibonacci(5)
+
+    /*
+     * 封装记忆函数
+     * 用于阶乘，斐波那契
+     */
+     var memoizer = function(memo, formula){
+        var recur = function(n){
+            var result = memo[n]
+            if(typeof result !== 'number'){
+                result = formula(recur, n)
+                memo[n] = result
+            }
+            return result
+        }
+        return recur
+     }
+     // 斐波那契函数
+     var fibonacci2 = memoizer([0,1], function(recur, n){
+         return recur(n-1) + recur(n-2)
+     })
+
+    // 阶乘函数
+    var fatorial = memoizer([1,1], function(recur, n){
+        return n * recur(n-1)
+    })
+
+    var fib2 = fibonacci2(5)
+    var fac2 = fatorial(5)
+    console.log(fib2) // 5
+    console.log(fac2) // 120
+
+</script>
+
+</html>

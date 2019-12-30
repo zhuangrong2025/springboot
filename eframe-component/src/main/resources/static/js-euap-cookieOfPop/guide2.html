@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .pop{
+      width: 360px;
+      height: 180px;
+      background-color: #fff;
+      border: 1px solid  #ccc;
+      border-radius: 10px;
+      top:30%;
+      left:50%;
+      position: absolute;
+      margin-left: -180px;
+      color: #000;
+      text-align: center;
+      padding: 20px;
+      display: none;
+  }
+  .footer{
+      position: fixed;
+      padding-top: 10px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 50px;
+      text-align: center;
+      background-color: #333;
+  }
+  .footer .xy-btn{
+      border-radius: 5px;
+      text-align: center;
+      padding: 8px 20px;
+  }
+  </style>
+</head>
+<body style="background-color:#252525; color:#0ff">
+    <div class="pop">
+        <h3>pop气泡层</h3>
+        <p>在第二步页面首次显示</p>
+    </div>
+    <div class="footer">
+        <button class="xy-btn" id="save">完成</button>
+    </div>
+</body>
+<script src="../assets/jquery/jquery.js"></script>
+<script src="./commulity.js"></script>
+<script>
+/*
+ * cookie值判断第一次加载用pop提示
+*/
+var guideConfig = euap.config.data.GuideConfig
+guideConfig.guideLoadConfigGuide(guideConfig.GUIDE_STATUS.guide2)
+guideConfig.saveGuideStatus(guideConfig.GUIDE_STATUS.finish)
+
+</script>
+</html>

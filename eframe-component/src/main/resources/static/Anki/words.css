@@ -1,0 +1,378 @@
+/* 通用样式 */
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  font-size: 50px;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+li {
+  list-style: none;
+}
+body {
+  color: #333;
+  font-size: .28rem;
+  line-height: 1.6;
+  font-family: -apple-system-font, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", sans-serif;
+}
+body, span, label, p, a, div, li, dt, dd, i, em, section, article, :after, :before, button, input{
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-user-select: none;
+}
+a:active {
+  color: #333;
+}
+a:not([href]):focus {
+  outline: 0;
+}
+img {
+  max-width: 100% !important;
+  vertical-align: middle;
+  border-style: none;
+}
+table {
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+}
+input, button, select, optgroup, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-repeat: no-repeat;
+   -webkit-user-select: none;
+  border: none;
+  border-radius: 0;
+  outline: 0;
+}
+button, input {
+  border-radius: 0;
+  overflow: visible;
+}
+input[type="radio"], input[type="checkbox"] {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input[type="radio"]:disabled, input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+em, h3 {
+  font: inherit;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+/*card默认样式*/
+.card {
+    font-family: arial;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100%;
+    width: 100%;
+    word-wrap: break-word;
+}
+.card #content {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+.card #qa {
+    height: 100%;
+    width: 100%;
+    -webkit-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+/*自定义代码*/
+#MathJax_Message{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+html, body {
+    height: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0!important;
+    box-sizing: border-box !important;
+
+}
+body{
+    background-color: #ffbb0f;
+    background-image: url(bg-widget.png);
+    background-position: center top;
+}
+.x-wrapper{
+    height: 100%;
+    width: 100%;
+    padding: 25px;
+    position: relative;
+    background-image: url(ground.png);
+    background-position: left 95%;
+    overflow: hidden;
+}
+.x-container{
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+}
+/*单词卡片*/
+.word-main{
+    text-align: center;
+    animation: moveup 1s forwards;
+}
+.word-main .content-panel,
+.word-main .picture-panel{
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.16);
+}
+.word-main .picture-panel{
+    position: relative;
+    height: 25vh;
+    margin-bottom: .35rem;
+    padding: 10px;
+    background: #fff;
+}
+.word-main .content-panel{
+    height: 58vh;
+    overflow: auto;
+}
+/*内容区域*/
+.word-main .sourceText{
+    font-size: 50px;
+    text-align: center;
+    padding: 10px 0 0 ;
+    display: -webkit-flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.word-main .phonetic{
+    color: #008000;
+    padding: 0 0 20px;
+    font-size: 25px;
+}
+/*刮刮我*/
+.word-main .picture-panel .pic-cover{
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 10px;
+    bottom: 10px;
+    background-image: url(seek.png);
+}
+.word-main .picture-panel .pic-dots-right,
+.word-main .picture-panel .pic-dots-left{
+    position: absolute;
+    top: 12px;
+    z-index: 999;
+    width: 10px;
+    overflow: hidden;
+    height: %;
+}
+.word-main .picture-panel .pic-dots-right{
+    right: -5px;
+}
+.word-main .picture-panel .pic-dots-left{
+    left: -5px;
+}
+.word-main .picture-panel .pic-dots-right i,
+.word-main .picture-panel .pic-dots-left i{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #FFBB0F;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.word-main .picture .pic-box img{
+    object-fit: scale-down;
+    /* opacity: .1; */
+}
+
+/*音频播放*/
+.word-main .audio-field{
+    text-align: center;
+    position: relative;
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    justify-content: center;
+}
+.word-main .audio-field .icon-audio{
+    position: absolute;
+    display: block;
+    width: 36px;
+    height: 36px;
+    background-image: url(audio.png);
+    transition: all 0.2s;
+    z-index: -1;
+}
+.word-main .audio-field:active .icon-audio{
+     transform: scale(1.3);
+}
+.replaybutton{
+    border: 1px solid  #00f;
+    width: 50px;
+    height: 50px;
+    opacity: .5;
+}
+/*底部动画 树 花 房*/
+
+.f-animation{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    bottom: -.5rem;
+    right: .32rem;
+    background-color: #FFBB0F;
+    z-index: 9;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    justify-content: center;
+    overflow: auto;
+}
+.f-animation img{
+    width: 100px;
+}
+.f-flower{
+    position: fixed;
+    right: 0;
+    bottom: -5px;
+    z-index: 99;
+    width: 1.11rem;
+    height: .9rem;
+    background-image: url(flower.png);
+}
+.f-house{
+    position: fixed;
+    left: 0;
+    bottom: -2px;
+    z-index: 99;
+    width: 2.1rem;
+    height: 1.7rem;
+    background-image: url(house.png);
+}
+.rocket{
+    position: fixed;
+    right: .2rem;
+    top: .5rem;
+    z-index: 99;
+    width: 1.12rem;
+    height: 1.71rem;
+    background-image: url(idea-rocket.png);
+    animation: moverocket 1s forwards;
+}
+.t-tip{
+    position: fixed;
+    right: .2rem;
+    top: .5rem;
+    z-index: 99;
+    width: 1.11rem;
+    height: .91rem;
+    background-image: url(tip.png);
+    animation: moverocket 1s forwards;
+}
+@keyframes moveup{
+    from {
+        transform: translateY(15%);
+    }
+    to {
+        transform: translateY(-1%);
+    }
+}
+@keyframes moverocket{
+    from {
+        transform: translateY(260%);
+    }
+    to {
+        transform: translateY(-32%);
+    }
+}
+/* Scratch */
+.scratch_container {
+	position: relative;
+	margin: 0 auto;
+	/* width: 100%; */
+	height: 100%;
+	overflow: hidden;
+}
+
+.scratch_viewport {
+	position: relative;
+	max-width: 100%;
+	max-height: 100%;
+	margin: 0 auto;
+	z-index: 0;
+}
+
+.scratch_picture-under {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	/* width: 100%; */
+	height: 100%;
+	display: block;
+	z-index: -1;
+	transform: translate(-50%, 0);
+}
+
+.scratch_container canvas {
+	position: relative;
+	width: 100%;
+	height: 184px;
+	z-index: 1;
+}
+.scratch_container > span {
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}

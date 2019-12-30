@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+function
+</body>
+<script>
+  /*
+   * 模块化函数
+   * 1、创建一序列号
+   * 2、有对象的两个方法生成前缀，后面数字
+   * 3、有另外个方法组合,每次生成都加1
+   */
+
+    var serial_maker = (function(){
+        var prefix = '';
+        var seq = 0;
+        return {
+            set_prefix: function(q){
+                prefix = String(q)
+            },
+            set_seq: function(n){
+                seq = Number(n)
+            },
+            gensym: function(){
+                var result = prefix + seq;
+                seq++
+                return result
+            }
+        }
+    }())
+    serial_maker.set_prefix('A')
+    serial_maker.set_seq(100)
+    var serial = serial_maker.gensym()
+    var serial2 = serial_maker.gensym()
+    console.log(serial)
+    console.log(serial2)
+
+
+
+
+
+</script>
+
+</html>

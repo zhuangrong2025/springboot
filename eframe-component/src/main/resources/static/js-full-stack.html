@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+function
+</body>
+<script>
+  /*
+   * 惰性实例化
+   * 1、就是单例模式
+   */
+
+    var myNamespace = function(){
+        // 定制类
+        var Configure = function(){
+            var privateName = 'someone name';
+            var privateGetName = function(){
+                return privateName
+            }
+            var privateSetName = function(name){
+                privateName = name
+            }
+            return {
+                setName: privateSetName,
+                getName: privateGetName
+            }
+        }
+        // 存储实例,闭包
+        var instance
+
+        // 返回方法
+        return {
+            getInstance: function(){
+                if(!instance){
+                    console.log('once')
+                    instance = new Configure()
+                }
+                return instance
+            }
+        }
+    }()
+
+    myNamespace.getInstance().setName('molei')
+    var name = myNamespace.getInstance().getName()
+    console.log(name)
+
+/*
+ *
+I am a professional web full-stack developer with fifteen years of expertise
+By the way, my current preferred development stack:
+– JavaScript;
+– react with redux;
+I participated in the development and independently developed quite a large number of products*
+The another one of the recent big projects, which I've been working on.
+     *
+     *
+I love building interactive experiences, especially restful single-page web applications.
+I am a full-stack Javascript developer and have shipped projects in most major front-end frameworks & libraries (Angular, React, React Native, Vue.js, Ionic etc).
+Most recently I have been developing business management Single Page Applications utilising Angular (2-7).     *
+45.72
+Javascript developer
+On the back-end I have experience in Node.js/Express
+
+Please tell me if you would like to learn more about my background, and I'll provide you with any further information.
+Full-Stack JavaScript Developer with 8+ years of experience in software industry(web application)
+
+*********Manojkumar*********
+who has 12 years of experience as chancellor
+Full-Stack JavaScript Developer with 8+ years of experience in software industry.
+I started as a freelancer at late 2010, have been working remotely at most of my projects from Bengaluru, India.
+-- Collaborative team player, also have the ability to play as a individual contributor through out the project life cycle,from requirement analysis, development, testing to release.
+
+In my professional career, I've been focused on mastering web technologies such as JavaScript, HTML5, CSS3.
+Well versed in modern JavaScript frameworks like Vue.js, Angular, React, and ExtJS with experience in state management patterns like Vuex, NgRx, and Redux.
+Also got hands on in server side programming languages such as Node.js and PHP.
+I contribute to open-source projects and have written my own modules / plugins for NativeScript, Titanium, Cordova and Node.js.
+****************************
+Collaborative team player
+My short-term goal is to get settled into the practical work environment and
+my long-term goal is to extract every bit of experience while moving ahead with my team members and
+grow into the job. As progress is the key.
+He has a calm demeanor and is always good about communicating issues or tasks at hand.
+****************************
+&&&&&&
+I'm Full-Stack JavaScript Developer with 8+ years of experience in web application.
+In my professional career, I've been focused on mastering web technologies such as JavaScript, HTML5, CSS3.
+Well versed in modern JavaScript frameworks like Vue.js.
+Also got hands on in server side programming languages such as Node.js/Express
+I have great passion for web mobile apps, built 20+ web mobile applications for mobile device.
+I independently developed a large number of products in most major front-end frameworks & libraries(Node.js, Vue.js)
+
+Another way，I'm a ui designer too, mastering Photoshop.
+Most of all, My goal is to do everything right. I love helping my clients to be successful
+I look forward to hearing from you. Thanks for your time
+
+*********************bing match word complete***********************
+Looking for a talented, passionate and experienced front-end developer to join our product development team and help the development of the web UI for the IBM Cloud Brokerage product that powers Hybrid Cloud solutions for enterprises, on a platform that integrates public and private cloud services.
+
+The core 3 technologies that all modern front-end web developers work to master are HTML5, CSS, and JavaScript. AJAX Ajax, short for Asynchronous Java and XML , has allowed developers to create interactive web-pages with rich interfaces with the help of XML , HTML , CSS , and JavaScript .
+********************************************
+
+*******************employment*************************
+It's an ideal test for pre-employment screening. A good full-stack Node.js developer,
+who is using Vue for the front end, must be able to solve problems using Node.js and also to combine Vue and HTML/CSS to create dynamic and interactive user interfaces
+it's always good to understand how Node.js and MongoDB work together to deliver applications which interact with backend databases.
+
+the project was a animation that I created using Keyshot
+ I spent 3 months applying to jobs after a coding boot camp
+
+allows them to master web-programming languages, such as HTML, JavaScript, and Ruby, in a noncredit setting.
+===========================================================
+product introduce
+[gouda]
+This is web mobile app.I code PSD to HTML/css/js. Developing well-structured, maintainable CSS/CSS3, jQuery, JavaScript and HTML/ HTML5.
+There are many animations and interactive powered by HTML5, CSS3, javscript
+
+[bootstrap]
+the project which I independently developed use various web development technologies.
+I use Node.js and also to combine Vue and HTML/CSS to create dynamic and interactive user interfaces.
+the back-end development, Node.js and MongoDB work together to deliver applications which interact with backend databases.
+Bootstrap had been used to this project. Bootstrap develope wonderful websites and different types of responsive for Different Device.
+
+===========================================================
+I am front-end developer and have passion for it.
+My goal is to provide you with a highly-performed work.
+★Translating design to clean HTML5 and CSS3 responsive code is enjoyable for me.
+★TI have experience in Wordpress and Bootstrap as well.
+
+"It's always pleasure to work with Aras! He is well qualified and has a high level of communication."
+
+     */
+     var myNamespace2 = function(){
+         // 定制类
+         var Configure = function(){
+             var privateName = 'someone name';
+             var privateGetName = function(){
+                 return privateName
+             }
+             var privateSetName = function(name){
+                 privateName = name
+             }
+             return {
+                 setName: privateSetName,
+                 getName: privateGetName
+             }
+         }
+         // 存储实例,闭包
+         var instance
+
+         // 返回方法
+         return {
+             init: function(){
+                 if(!instance){
+                     instance = new Configure()
+                 }
+                // 优化点
+                for(key in instance){
+                    if(instance.hasOwnProperty(key)){
+                        this[key] = instance[key] //myNamespace创建key,值为instance[key]
+                    }
+                }
+                this.init = null //只执行一次
+                return this
+             }
+         }
+     }()
+     myNamespace2.init() //初始化一次
+     myNamespace2.setName('NBA')
+     var name2 = myNamespace2.getName()
+     console.log(name2)
+
+    //柯里化函数
+    function curry(fn){
+        var args = Array.prototype.slice.call(arguments, 1)
+        return function(){
+            var innerArgs = Array.prototype.slice.call(arguments)
+            var finalArgs = args.concat(innerArgs)
+            return fn.apply(null, finalArgs)
+        }
+    }
+    function add(){
+        var args = Array.prototype.slice.call(arguments)
+        var lenth = args.length
+        var result = 0
+        for (var i = 0; i < lenth; i++) {
+            result += args[i]
+        }
+        return result
+    }
+    var a = curry(add, 5)
+    var b = a(6)
+    console.log(b) // 11
+
+
+
+
+</script>
+
+</html>

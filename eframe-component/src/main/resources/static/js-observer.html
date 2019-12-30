@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <title>Document</title>
+</head>
+<body>
+lodash集合 --> 数据操作集合
+</body>
+<script id="seajsnode" src="./sea-modules/sea.js"></script>
+<script id="seajsnode" src="./sea-modules/seajs-helper.js"></script>
+<script>
+
+seajs.use(['jquery', 'lodash'], function($, _) {
+    /*
+    * ************
+    * *
+    * Objcet
+    * *
+    * ************
+    */
+    var obj = {'backlog_name': '待办1', 'app_name': '来源系统01', 'backlog_code': 10}
+
+    // _.omit  --> 删除某项 key，也可以用key的数组
+    var  delPropData = _.omit(obj, 'backlog_name')
+    var  delPropData2 = _.omit(obj, ['backlog_name', 'backlog_code'])
+    console.log(delPropData)  // {'app_name': '来源系统01', 'backlog_code': 10 } 新对象按key的字母排序
+    console.log(delPropData2) // {'app_name': '来源系统01'}
+
+    //_.omit --> 删除值为false的选项  0，null，bool
+    var o = {
+      name: 'abc',
+      age: 0,
+      occupation: null,
+      character: '',
+      enabled: true
+    }
+    console.log(!_.isBoolean(o.enabled))
+    var retainData = _.omit(o, function(value){
+          return !(!_.isBoolean(value) && value)
+      })
+    console.log(retainData) // {name: 'abc'}
+
+
+    // _.keys
+    var keysData = _.keys(obj)
+    console.log(keysData) //  ['backlog_name', 'app_name', 'backlog_code']
+
+    // ★ _.omit &&  _.keys  && _.pull  --> 保留某项'app_name'
+    var Data1 = _.omit(obj, _.pull(_.keys(obj), 'app_name', 'backlog_code'))
+    console.log(Data1) // {'app_name': '来源系统01', 'backlog_code': 10}
+
+    // ★ _.mapKeys --> 将第一个key修改,value不变
+    var mapData = {'backlog_name': '投保反馈任务', 'app_name': '来源系统01', 'backlog_code': 10}
+    var mapData1 = _.mapKeys(mapData, function(value, key){
+        if(key == 'backlog_name'){
+            return key = 'backlog_alias'
+        }
+        return key
+    })
+    console.log(mapData1) //{backlog_alias: "投保反馈任务", app_name: "来源系统01", backlog_code: 10}
+
+    /*
+    * ************
+    * *
+    * Array
+    * *
+    * ************
+    */
+    // _.pull --> 删除数组某项
+    var arr = ['a', 'b', 'c']
+    var pullData = _.pull(arr, 'b')
+    console.log(pullData) // ['a', 'c']
+
+    /*
+    * ************
+    * *
+    * String
+    * *
+    * ************
+    */
+
+    // _.trim
+    var str = '{backlog_name}'
+    console.log(_.trim(str, '{}')) //backlog_name
+
+    /*
+    * ************
+    * *
+    * Collection
+    * *
+    * ************
+    */
+    // 根据已知的值key=20，修改对应对象另外的属性值
+    var allData = [ {backlog_name: "投保反馈任务", app_name: '来源系统01', backlog_code: 10},
+                    {backlog_name: "排班任务",  app_name: '来源系统02', backlog_code: 20}]
+    var key = 20
+
+    _.each(allData, function(item){
+        if(item['backlog_code'] == key){
+            item['backlog_name'] = '新名字'
+        }
+    })
+    console.log(allData)
+    // observer 仿写
+    
+
+
+    // _.find() --> 只是匹配其中一个
+    var users = [
+        { 'user': 'barney',  'age': 42, 'active': false },
+        { 'user': 'fred',    'age': 2, 'active': false },
+        { 'user': 'pebbles', 'age': 1,  'active': false }]
+
+    var output = _.find(users, function(o){
+        return o.age < 40
+    })
+    console.log(output)
+
+
+});
+</script>
+</html>

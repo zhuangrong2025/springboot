@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>FFBB1E
+    {{type:Front}}
+  <button id="btn">显示答案</button>
+  <script>
+    var btn = document.getElementById("btn")
+    function show_answer() {
+        console.log(1);
+         // Write the button's text into the type:Answer field.
+        var input =  document.getElementById("typeans");
+        // Simulate pressing enter on the input field.
+        var ev = document.createEvent('Event');
+        ev.initEvent('keypress');
+        ev.which = ev.keyCode = 13;
+        input.dispatchEvent(ev);
+    }
+    btn.onclick= show_answer
+
+  </script>
+  <style>
+    #typeans{display: none}
+  </style>
+
+  <div>回答页面</div>
+  <button id="btnAgain">again</button>
+  <div id="keys" style="border:1px solid #000">a</div>
+  <input type="text" id="typeans2">
+<script>
+var keys = document.getElementById('keys');
+var btnAgain = document.getElementById('btnAgain');
+var input2 =  document.getElementById("typeans2");
+HTMLElement.prototype.pressKey = function(code) {
+  var evt = document.createEvent("Event");
+  input2.value = '2';
+  evt.keyCode = code;
+  evt.initEvent("keypress", true, true);
+  input2.dispatchEvent(evt);
+  btnAgain.innerHTML = 'key:?'
+  console.log(33);
+}
+document.body.onkeypress = function(e) {
+    console.log(e.keyCode);
+    if(e.keyCode==57){
+        keys.innerHTML = 'key:-9'
+    }
+};
+btnAgain.onclick = function(){
+    document.body.pressKey(57);
+}
+
+</script>
+
+<div>回答good</div>
+  <button id="goodBtn">good</button>
+  <div id="keys2" style="border:1px solid #000">a</div>
+
+  <script>
+    var goodBtn = document.getElementById("goodBtn")
+    var keys2 = document.getElementById("keys2")
+    function show_good() {
+         // Write the button's text into the type:Answer field.
+        var input =  document.getElementById("typeans");
+        input.value = '22';
+        // Simulate pressing enter on the input field.
+        var ev = document.createEvent('Event');
+        ev.initEvent('keypress');
+        ev.which = ev.keyCode = 13;
+        input.dispatchEvent(ev);
+        keys2.innerHTML = 'key2:?'
+    }
+    goodBtn.onclick= show_good
+
+  </script>
+</body>
+
+
+</html>

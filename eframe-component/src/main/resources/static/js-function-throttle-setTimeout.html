@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+function
+</body>
+<script>
+  /*
+   * 节流函数--即用setTimeout间隔一段时间执行函数（应用于resize, onmouseover）
+   * 1、如有第一次执行函数，就清除，再覆盖新函数
+   */
+   // 把方法放在一对象中，timeoutId为私有变量
+    var processor = {
+        timeoutId: null,
+        performProcessin: function(){
+            // 实际执行的方法
+            console.log('1')
+        },
+        process: function(){
+            clearTimeout(this.timeoutId);
+            var _this = this;
+            this.timeoutId = setTimeout(function(){
+                _this.performProcessin()
+            }, 1000)
+        }
+    }
+    window.onresize =  function(){
+        processor.process()
+    }
+
+    // 简化模式, 应用于自定义的函数, context可以是实例，json
+    function throttle(method, context){
+        clearTimeout(method.timeoutId)
+        method.timeoutId =  setTimeout(function(){
+            method.call(context)
+        }, 1000)
+    }
+    //method
+    function show(){
+        console.log(this.name)
+    }
+    function showData(){
+        console.log(this.name)
+    }
+    //context
+    function ApplyThro(){
+        this.name = 'mask'
+    }
+    var at = new ApplyThro()
+    throttle(show, at) // mask
+    throttle(showData, {name: 'jsondata'}) //jsondata
+
+    // 两个定时器，如果上一定时器还没执行，这先清除定时器
+    // oTrigger.onmouseover = function(e){
+    //     oContainer.autoTimeoutId && clearTimeout(oContainer.autoTimeoutId) //第一个定时器
+    //     oContainer.timeoutId = setTimeout(function(){ //第二个定时器
+    //         console.log('oContainer done')
+    //     }, 1000)
+    // }
+
+    var Person = function(shop){
+        if(this instanceof Person){
+            this.shop = shop
+        }else{
+            return new Person(shop)
+        }
+    }
+
+    function Man(age){
+        // this
+        Person.call(this, 'tmall') //
+        this.age = age
+    }
+    Man.prototype = new Person()
+    var bili = new Man(28)
+    console.log(bili.shop)
+
+
+
+
+
+
+</script>
+
+</html>

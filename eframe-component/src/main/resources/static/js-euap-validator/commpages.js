@@ -81,7 +81,6 @@ euap.config.view.ConfigView = function(){
                 var val = vals[name.toLowerCase()]
                 $(this).val($.trim(val))
             })
-
         }
     }
 

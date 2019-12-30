@@ -1,0 +1,197 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Preview Panel</title>
+    <style>
+        html,
+        body {
+            min-height: 100vh;
+        }
+
+        body {
+            background: -webkit-linear-gradient(45deg, #ffe1c9, #fde4cf);
+            background: linear-gradient(45deg, #ffe1c9, #fde4cf);
+        }
+/* swiper */
+        .swiper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 260px;
+        }
+
+        .swiper .swipe-btn {
+            cursor: pointer;
+        }
+
+        .swiper .swipe-btn.back-to-start {
+            -webkit-transition: -webkit-transform .5s ease-in-out;
+            transition: -webkit-transform .5s ease-in-out;
+            transition: transform .5s ease-in-out;
+            transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+            -webkit-transform: translateX(0) !important;
+            transform: translateX(0) !important;
+        }
+
+        .swiper .swipe-btn .circle {
+            fill: #ed7000;
+        }
+
+        .swiper .swipe-btn .arrow {
+            stroke: #ed7000;
+            stroke-width: 1px;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            fill: #f4ece1;
+        }
+
+        .swiper .swipe-end {
+            fill-rule: evenodd;
+            stroke: #ed7000;
+            stroke-width: 2px;
+            stroke-linecap: butt;
+            stroke-linejoin: miter;
+            fill: none;
+        }
+
+        .swiper .dotted-line circle {
+            fill: #0d3d7d;
+        }
+
+        .unlock {
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #0d3d7d;
+            text-align: center;
+            padding: 10px;
+            -webkit-transition: opacity .3s ease-in-out;
+            transition: opacity .3s ease-in-out;
+            opacity: 0;
+        }
+
+        .unlock.unlocked {
+            opacity: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Back -->
+    <div class="swiper">
+        <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" width="260px" height="45px">
+            <g id="dotted-line" class="dotted-line">
+                <circle cx="40" cy="22" r="3" data-svg-origin="37 19" transform="matrix(0.78621,0,0,0.78621,6.484912465306363,4.418292009329609)" style="opacity: 0.786212;"></circle>
+                <circle cx="60" cy="22" r="3" data-svg-origin="57 19" transform="matrix(0.7098,0,0,0.7098,14.606371579008844,5.997318131778465)" style="opacity: 0.709807;"></circle>
+                <circle cx="80" cy="22" r="3" data-svg-origin="77 19" transform="matrix(0.7,0,0,0.7,21.1,6.200000000000001)" style="opacity: 0.7;"></circle>
+                <circle cx="100" cy="22" r="3" data-svg-origin="97 19" transform="matrix(0.7,0,0,0.7,27.10000000000001,6.200000000000001)" style="opacity: 0.7;"></circle>
+                <circle cx="120" cy="22" r="3" data-svg-origin="117 19" transform="matrix(0.7,0,0,0.7,33.10000000000001,6.200000000000001)" style="opacity: 0.7;"></circle>
+                <circle cx="140" cy="22" r="3" data-svg-origin="137 19" transform="matrix(0.7,0,0,0.7,39.10000000000001,6.200000000000001)" style="opacity: 0.7;"></circle>
+                <circle cx="160" cy="22" r="3" data-svg-origin="157 19" transform="matrix(0.7,0,0,0.7,45.10000000000001,6.200000000000001)" style="opacity: 0.7;"></circle>
+                <circle cx="180" cy="22" r="3" data-svg-origin="177 19" transform="matrix(0.7,0,0,0.7,51.10000000000001,6.200000000000001)" style="opacity: 0.7;"></circle>
+                <circle cx="200" cy="22" r="3" data-svg-origin="197 19" transform="matrix(0.7,0,0,0.7,57.10000000000002,6.200000000000001)" style="opacity: 0.7;"></circle>
+                <circle cx="220" cy="22" r="3" data-svg-origin="217 19" transform="matrix(0.7,0,0,0.7,63.10000000000002,6.200000000000001)" style="opacity: 0.7;"></circle>
+            </g>
+            <path id="swipe-end" class="swipe-end" d="M9.000,1.000 C13.418,1.000 17.000,4.582 17.000,9.000 C17.000,13.418 13.418,16.999 9.000,16.999 C4.582,16.999 1.000,13.418 1.000,9.000 C1.000,4.582 4.582,1.000 9.000,1.000 Z" data-svg-origin="1 1"
+                transform="matrix(1,0,0,1,235,12)"></path>
+            <a rel="nofollow" id="swipe-btn" class="swipe-btn" xlink:href="https://example.com/link/" data-svg-origin="0 0.0010000000474974513" transform="matrix(1,0,0,1,0,0)">
+                <g>
+                    <path fill-rule="evenodd" fill="rgb(237, 112, 0)"
+                        d="M22.000,0.001 C34.150,0.001 44.000,9.850 44.000,22.000 C44.000,34.150 34.150,44.000 22.000,44.000 C9.850,44.000 0.000,34.150 0.000,22.000 C0.000,9.850 9.850,0.001 22.000,0.001 Z"></path>
+                    <path id="swipe-arrow" class="arrow" fill-rule="evenodd"
+                        d="M12.551,8.707 L5.256,1.412 C4.270,0.426 2.672,0.426 1.686,1.412 C0.701,2.398 0.701,3.996 1.686,4.981 L7.197,10.492 L1.686,16.003 C0.701,16.988 0.701,18.587 1.686,19.572 C2.672,20.558 4.270,20.558 5.256,19.572 L12.551,12.276 C13.537,11.292 13.537,9.693 12.551,8.707 Z"
+                        data-svg-origin="0.9472500085830688 0.6725000143051147" transform="matrix(1,0,0,1,16,11)"></path>
+                </g>
+            </a>
+        </svg>
+
+        <div class="unlock">
+            Unlocked
+        </div>
+    </div>
+     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script>
+        var mouse,
+            swiperDragged = false,
+            startX,
+            endX = 0;
+
+        function swipe() {
+            var $swipe = $('.swiper'),
+                $btn = $('.swipe-btn', $swipe);
+
+            TweenLite.to('#swipe-arrow', 0, {
+                x: 16,
+                y: 11
+            });
+            TweenLite.to('#swipe-end', 0, {
+                x: 235,
+                y: 12
+            });
+
+            var tl = new TimelineMax({
+                repeat: -1
+            });
+            tl.staggerFrom("#dotted-line circle", 0.7, {
+                scale: 0.7,
+                x: -2,
+                y: .5,
+                opacity: 0.7,
+                delay: 0.1,
+                ease: Power2.easeInOut,
+                repeat: 1,
+                yoyo: true
+            }, 0.15);
+
+            $btn.on('click touchend', function(e) {
+                e.preventDefault();
+            }).on('touchstart mousedown', function(e) {
+                e.preventDefault();
+                swiperDragged = true;
+                mouse = e;
+                startX = typeof e.pageX != 'undefined' ? e.pageX : e.originalEvent.touches[0].pageX;
+                endX = 0;
+            })
+
+            $(document).on('touchmove mousemove', function(e) {
+                if (swiperDragged) {
+                    actualX = typeof e.pageX != 'undefined' ? e.pageX : e.originalEvent.touches[0].pageX;
+                    endX = Math.max(0, Math.min(215, actualX - startX));
+                    TweenLite.to('#swipe-btn', 0, {
+                        x: endX
+                    });
+                }
+            }).on('touchend mouseup', function(e) {
+                swiperDragged = false;
+                if (endX < 200) {
+                    TweenLite.to('#swipe-btn', .5, {
+                        x: 0
+                    });
+                } else {
+                    console.log($btn.attr('xlink:href'));
+                    TweenLite.to('#swipe-btn', .1, {
+                        x: 215
+                    });
+                    $('.unlock').addClass('unlocked');
+                    setTimeout(function() {
+                        TweenLite.to('#swipe-btn', .5, {
+                            x: 0
+                        });
+                        $('.unlock').removeClass('unlocked');
+                    }, 1400);
+                }
+                endX = 0;
+            });
+        }
+
+        swipe();
+    </script>
+    <!--// Back -->
+</body>
+
+</html>

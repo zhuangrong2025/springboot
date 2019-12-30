@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>word</title>
+
+</head>
+
+<body>
+    <div id="MathJax_Message" style="display: none;"></div>
+    <div id="content">
+        <div class="question" id="qa">
+            <style></style>
+            <div class="x-wrapper">
+                <div class="x-container">
+                    <div class="word-main">
+                        <!-- 图片 手机目录 collection.media -->
+                        <div class="picture">
+                            <img src="cow.jpg">
+                        </div>
+                        <!-- 音频 -->
+                        <div class="audio-wrapper">
+                            <div class="play-audio" >
+                                <!-- replaybutton的样式要设置透明度为0 -->
+                                <a class="replaybutton" href=" ">
+                                    <span>
+                                        <svg viewBox="0 0 32 32">
+                                            <polygon points="11,25 25,16 11,7"></polygon>
+                                            Replay
+                                        </svg>
+                                    </span>
+                                </a>
+                                <br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- //复制结束点 -->
+        </div>
+    </div>
+
+
+    <!-- 提示 -->
+    <!-- <div class="hint">
+        <button class="btnHint">show hint</button>
+        <div class="hintArea hide">
+            animal，milk
+        </div>
+    </div> -->
+    <script>
+    $(function() {
+        // 点击提示
+        $('.btnHint').on("click", function() {
+            $('.hintArea').show()
+        })
+    })
+    </script>
+</body>
+
+</html>

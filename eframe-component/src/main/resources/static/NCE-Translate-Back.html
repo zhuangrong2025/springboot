@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./stylesheets/demo.css">
+  <script src="./assets/jquery/jquery.js" charset="utf-8"></script>
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+    <input id="text" type="text">
+    <button id='subm'>submit</button>
+</body>
+<script>
+
+
+   /*!
+    * Datepicker for Bootstrap v1.8.0 (https://github.com/uxsolutions/bootstrap-datepicker)
+    *
+    * Licensed under the Apache License v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+    */
+   require('../css/bootstrap-datepicker.css');
+
+   module.exports = function(jQuery){
+       require('bootstrap')(jQuery);
+       (function(factory){
+           factory(jQuery);
+       }
+       (function($, undefined){
+           function UTCDate(){
+               return new Date(Date.UTC.apply(Date, arguments));
+           }
+           function UTCToday(){
+               var today = new Date();
+               return UTCDate(today.getFullYear(), today.getMonth(), today.getDate());
+           }
+           function isUTCEquals(date1, date2) {
+               return (
+                   date1.getUTCFullYear() === date2.getUTCFullYear() &&
+                   date1.getUTCMonth() === date2.getUTCMonth() &&
+                   date1.getUTCDate() === date2.getUTCDate()
+               );
+           }
+           function alias(method, deprecationMsg){
+               return function(){
+                   if (deprecationMsg !== undefined) {
+                       $.fn.datepicker.deprecated(deprecationMsg);
+                   }
+
+                   return this[method].apply(this, arguments);
+               };
+           }
+           function isValidDate(d) {
+               return d && !isNaN(d.getTime());
+           }
+
+           var DateArray = (function(){
+               var extras = {
+                   get: function(i){
+                       return this.slice(i)[0];
+                   },
+                   contains: function(d){
+                       // Array.indexOf is not cross-browser;
+                       // $.inArray doesn't work with Dates
+                       var val = d && d.valueOf();
+                       for (var i=0, l=this.length; i < l; i++)
+                           // Use date arithmetic to allow dates with different times to match
+                           if (0 <= this[i].valueOf() - val && this[i].valueOf() - val < 1000*60*60*24)
+                               return i;
+                       return -1;
+                   },
+                   remove: function(i){
+                       this.splice(i,1);
+                   },
+                   replace: function(new_array){
+                       if (!new_array)
+                           return;
+                       if (!$.isArray(new_array))
+                           new_array = [new_array];
+                       this.clear();
+                       this.push.apply(this, new_array);
+                   },
+                   clear: function(){
+                       this.length = 0;
+                   },
+                   copy: function(){
+                       var a = new DateArray();
+                       a.replace(this);
+                       return a;
+                   }
+               };
+
+               return function(){
+                   var a = [];
+                   a.push.apply(a, arguments);
+                   $.extend(a, extras);
+                   return a;
+               };
+           })();
+           /*
+            * NCE 1
+            * translate back
+            * L01、这是你的包吗
+            * Is this your handbag?
+            */
+
+            /*
+             * Daily collection
+             *
+             * 他们美美的吃了一顿饭，就围在篝火旁唱歌
+             * after a wonderful meal, they sang songs by compfire.
+             *
+             * 两个人把包裹拿下了飞机
+             * two men took the parcel off the plane.
+             *
+             * 在阳光下生活了那么多年的哈里森对此感到惊奇
+             * After so many years of sunshine, he got a shock.
+             *
+             * 他发现门被堵上了
+             * he found that the doors had been blocked .
+             *
+             * bootstrap是最流行的前端开发免费框架
+             * Bootstrap is the most popular free front-end framework for faster and earlier web development.
+             *
+             * 人们往往高估自己在短时间内做成功事情的能力，而又往往低估自己可以在长时间内可以做成功事情的能力
+             * We always overestimate the change that will occur in the next two years and underestimate the change that will occur in the next ten. - Bill
+             * Most people overestimate what they can do in a day, and underestimate what they can do in a Lifetime.
+             *
+             * 有一个短邮件已经发送到你邮箱了，2分钟后你收到。点击邮件中的链接完成注册
+             * A short email has been sent to your@qq.com, and you should receive whitin two minutes.Just click on the link in that mail to complete your registration.
+             *
+             */
+           // Picker object
+
+           var Datepicker = function(element, options){
+               $.data(element, 'datepicker', this);
+               this._process_options(options);
+
+               this.dates = new DateArray();
+               this.viewDate = this.o.defaultViewDate;
+               this.focusDate = null;
+
+               this.element = $(element);
+               this.isInput = this.element.is('input');
+               this.inputField = this.isInput ? this.element : this.element.find('input');
+               this.component = this.element.hasClass('date') ? this.element.find('.add-on, .input-group-addon, .btn') : false;
+               if (this.component && this.component.length === 0)
+                   this.component = false;
+               this.isInline = !this.component && this.element.is('div');
+
+               this.picker = $(DPGlobal.template);
+
+               // Checking templates and inserting
+               if (this._check_template(this.o.templates.leftArrow)) {
+                   this.picker.find('.prev').html(this.o.templates.leftArrow);
+               }
+
+               if (this._check_template(this.o.templates.rightArrow)) {
+                   this.picker.find('.next').html(this.o.templates.rightArrow);
+               }
+
+               this._buildEvents();
+               this._attachEvents();
+
+               if (this.isInline){
+                   this.picker.addClass('datepicker-inline').appendTo(this.element);
+               }
+               else {
+                   this.picker.addClass('datepicker-dropdown dropdown-menu');
+               }
+
+               if (this.o.rtl){
+                   this.picker.addClass('datepicker-rtl');
+               }
+
+               if (this.o.calendarWeeks) {
+                   this.picker.find('.datepicker-days .datepicker-switch, thead .datepicker-title, tfoot .today, tfoot .clear')
+                       .attr('colspan', function(i, val){
+                           return Number(val) + 1;
+                       });
+               }
+
+               this._process_options({
+                   startDate: this._o.startDate,
+                   endDate: this._o.endDate,
+                   daysOfWeekDisabled: this.o.daysOfWeekDisabled,
+                   daysOfWeekHighlighted: this.o.daysOfWeekHighlighted,
+                   datesDisabled: this.o.datesDisabled
+               });
+
+               this._allow_update = false;
+               this.setViewMode(this.o.startView);
+               this._allow_update = true;
+
+               this.fillDow();
+               this.fillMonths();
+
+               this.update();
+
+               if (this.isInline){
+                   this.show();
+               }
+           };
+
+
+</script>
+
+</html>

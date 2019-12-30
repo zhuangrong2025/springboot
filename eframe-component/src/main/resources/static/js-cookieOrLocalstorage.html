@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body style="background-color:#252525; color:#0ff">
+function
+</body>
+<script>
+  /*
+   * 分支函数
+   * 1、不同浏览器的XMLHttpRequest返回不同，
+   * 2、建立不同对象使用 相同的方法 调用不同的方法
+   */
+
+    var XHR = function(){
+            var standard = {
+                createXHR: function(){
+                    return new XMLHttpRequest()
+                }
+            }
+            var newActionXObject = {
+                createXHR: function(){
+                    return new ActionXObject('Msxml2.XMLHTTP')
+                }
+            }
+            var oldActionXObject = {
+                createXHR: function(){
+                    return new ActionXObject('Microsoft.XMLHTTP')
+                }
+            }
+            if(standard.createXHR()){
+                return standard
+            }else{
+
+                newActionXObject.createXHR()
+                return newActionXObject
+            }
+
+        }()
+
+    var XMLHttpRequest =  function(){
+        console.log('standard')
+    }
+    var ActionXObject =  function(){
+        console.log('newActionXObject')
+    }
+    XHR.createXHR()
+
+
+
+
+
+</script>
+
+</html>

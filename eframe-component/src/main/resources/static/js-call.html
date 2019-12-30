@@ -21,12 +21,22 @@ Father.prototype.sex = "male"
 function Father(){
     this.age = '20'
     this.lastName = 'deng'
+    this.arr = [1]
 }
+Father.prototype.hair = 'more'
 function Son(){
     Father.call(this)
 }
+(function(){
+    var Super = function(){}
+    Super.prototype = Father.prototype
+    Son.prototype = new Super()
+})()
 var  son = new Son()
-
+son.arr.push(2);
+console.log(son.arr) // [1,2]
+var fa = new Father()
+console.log(fa.arr) //[1]
 
   // 作用一 --> 传参
   function test(a, b){
@@ -90,6 +100,20 @@ var  son = new Son()
      name: 'kelly'
  }
  speak.call(me, 'you')
+
+ // test cache data
+ function fbc(n){
+    if(!fbc.cache){
+        fbc.cache = {
+            "a": 1
+        }
+    }
+    console.log(fbc)
+    console.log(fbc.cache)
+ }
+
+
+
 </script>
 
 </html>

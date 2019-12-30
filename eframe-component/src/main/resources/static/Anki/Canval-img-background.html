@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>word</title>
+    <style>
+    .zone{width:100%; height:125px;background-color: #eee; }
+    </style>
+</head>
+<body>
+
+    <div class="zone" id="zone">
+       <canvas id="js-scratch-canvas"></canvas>
+    </div>
+    <script type="text/javascript">
+        var zone = document.getElementById('zone');
+
+        var canvas = document.getElementById('js-scratch-canvas');
+        var ctx = canvas.getContext("2d")
+        var img = new Image()
+        img.src = "seek.png"
+        img.onload = function () {
+
+            var zoneWidth = zone.offsetWidth
+            var zoneHeight = zone.offsetHeight
+
+            var w = img.width
+            var h = img.height
+            var dw = zoneWidth/w          //canvas与图片的宽高比
+            var dh = zoneHeight/h
+            var ratio
+            // 裁剪图片中间部分
+            if(w > zoneWidth && h > zoneHeight || w < zoneWidth && h < zoneHeight){
+                if (dw > dh) {
+                    ctx.drawImage(img, 0, (h - zoneHeight/dw)/2, w, zoneHeight/dw, 0, 0, zoneWidth, zoneHeight)
+                } else {
+                    ctx.drawImage(img, (w - zoneWidth/dh)/2, 0, zoneWidth/dh, h, 0, 0, zoneWidth, zoneHeight)
+                }
+            }
+            // 拉伸图片
+            else{
+                if(w < zoneWidth){
+                    ctx.drawImage(img, 0, (h - zoneHeight/dw)/2, w, zoneHeight/dw, 0, 0, zoneWidth, zoneHeight)
+                }else {
+                    ctx.drawImage(img, (w - zoneWidth/dh)/2, 0, zoneWidth/dh, h, 0, 0, zoneWidth, zoneHeight)
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

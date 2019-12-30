@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <title>debounce</title>
+    <style>
+        #container{
+            width: 100%; height: 200px; line-height: 200px; text-align: center; color: #fff; background-color: #444; font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+<button type="button" name="button" id="btn">取消</button>
+</body>
+<script type="text/javascript">
+    var count = 1;
+    var container = document.getElementById('container');
+    function getUserAction(e) {
+        console.log(e)
+        container.innerHTML = count++;
+    };
+    var setUseAction = debounce(getUserAction, 1000, true)
+    container.onmousemove = setUseAction;
+
+    document.getElementById("btn").addEventListener('click', function(){
+        setUseAction.cancel();
+    })
+
+    function debounce(func, wait, immediate){
+        var timeout
+        var debounced = function(){
+            var _this = this,
+                args = arguments;
+            if(timeout){
+                clearTimeout(timeout);
+            }
+            if(immediate){
+                var callNow = !timeout;
+                timeout = setTimeout(function(){
+                    timeout = null
+                }, wait)
+                if(callNow) func.apply(_this, args)
+            }else{
+                timeout = setTimeout(function(){
+                    func.apply(_this, args)
+                }, wait)
+            }
+        }
+        debounced.cancel = function(){
+            clearTimeout(timeout);// cancel 可以在闭包中 
+            timeout = null
+        }
+        return debounced
+    }
+</script>
+</html>

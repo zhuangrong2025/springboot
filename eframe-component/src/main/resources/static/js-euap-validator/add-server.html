@@ -12,6 +12,13 @@
   </style>
 </head>
 <body style="background-color:#252525; color:#0ff">
+    <ul class="nav">
+     <li><a href="#" data-i18n="nav.home"></a></li>
+     <li><a href="#" data-i18n="nav.page1"></a></li>
+     <li><a href="#" data-i18n="nav.page2"></a></li>
+   </ul>
+   <button id="zhcn">中文</button>
+   <button id="enus">英文</button>
     <table id="mod-ext-table" data-group="one" border="0" cellspacing="10" cellpadding="0" class="xy-form-panel" width="100%">
     </table>
     <button id="server">显示服务返回数据</button>
@@ -21,8 +28,33 @@
 <script src="./componentValidator.js"></script>
 <script src="./euapValidator.js"></script>
 <script src="./commpages.js"></script>
+<script src="./i18next-1.11.2.js"></script>
 <script>
 $(function(){
+
+    //i18next
+    i18n.init({
+        lng: 'en',
+    },function(err, t) {
+      // translate nav
+      $(".nav").i18n();
+      // programatical access
+      var appName = t("app.name");
+    });
+    $('#zhcn').click(function() {
+           i18n.setLng('cn', function(){
+               $(".nav").i18n();
+           });
+    });
+    $('#enus').click(function() {
+           i18n.setLng('en', function(){
+               $(".nav").i18n();
+           });
+    });
+
+
+
+
     var configView = euap.config.view.ConfigView
 
     // 根据config_page.json生成表单，并显示默认值

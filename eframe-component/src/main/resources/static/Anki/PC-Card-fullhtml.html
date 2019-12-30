@@ -1,0 +1,187 @@
+<head>
+    <title>main webview</title>
+
+    <style>
+        body {
+            zoom: 1;
+            background: #f0f0f0;
+            font-size: 12px;
+            font-family: "Segoe UI";
+        }
+
+        button {
+            font-size: 12px;
+            font-family: "Segoe UI";
+        }
+
+        :focus {
+            outline: 1px solid #3399ff;
+        }
+    </style>
+
+    <base href="http://127.0.0.1:62410/">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:62410/_anki/webview.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:62410/_anki/reviewer.css">
+    <script src="http://127.0.0.1:62410/_anki/webview.js"></script>
+    <script src="http://127.0.0.1:62410/_anki/jquery.js"></script>
+    <script src="http://127.0.0.1:62410/_anki/browsersel.js"></script>
+    <script src="http://127.0.0.1:62410/_anki/mathjax/conf.js"></script>
+    <script src="http://127.0.0.1:62410/_anki/mathjax/MathJax.js"></script>
+    <style type="text/css">
+        .MathJax_Preview {
+            color: #888
+        }
+
+        #MathJax_Message {
+            position: fixed;
+            left: 1px;
+            bottom: 2px;
+            background-color: #E6E6E6;
+            border: 1px solid #959595;
+            margin: 0px;
+            padding: 2px 8px;
+            z-index: 102;
+            color: black;
+            font-size: 80%;
+            width: auto;
+            white-space: nowrap
+        }
+
+        #MathJax_MSIE_Frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0px;
+            z-index: 101;
+            border: 0px;
+            margin: 0px;
+            padding: 0px
+        }
+
+        .MathJax_Error {
+            color: #CC0000;
+            font-style: italic
+        }
+    </style>
+    <script src="http://127.0.0.1:62410/_anki/reviewer.js"></script>
+</head>
+
+<body class="card card2">
+    <div id="MathJax_Message" style="display: none;"></div>
+    <div id="_mark" style="display: none;">★</div>
+    <div id="_flag" style="display: none;">⚑</div>
+    <div id="qa" style="opacity: 1;">
+        
+        <style>
+            html,
+            body {
+                height: 100% !important;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                background-color: #ffbb0f;
+            }
+
+            body,
+            div,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            hr,
+            p,
+            blockquote,
+            dl,
+            dt,
+            dd,
+            ul,
+            ol,
+            li,
+            pre,
+            form,
+            fieldset,
+            legend,
+            button,
+            input,
+            textarea,
+            th,
+            td,
+            a,
+            nav {
+                margin: 0;
+                padding: 0;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .card {
+                font-family: arial;
+                font-size: 20px;
+                text-align: center;
+                color: black;
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                width: 100%;
+            }
+
+            .card #content {
+                height: 100%;
+                width: 100%;
+                border: 10px solid #f0f;
+                padding: 20px;
+            }
+
+            .card #qa {
+                height: 100%;
+                width: 100%;
+                border: 5px solid #00f;
+                padding: 10px;
+            }
+
+            .card #_mark {
+                position: fixed;
+                top: 10px;
+                left: 20px;
+            }
+
+            .card #_flag {
+                position: fixed;
+                top: 10px;
+                right: 20px;
+            }
+
+            .back,
+            .front {
+                height: 100%;
+                width: 100%;
+                border: 2px solid #000;
+                overflow: auto;
+                background-color: #fff;
+                overflow: auto;
+            }
+        </style>
+        <div class="front">
+            cow2222222
+            <!-- 显示答案 -->
+
+            <button id="btntext">显示html222</button>
+            <div id="htmlarea">html内容2</div>
+            <script>
+                var htmlarea = document.getElementById("htmlarea")
+                var btntext = document.getElementById("btntext")
+                var carder = document.querySelector('.card').parentNode;
+
+                function show_html() {
+                    htmlarea.innerText = carder.innerHTML
+                }
+                btntext.onclick = show_html
+            </script>
+            <!-- 显示答案 -->
+        </div>
+    </div>
+
+
+</body>

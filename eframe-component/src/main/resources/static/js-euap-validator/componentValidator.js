@@ -78,7 +78,7 @@ function Validator(params){
         if(rulesr[type]){
             if(result = (rulesr[type]).call(this, val, field, options)){
                 result = options.text || result // 返回
-                return (options.showErr || this.showErr).call(this, field, result, options), !1
+                return (options.showErr || this.showErr).call(this, field, result, options), !1 // 用call传参,因为 || 另外一个函数
             }
         }
         //方式二判断： 根据属性值 required = 'required' 判断是否符合条件的

@@ -1572,3 +1572,37 @@ body {
 .content_tabs.no_favorite .tab_favorite {
     display: none;
 }
+
+
+/* ******************************** */
+.index_wrapper.index_collapse .index_broadside_wrapper
+/*左边菜单*/
+.index_broadside_wrapper {
+	width: 200px;
+}
+
+/*内容*/
+.index_content_wrapper {
+	margin-left: 200px;
+}
+/*收藏夹*/
+.indexFavorite{
+	display: none;
+}
+
+/* 折叠 */
+.index_wrapper.index_collapse .index_broadside_wrapper {
+    width: 0;
+}
+
+.index_wrapper.index_collapse .index_content_wrapper {
+    margin-left: 0;
+}
+
+/* 有收藏的时候 .favorite-show */
+.index_wrapper.favorite-show .indexFavorite {
+	display: block;
+}
+.index_wrapper.favorite-show .index_content_wrapper {
+	margin-left: 200px;
+}
