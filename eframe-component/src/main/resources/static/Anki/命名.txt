@@ -1,0 +1,10 @@
+Í¼Æ¬ÒôÆµÊÓÆµÎÄ¼ş
+  Media-ZR-NCE1-
+  Media-ZR-NewWord-
+
+  Media-XR-G302Dialog-
+  Media-XR-G302Words-
+
+NoteType
+   NTWords-
+   NTDialog-

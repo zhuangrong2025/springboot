@@ -84,6 +84,7 @@ var Scratch = (function () {
             if(flag){
                 // _this.options.startMove()
                 _this.options.startMove();
+                _this.options.callback()
                 flag = false;
             }
 			e.preventDefault();

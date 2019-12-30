@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>word</title>
-    <link rel="stylesheet" href="words.css">
+    <link rel="stylesheet" href="NTWords-words.css">
 </head>
 <body class="card card1 chrome">
 
@@ -15,9 +15,14 @@
 
 
             <!-- 从这里复制 -->
+            <!-- <link rel="stylesheet" href="NTWords-words.css"> -->
             <div class="x-wrapper">
                 <div class="x-container">
                     <div class="word-main">
+                        <div class="music">
+                            <audio src="NTWords-gun.mp3" preload=""></audio>
+                        </div>
+
                         <!-- 刮刮我 -->
                         <div class="picture-panel">
                             <div class="pic-dots-left">
@@ -26,27 +31,34 @@
                             <div class="pic-dots-right">
                                 <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
                             </div>
+                            <!-- 原图 -->
+
+                            <!-- //原图 -->
                             <!-- scratch -->
                             <div class="scratch_container">
+                                <div class="picture-field">{{Picture}}</div>
                                 <div class="scratch_viewport">
                                     <canvas id="js-scratch-canvas"></canvas>
                                 </div>
                             </div>
-                        	<script src="Scratch.js"></script>
+                            <script src="jquery.min.js"></script>
+                        	<script src="NTWords-Scratch.js"></script>
                         	<script type="text/javascript">
                                 var scratch = new Scratch({
                                     canvasId: 'js-scratch-canvas',
-                                    imageBackground: 'cow.jpg',
-                                    pictureOver: 'seek.png',
+                                    imageBackground: 'NTWords-space.png',
+                                    pictureOver: 'NTWords-seek.png',
                                     radius: 20,
                                     nPoints: 100,
-                                    percent: 90,
+                                    percent: 18,
                                     callback: function () {
-                                        // 刮开90%,执行callback
-                                        // alert('I am Callback.');
+                                        // 刮开90%,执行callbacks
+                                        // 播放音乐
+                                        $(".music").trigger("click")
+
                                     },
                                     startMove: function () { // 第一次点击canvas时，执行事件
-                                        // console.log(123);
+                                        $('.picture-field').show()
                                     },
                                     pointSize: { x: 6 , y: 6}
                                 });
@@ -58,20 +70,13 @@
                         <!-- 内容区 -->
                         <div class="content-panel">
                             <!-- 英文 -->
-                            <div class="sourceText">SourceText</div>
+                            <div class="sourceText">{{SourceText}}</div>
                             <!-- 音标 -->
-                            <div class="phonetic">Phonetic</div>
+                            <div class="phonetic">{{Phonetic}}</div>
                             <!-- 音频 -->
-                            <div class="audio">
+                            <div class="audio-field">
                                 <i class="icon-audio"></i>
-                                <!-- <a class="replaybutton" href=" ">
-                                    <span>
-                                        <svg viewBox="0 0 32 32">
-                                            <polygon points="11,25 25,16 11,7"></polygon>
-                                            Replay
-                                        </svg>
-                                    </span>
-                                </a> -->
+                                {{Audio}}
                             </div>
                         </div>
                         <!-- //内容区 -->
@@ -83,15 +88,18 @@
                     <div class="f-flower"></div>
                     <div class="f-house"></div>
                     <div class="f-animation">
-                        <img src="dog-animation.gif">
+                        <img src="NTWords-dog-animation.gif">
                     </div>
                     <!-- //底部动画 -->
                 </div>
             </div>
-            <script src="jquery.min.js"></script>
             <script>
             $(function() {
-
+                $(".music").on('click', function(){
+                    $('.sourceText').text('aab')
+                    $(".music").find('audio')[0].currentTime = 0;
+                    $(".music").find('audio')[0].play();
+                })
             })
             </script>
             <!-- //复制结束点 -->
