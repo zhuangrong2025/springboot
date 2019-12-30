@@ -10,7 +10,7 @@
         "xyz-util": "~0.1"
     },
     "dependencies": {
-        "lodash": "~3",
+        "lodash": "~4",
         "crypto-js": "~3"
     },
     "buildArgs": "cmd",
